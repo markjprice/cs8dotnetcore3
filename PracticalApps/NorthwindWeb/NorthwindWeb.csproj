@@ -8,6 +8,8 @@
   <ItemGroup>
     <ProjectReference Include=
       "..\NorthwindContextLib\NorthwindContextLib.csproj" />
+    <ProjectReference Include=
+      "..\NorthwindEmployees\NorthwindEmployees.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,24 @@
+@using Piranha.Models
+@using NorthwindCms.Models
+@model CatalogViewModel
+@{
+  ViewBag.Title = Model.CatalogPage.Title;
+}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-10">
+      <h1>@Model.CatalogPage.Title</h1>
+    </div>
+  </div>
+  <div class="row">
+  @foreach(CategoryItem c in Model.Categories)
+  {
+    <div class="col-sm-4">
+      <a href="@c.PageUrl">
+        <h3>@c.Title</h3>
+        <img src="@c.ImageUrl" />
+      </a>
+    </div>
+  }
+  </div>
+</div>

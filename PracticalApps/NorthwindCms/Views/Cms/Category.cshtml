@@ -1,0 +1,33 @@
+@using NorthwindCms.Models.Regions
+@model NorthwindCms.Models.CategoryPage
+@{
+  ViewBag.Title = Model.Title;
+}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-10">
+      <h1>@Model.Title</h1>
+    </div>
+  </div>
+  <div class="row">
+  @if (Model.Products == null)
+  {
+    <div class="col-sm-10">There are no products in this category!</div>
+  }
+  else
+  {
+    @foreach(ProductRegion p in Model.Products)
+    {
+    <div class="col-sm-4">
+      <h3>@p.ProductID.Value @p.ProductName.Value</h3>
+      <div>
+          Price: @p.UnitPrice.Value
+      </div>
+      <div>
+          In Stock: @p.UnitsInStock.Value
+      </div>
+    </div>
+    }
+  }
+  </div>
+</div>

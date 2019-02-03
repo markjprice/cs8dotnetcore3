@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using NorthwindMvc.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http.Headers;
 
 namespace NorthwindMvc
 {
@@ -28,6 +29,14 @@ namespace NorthwindMvc
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddHttpClient(name: "NorthwindService",
+        configureClient: options =>
+        {
+          options.BaseAddress = new Uri("https://localhost:5002/");
+          options.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/json", 1.0));
+        });
+
       services.Configure<CookiePolicyOptions>(options =>
       {
         // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -36,17 +45,17 @@ namespace NorthwindMvc
       });
 
       services.AddDbContext<ApplicationDbContext>(options =>
-          options.UseSqlite(
-              Configuration.GetConnectionString("DefaultConnection")));
+        options.UseSqlite(
+          Configuration.GetConnectionString("DefaultConnection")));
 
       services.AddDefaultIdentity<IdentityUser>()
-          .AddDefaultUI(UIFramework.Bootstrap4)
-          .AddEntityFrameworkStores<ApplicationDbContext>();
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
-      services.AddDbContext<Packt.Shared.Northwind>(options => 
+      services.AddDbContext<Packt.Shared.Northwind>(options =>
         options.UseSqlite("Data Source=../NorthwindWeb/Northwind.db"));
 
-      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+      services.AddMvc();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,8 +82,8 @@ namespace NorthwindMvc
       app.UseMvc(routes =>
       {
         routes.MapRoute(
-                  name: "default",
-                  template: "{controller=Home}/{action=Index}/{id?}");
+          name: "default",
+          template: "{controller=Home}/{action=Index}/{id?}");
       });
     }
   }

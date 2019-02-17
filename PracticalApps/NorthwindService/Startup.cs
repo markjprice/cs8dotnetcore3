@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.EntityFrameworkCore;
-using Packt.Shared;
-using NorthwindService.Repositories;
-using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
+
+using NorthwindService.Repositories;
+
+using Packt.Shared;
+
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace NorthwindService
 {
@@ -41,7 +45,7 @@ namespace NorthwindService
 
       services.AddMvc()
         .AddXmlSerializerFormatters()
-        .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+        .SetCompatibilityVersion(CompatibilityVersion.Latest);
 
       services.AddScoped<ICustomerRepository, CustomerRepository>();
 

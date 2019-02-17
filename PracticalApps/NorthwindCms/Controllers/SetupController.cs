@@ -1,7 +1,9 @@
+﻿using System;
+
 using Microsoft.AspNetCore.Mvc;
+
 using Piranha;
 using Piranha.Extend.Blocks;
-using System;
 
 namespace NorthwindCms.Controllers
 {

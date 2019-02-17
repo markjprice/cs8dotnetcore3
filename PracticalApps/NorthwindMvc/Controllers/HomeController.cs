@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using NorthwindMvc.Models;
-using Packt.Shared;
-using Microsoft.EntityFrameworkCore;
 using System.Net.Http;
+using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 using Newtonsoft.Json;
+
+using NorthwindMvc.Models;
+
+using Packt.Shared;
 
 namespace NorthwindMvc.Controllers
 {

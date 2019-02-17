@@ -1,6 +1,7 @@
-using Packt.Shared;
-using System.Collections.Generic; 
+﻿using System.Collections.Generic; 
 using System.Threading.Tasks;
+
+using Packt.Shared;
 
 namespace NorthwindService.Repositories
 {

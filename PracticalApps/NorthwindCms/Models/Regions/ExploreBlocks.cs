@@ -1,4 +1,4 @@
-using Piranha.Extend.Blocks;
+﻿using Piranha.Extend.Blocks;
 
 class ExploreBlocks
 {

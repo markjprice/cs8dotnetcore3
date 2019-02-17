@@ -1,9 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
-using Packt.Shared;
-using NorthwindService.Repositories;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Mvc;
+
+using NorthwindService.Repositories;
+
+using Packt.Shared;
 
 namespace NorthwindService.Controllers
 {
@@ -12,7 +15,7 @@ namespace NorthwindService.Controllers
   [ApiController]
   public class CustomersController : ControllerBase
   {
-    private ICustomerRepository repo;
+    private readonly ICustomerRepository repo;
 
     // constructor injects repository registered in Startup
     public CustomersController(ICustomerRepository repo)

@@ -1,8 +1,10 @@
+﻿using System.Collections.Generic;
+
+using NorthwindCms.Models.Regions;
+
 using Piranha.AttributeBuilder; // [PageType]
 using Piranha.Extend.Fields;
 using Piranha.Models; // Page<T>
-using NorthwindCms.Models.Regions;
-using System.Collections.Generic;
 
 namespace NorthwindCms.Models
 {

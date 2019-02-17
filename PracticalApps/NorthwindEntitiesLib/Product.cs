@@ -1,4 +1,4 @@
-namespace Packt.Shared
+﻿namespace Packt.Shared
 {
   public class Product
   {

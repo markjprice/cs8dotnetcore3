@@ -1,13 +1,17 @@
-using Microsoft.AspNetCore.Mvc;
-using Piranha;
-using Piranha.Models;
-using Piranha.Extend.Blocks;
-using System;
+﻿using System;
 using System.Linq;
-using Packt.Shared;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore; // Include extension method
+
 using NorthwindCms.Models;
 using NorthwindCms.Models.Regions;
-using Microsoft.EntityFrameworkCore; // Include extension method
+
+using Packt.Shared;
+
+using Piranha;
+using Piranha.Extend.Blocks;
+using Piranha.Models;
 
 namespace NorthwindCms.Controllers
 {

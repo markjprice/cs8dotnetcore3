@@ -1,8 +1,10 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Packt.Shared;
+
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+using Packt.Shared;
 
 namespace NorthwindWeb.Pages
 {

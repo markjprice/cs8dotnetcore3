@@ -1,4 +1,4 @@
-using Piranha.AttributeBuilder; // [PageType]
+﻿using Piranha.AttributeBuilder; // [PageType]
 using Piranha.Extend.Fields;
 using Piranha.Models; // Page<T>
 

@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages; // PageModel
-using Packt.Shared; // Employee
+﻿using System.Collections.Generic; // IEnumerable<T>
 using System.Linq; // ToArray()
-using System.Collections.Generic; // IEnumerable<T>
+
+using Microsoft.AspNetCore.Mvc.RazorPages; // PageModel
+
+using Packt.Shared; // Employee
 
 namespace PacktFeatures.Pages
 {

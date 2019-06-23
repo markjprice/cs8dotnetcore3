@@ -7,11 +7,29 @@ namespace Arguments
   {
     static void Main(string[] args)
     {
+      WriteLine($"There are {args.Length} arguments.");
+
+      foreach (string arg in args)
+      {
+        WriteLine(arg);
+      }
+
+      if (args.Length < 4)
+      {
+        WriteLine("You must specify two colors and dimensions, e.g.");
+        WriteLine("dotnet run red yellow 80 40");
+        return; // stop running
+      }
+
       ForegroundColor = (ConsoleColor)Enum.Parse(
-        typeof(ConsoleColor), args[0], true);
+        enumType: typeof(ConsoleColor), 
+        value: args[0], 
+        ignoreCase: true);
 
       BackgroundColor = (ConsoleColor)Enum.Parse(
-        typeof(ConsoleColor), args[1], true);
+        enumType: typeof(ConsoleColor), 
+        value: args[1], 
+        ignoreCase: true);
 
       try
       {
@@ -23,11 +41,6 @@ namespace Arguments
         WriteLine("The current platform does not support changing the size of a console window.");
       }
 
-      WriteLine($"There are {args.Length} arguments.");
-      foreach (string arg in args)
-      {
-        WriteLine(arg);
-      }
     }
   }
 }

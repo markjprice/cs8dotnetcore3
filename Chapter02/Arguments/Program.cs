@@ -40,7 +40,6 @@ namespace Arguments
       {
         WriteLine("The current platform does not support changing the size of a console window.");
       }
-
     }
   }
 }

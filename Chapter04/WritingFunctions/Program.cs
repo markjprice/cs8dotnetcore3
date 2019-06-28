@@ -1,6 +1,4 @@
-﻿using System;
-using static System.Console;
-
+﻿using static System.Console;
 
 namespace WritingFunctions
 {
@@ -8,28 +6,38 @@ namespace WritingFunctions
   {
     static void TimesTable(byte number)
     {
-      WriteLine($"This is the {number} times table");
+      WriteLine($"This is the {number} times table:");
       for (int row = 1; row <= 12; row++)
       {
         WriteLine(
         $"{row} x {number} = {row * number}");
       }
+      WriteLine();
     }
 
     static void RunTimesTable()
     {
-      Write("Enter a number between 0 and 255: ");
-      if (byte.TryParse(ReadLine(), out byte number))
+      bool isNumber;
+      do
       {
-        TimesTable(number);
+        Write("Enter a number between 0 and 255: ");
+
+        isNumber = byte.TryParse(
+          ReadLine(), out byte number);
+
+        if (isNumber)
+        {
+          TimesTable(number);
+        }
+        else
+        {
+          WriteLine("You did not enter a valid number!");
+        }
       }
-      else
-      {
-        WriteLine("You did not enter a valid number!");
-      }
+      while (isNumber);
     }
 
-    static decimal SalesTax(
+    static decimal CalculateTax(
       decimal amount, string twoLetterRegionCode)
     {
       decimal rate = 0.0M;
@@ -69,7 +77,7 @@ namespace WritingFunctions
       return amount * rate;
     }
 
-    static void RunSalesTax()
+    static void RunCalculateTax()
     {
       Write("Enter an amount: ");
       string amountInText = ReadLine();
@@ -79,7 +87,7 @@ namespace WritingFunctions
 
       if (decimal.TryParse(amountInText, out decimal amount))
       {
-        decimal taxToPay = SalesTax(amount, region);
+        decimal taxToPay = CalculateTax(amount, region);
         WriteLine($"You must pay {taxToPay} in sales tax.");
       }
       else
@@ -128,8 +136,9 @@ namespace WritingFunctions
     {
       for (int number = 1; number <= 40; number++)
       {
-        Write($"{CardinalToOrdinal(5)} ");
+        Write($"{CardinalToOrdinal(number)} ");
       }
+      WriteLine();
     }
 
     static int Factorial(int number)
@@ -150,25 +159,33 @@ namespace WritingFunctions
 
     static void RunFactorial()
     {
-      Write("Enter a number: ");
-      if (int.TryParse(ReadLine(), out int number))
+      bool isNumber;
+      do
       {
-        WriteLine(
-        $"{number:N0}! = {Factorial(number):N0}");
+        Write("Enter a number: ");
+
+        isNumber = int.TryParse(
+            ReadLine(), out int number);
+
+        if (isNumber)
+        {
+          WriteLine(
+            $"{number:N0}! = {Factorial(number):N0}");
+        }
+        else
+        {
+          WriteLine("You did not enter a valid number!");
+        }
       }
-      else
-      {
-        WriteLine("You did not enter a valid number!");
-      }
+      while (isNumber);
     }
 
     static void Main(string[] args)
     {
-      //RunTimesTable();
-      //RunSalesTax();
+      RunTimesTable();
+      //RunCalculateTax();
       //RunCardinalToOrdinal();
-      RunFactorial();
-
+      //RunFactorial();
     }
   }
 }

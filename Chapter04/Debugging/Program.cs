@@ -1,5 +1,4 @@
-﻿using System;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Debugging
 {
@@ -7,7 +6,7 @@ namespace Debugging
   {
     static double Add(double a, double b)
     {
-      return a + b; // deliberate bug!
+      return a * b; // deliberate bug!
     }
 
     static void Main(string[] args)

@@ -13,26 +13,40 @@ namespace IterationStatements
 
       while (x < 10)
       {
-        WriteLine(x); x++;
+        WriteLine(x);
+        x++;
       }
 
       // Looping with the do statement
 
       string password = string.Empty;
+      int attempts = 0;
 
       do
       {
+        attempts++;
         Write("Enter your password: ");
         password = ReadLine();
       }
-      while (password != "Pa$$w0rd");
+      while ((password != "Pa$$w0rd") & (attempts < 10));
 
-      WriteLine("Correct!");
+      if (attempts < 10)
+      {
+        WriteLine("Correct!");
+      }
+      else
+      {
+        WriteLine("You have used 10 attempts!");
+      }
+
+      // Looping with the for statement
 
       for (int y = 1; y <= 10; y++)
       {
         WriteLine(y);
       }
+
+      // Looping with the foreach statement
 
       string[] names = { "Adam", "Barry", "Charlie" };
 
@@ -40,7 +54,6 @@ namespace IterationStatements
       {
         WriteLine($"{name} has {name.Length} characters.");
       }
-
     }
   }
 }

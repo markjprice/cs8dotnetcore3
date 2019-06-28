@@ -21,7 +21,7 @@ namespace SelectionStatements
 
       // Pattern matching with the if statement
 
-      object o = 3; // add and remove the "" to change the behavior
+      object o = "3"; // add and remove the "" to change the behavior
       int j = 4;
 
       if (o is int i)
@@ -37,7 +37,9 @@ namespace SelectionStatements
 
     A_label:
       var number = (new Random()).Next(1, 7);
+
       WriteLine($"My random number is {number}");
+
       switch (number)
       {
         case 1:
@@ -55,7 +57,8 @@ namespace SelectionStatements
           System.Threading.Thread.Sleep(500);
           goto A_label;
         default:
-          WriteLine("Default"); break;
+          WriteLine("Default");
+          break;
       } // end of switch statement
 
       // Pattern matching with the switch statement
@@ -66,25 +69,46 @@ namespace SelectionStatements
       Stream s = File.Open(
         Path.Combine(path, "file.txt"), FileMode.OpenOrCreate);
 
+      string message = string.Empty;
+
       switch (s)
       {
         case FileStream writeableFile when s.CanWrite:
-          WriteLine("The stream is to a file that I can write to.");
+          message = "The stream is to a file that I can write to.";
           break;
         case FileStream readOnlyFile:
-          WriteLine("The stream is to a read-only file.");
+          message = "The stream is to a read-only file.";
           break;
         case MemoryStream ms:
-          WriteLine("The stream is to a memory address."); 
+          message = "The stream is to a memory address.";
           break;
         default: // always evaluated last despite its current position
-          WriteLine("The stream is some other type.");
+          message = "The stream is some other type.";
           break;
         case null:
-          WriteLine("The stream is null.");
+          message = "The stream is null.";
           break;
       }
 
+      WriteLine(message);
+
+      // Simplifying switch statements with switch expressions
+
+      message = s switch
+      {
+        FileStream writeableFile when s.CanWrite
+          => "The stream is to a file that I can write to.",
+        FileStream readOnlyFile
+          => "The stream is to a read-only file.",
+        MemoryStream ms
+          => "The stream is to a memory address.",
+        null
+          => "The stream is null.",
+        _
+          => "The stream is some other type."
+      };
+
+      WriteLine(message);
     }
   }
 }

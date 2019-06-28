@@ -23,10 +23,12 @@ namespace CastingConverting
 
       long e = 10;
       int f = (int)e;
-      WriteLine($"e is {e} and f is {f}");
-      e = long.MaxValue;
+      WriteLine($"e is {e:N0} and f is {f:N0}");
+
+      //e = long.MaxValue;
+      e = 5_000_000_000;
       f = (int)e;
-      WriteLine($"e is {e} and f is {f}");
+      WriteLine($"e is {e:N0} and f is {f:N0}");
 
       // Converting with the System.Convert type
 
@@ -38,21 +40,37 @@ namespace CastingConverting
 
       double i = 9.49;
       double j = 9.5;
-      double k = 10.49;
-      double l = 10.5;
+      double k = 9.51;
+
+      double p = 10.49;
+      double q = 10.5;
+      double r = 10.51;
+
       WriteLine($"i is {i}, ToInt(i) is {ToInt32(i)}");
       WriteLine($"j is {j}, ToInt(j) is {ToInt32(j)}");
       WriteLine($"k is {k}, ToInt(k) is {ToInt32(k)}");
-      WriteLine($"l is {l}, ToInt(l) is {ToInt32(l)}");
+
+      WriteLine($"p is {p}, ToInt(p) is {ToInt32(p)}");
+      WriteLine($"q is {q}, ToInt(q) is {ToInt32(q)}");
+      WriteLine($"r is {r}, ToInt(r) is {ToInt32(r)}");
+
+      WriteLine(
+        format:"q is {0}, {1} is {2}",
+        arg0: q,
+        arg1: "Math.Round(q, 0, MidpointRounding.AwayFromZero)",
+        arg2: Math.Round(q, 0, MidpointRounding.AwayFromZero));
 
       // Converting from any type to a string
 
       int number = 12;
       WriteLine(number.ToString());
+
       bool boolean = true;
       WriteLine(boolean.ToString());
+
       DateTime now = DateTime.Now;
       WriteLine(now.ToString());
+
       object me = new object();
       WriteLine(me.ToString());
 
@@ -73,7 +91,8 @@ namespace CastingConverting
       WriteLine();
 
       // convert to Base64 string and output as text
-      string encoded = Convert.ToBase64String(binaryObject); WriteLine($"Binary Object as Base64: {encoded}");
+      string encoded = Convert.ToBase64String(binaryObject); 
+      WriteLine($"Binary Object as Base64: {encoded}");
 
       // Parsing from strings to numbers or dates and times
 

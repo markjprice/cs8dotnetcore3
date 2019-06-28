@@ -11,7 +11,6 @@ namespace CheckingForOverflow
 
       try
       {
-
         checked
         {
           int x = int.MaxValue - 1;
@@ -40,8 +39,6 @@ namespace CheckingForOverflow
         y--;
         WriteLine($"After decrementing: {y}");
       }
-
-      int z;
     }
   }
 }

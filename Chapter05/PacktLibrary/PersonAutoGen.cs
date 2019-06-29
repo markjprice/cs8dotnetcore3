@@ -14,8 +14,7 @@ namespace Packt.Shared
     // two properties defined using C# 6+ lambda expression syntax
     public string Greeting => $"{Name} says 'Hello!'";
 
-    public int Age => (int)(System.DateTime.Today
-      .Subtract(DateOfBirth).TotalDays / 365.25);
+    public int Age => System.DateTime.Today.Year - DateOfBirth.Year;
 
     public string FavoriteIceCream { get; set; } // auto-syntax
 
@@ -36,7 +35,9 @@ namespace Packt.Shared
             favoritePrimaryColor = value;
             break;
           default:
-            throw new System.ArgumentException($"{value} is not a primary color. Choose from: red, green, blue.");
+            throw new System.ArgumentException(
+              $"{value} is not a primary color. " +
+              "Choose from: red, green, blue.");
         }
       }
     }

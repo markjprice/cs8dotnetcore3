@@ -10,16 +10,16 @@ namespace PeopleApp
     {
       // Setting and outputting field values
 
-      var p1 = new Person();
-      p1.Name = "Bob Smith";
-      p1.DateOfBirth = new DateTime(1965, 12, 22);
+      var bob = new Person();
+      bob.Name = "Bob Smith";
+      bob.DateOfBirth = new DateTime(1965, 12, 22);
 
       WriteLine(string.Format(
         format: "{0} was born on {1:dddd, d MMMM yyyy}",
-        arg0: p1.Name,
-        arg1: p1.DateOfBirth));
+        arg0: bob.Name,
+        arg1: bob.DateOfBirth));
 
-      var p2 = new Person
+      var alice = new Person
       {
         Name = "Alice Jones",
         DateOfBirth = new DateTime(1998, 3, 7)
@@ -27,96 +27,99 @@ namespace PeopleApp
 
       WriteLine(string.Format(
         format: "{0} was born on {1:dd MMM yy}",
-        arg0: p2.Name,
-        arg1: p2.DateOfBirth));
+        arg0: alice.Name,
+        arg1: alice.DateOfBirth));
 
       // Storing a value using an enum type
 
-      p1.FavouriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
+      bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
 
       WriteLine(string.Format(
         format: "{0}'s favorite wonder is {1}. It's integer is {2}.",
-        arg0: p1.Name,
-        arg1: p1.FavouriteAncientWonder,
-        arg2: (int)p1.FavouriteAncientWonder));
+        arg0: bob.Name,
+        arg1: bob.FavoriteAncientWonder,
+        arg2: (int)bob.FavoriteAncientWonder));
 
       // Storing multiple values using an enum type
 
-      p1.BucketList = WondersOfTheAncientWorld.HangingGardensOfBabylon
+      bob.BucketList = WondersOfTheAncientWorld.HangingGardensOfBabylon
         | WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
 
-      // p1.BucketList = (WondersOfTheAncientWorld)18; 
+      // bob.BucketList = (WondersOfTheAncientWorld)18; 
 
-      WriteLine($"{p1.Name}'s bucket list is {p1.BucketList}");
+      WriteLine($"{bob.Name}'s bucket list is {bob.BucketList}");
 
       // Storing multiple values using collections
 
-      p1.Children.Add(new Person { Name = "Alfred" }); p1.Children.Add(new Person { Name = "Zoe" });
+      bob.Children.Add(new Person { Name = "Alfred" }); 
+      bob.Children.Add(new Person { Name = "Zoe" });
 
-      WriteLine($"{p1.Name} has {p1.Children.Count} children:");
+      WriteLine($"{bob.Name} has {bob.Children.Count} children:");
 
-      for (int child = 0; child < p1.Children.Count; child++)
+      for (int child = 0; child < bob.Children.Count; child++)
       {
-        WriteLine($"  {p1.Children[child].Name}");
+        WriteLine($"  {bob.Children[child].Name}");
       }
 
       // Making a field static
 
       BankAccount.InterestRate = 0.012M; // store a shared value
 
-      var ba1 = new BankAccount(); // create a bank account
-      ba1.AccountName = "Mrs. Jones";
-      ba1.Balance = 2400;
+      var jonesAccount = new BankAccount(); // create a bank account
+      jonesAccount.AccountName = "Mrs. Jones";
+      jonesAccount.Balance = 2400;
 
       WriteLine(string.Format(format: "{0} earned {1:C} interest.",
-        arg0: ba1.AccountName,
-        arg1: ba1.Balance * BankAccount.InterestRate));
+        arg0: jonesAccount.AccountName,
+        arg1: jonesAccount.Balance * BankAccount.InterestRate));
 
-      var ba2 = new BankAccount(); // create another bank account
-      ba2.AccountName = "Ms. Gerrier";
-      ba2.Balance = 98;
+      var gerrierAccount = new BankAccount(); // create another bank account
+      gerrierAccount.AccountName = "Ms. Gerrier";
+      gerrierAccount.Balance = 98;
 
       WriteLine(string.Format(format: "{0} earned {1:C} interest.",
-        arg0: ba2.AccountName,
-        arg1: ba2.Balance * BankAccount.InterestRate));
+        arg0: gerrierAccount.AccountName,
+        arg1: gerrierAccount.Balance * BankAccount.InterestRate));
 
       // Making a field constant
 
-      WriteLine($"{p1.Name} is a {Person.Species}");
+      WriteLine($"{bob.Name} is a {Person.Species}");
 
       // Making a field read-only
 
-      WriteLine($"{p1.Name} was born on {p1.HomePlanet}");
+      WriteLine($"{bob.Name} was born on {bob.HomePlanet}");
 
       // Initializing fields with constructors
 
-      var p3 = new Person();
-      WriteLine(string.Format(
-        format: "{0} was instantiated at {1:hh:mm:ss} on a {2:dddd}.",
-        arg0: p3.Name,
-        arg1: p3.Instantiated,
-        arg2: p3.Instantiated));
+      var blankPerson = new Person();
 
-      var p4 = new Person("Aziz");
       WriteLine(string.Format(
-        format: "{0} was instantiated at {1:hh:mm:ss} on a {2:dddd}.",
-        arg0: p4.Name,
-        arg1: p4.Instantiated,
-        arg2: p4.Instantiated));
+        format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
+        arg0: blankPerson.Name,
+        arg1: blankPerson.HomePlanet,
+        arg2: blankPerson.Instantiated));
+
+      var gunny = new Person("Gunny", "Mars");
+
+      WriteLine(string.Format(
+        format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
+        arg0: gunny.Name,
+        arg1: gunny.HomePlanet,
+        arg2: gunny.Instantiated));
 
       // Returning values from methods
 
-      p1.WriteToConsole();
-      WriteLine(p1.GetOrigin());
+      bob.WriteToConsole();
+      WriteLine(bob.GetOrigin());
 
       // Combining multiple returned values using tuples
 
-      (string, int) fruit = p1.GetFruit();
+      (string, int) fruit = bob.GetFruit();
       WriteLine($"{fruit.Item1}, {fruit.Item2} there are.");
 
       // Naming the fields of a tuple
 
-      var fruitNamed = p1.GetNamedFruit();
+      var fruitNamed = bob.GetNamedFruit();
       WriteLine($"There are {fruitNamed.Number} {fruitNamed.Name}.");
 
       // Inferring tuple names
@@ -124,28 +127,28 @@ namespace PeopleApp
       var thing1 = ("Neville", 4);
       WriteLine($"{thing1.Item1} has {thing1.Item2} children.");
 
-      var thing2 = (p1.Name, p1.Children.Count);
+      var thing2 = (bob.Name, bob.Children.Count);
       WriteLine($"{thing2.Name} has {thing2.Count} children.");
 
       // Deconstructing tuples
 
-      (string fruitName, int fruitNumber) = p1.GetFruit();
+      (string fruitName, int fruitNumber) = bob.GetFruit();
       WriteLine($"Deconstructed: {fruitName}, {fruitNumber}");
 
       // Defining and passing parameters to methods
 
-      WriteLine(p1.SayHello());
-      WriteLine(p1.SayHello("Emily"));
+      WriteLine(bob.SayHello());
+      WriteLine(bob.SayHello("Emily"));
 
       // Passing optional parameters and naming arguments
 
-      WriteLine(p1.OptionalParameters());
+      WriteLine(bob.OptionalParameters());
 
-      WriteLine(p1.OptionalParameters("Jump!", 98.5));
+      WriteLine(bob.OptionalParameters("Jump!", 98.5));
 
-      WriteLine(p1.OptionalParameters(number: 52.7, command: "Hide!"));
+      WriteLine(bob.OptionalParameters(number: 52.7, command: "Hide!"));
 
-      WriteLine(p1.OptionalParameters("Poke!", active: false));
+      WriteLine(bob.OptionalParameters("Poke!", active: false));
 
       // Controlling how parameters are passed
 
@@ -155,7 +158,7 @@ namespace PeopleApp
 
       WriteLine($"Before: a = {a}, b = {b}, c = {c}");
 
-      p1.PassingParameters(a, ref b, out c);
+      bob.PassingParameters(a, ref b, out c);
 
       WriteLine($"After: a = {a}, b = {b}, c = {c}");
 
@@ -165,7 +168,7 @@ namespace PeopleApp
       WriteLine($"Before: d = {d}, e = {e}, f doesn't exist yet!");
 
       // simplified C# 7 syntax for the out parameter
-      p1.PassingParameters(d, ref e, out int f);
+      bob.PassingParameters(d, ref e, out int f);
 
       WriteLine($"After: d = {d}, e = {e}, f = {f}");
 
@@ -191,16 +194,15 @@ namespace PeopleApp
       WriteLine(
         $"Sam's favorite primary color is {sam.FavoritePrimaryColor}.");
 
-// Defining indexers
+      // Defining indexers
 
-sam.Children.Add(new Person { Name = "Charlie" });
-sam.Children.Add(new Person { Name = "Ella" });
+      sam.Children.Add(new Person { Name = "Charlie" });
+      sam.Children.Add(new Person { Name = "Ella" });
 
-WriteLine($"Sam's first child is {sam.Children[0].Name}");
-WriteLine($"Sam's second child is {sam.Children[1].Name}");
-WriteLine($"Sam's first child is {sam[0].Name}");
-WriteLine($"Sam's second child is {sam[1].Name}");
-
+      WriteLine($"Sam's first child is {sam.Children[0].Name}");
+      WriteLine($"Sam's second child is {sam.Children[1].Name}");
+      WriteLine($"Sam's first child is {sam[0].Name}");
+      WriteLine($"Sam's second child is {sam[1].Name}");
     }
   }
 }

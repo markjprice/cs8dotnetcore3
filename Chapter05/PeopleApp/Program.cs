@@ -14,10 +14,10 @@ namespace PeopleApp
       bob.Name = "Bob Smith";
       bob.DateOfBirth = new DateTime(1965, 12, 22);
 
-      WriteLine(string.Format(
+      WriteLine(
         format: "{0} was born on {1:dddd, d MMMM yyyy}",
         arg0: bob.Name,
-        arg1: bob.DateOfBirth));
+        arg1: bob.DateOfBirth);
 
       var alice = new Person
       {
@@ -25,20 +25,20 @@ namespace PeopleApp
         DateOfBirth = new DateTime(1998, 3, 7)
       };
 
-      WriteLine(string.Format(
+      WriteLine(
         format: "{0} was born on {1:dd MMM yy}",
         arg0: alice.Name,
-        arg1: alice.DateOfBirth));
+        arg1: alice.DateOfBirth);
 
       // Storing a value using an enum type
 
       bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
 
-      WriteLine(string.Format(
+      WriteLine(
         format: "{0}'s favorite wonder is {1}. It's integer is {2}.",
         arg0: bob.Name,
         arg1: bob.FavoriteAncientWonder,
-        arg2: (int)bob.FavoriteAncientWonder));
+        arg2: (int)bob.FavoriteAncientWonder);
 
       // Storing multiple values using an enum type
 
@@ -69,17 +69,17 @@ namespace PeopleApp
       jonesAccount.AccountName = "Mrs. Jones";
       jonesAccount.Balance = 2400;
 
-      WriteLine(string.Format(format: "{0} earned {1:C} interest.",
+      WriteLine(format: "{0} earned {1:C} interest.",
         arg0: jonesAccount.AccountName,
-        arg1: jonesAccount.Balance * BankAccount.InterestRate));
+        arg1: jonesAccount.Balance * BankAccount.InterestRate);
 
       var gerrierAccount = new BankAccount(); // create another bank account
       gerrierAccount.AccountName = "Ms. Gerrier";
       gerrierAccount.Balance = 98;
 
-      WriteLine(string.Format(format: "{0} earned {1:C} interest.",
+      WriteLine(format: "{0} earned {1:C} interest.",
         arg0: gerrierAccount.AccountName,
-        arg1: gerrierAccount.Balance * BankAccount.InterestRate));
+        arg1: gerrierAccount.Balance * BankAccount.InterestRate);
 
       // Making a field constant
 
@@ -93,19 +93,19 @@ namespace PeopleApp
 
       var blankPerson = new Person();
 
-      WriteLine(string.Format(
+      WriteLine(
         format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
         arg0: blankPerson.Name,
         arg1: blankPerson.HomePlanet,
-        arg2: blankPerson.Instantiated));
+        arg2: blankPerson.Instantiated);
 
       var gunny = new Person("Gunny", "Mars");
 
-      WriteLine(string.Format(
+      WriteLine(
         format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
         arg0: gunny.Name,
         arg1: gunny.HomePlanet,
-        arg2: gunny.Instantiated));
+        arg2: gunny.Instantiated);
 
       // Returning values from methods
 

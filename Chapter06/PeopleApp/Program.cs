@@ -27,10 +27,10 @@ namespace PeopleApp
       WriteLine($"{mary.Name} has {mary.Children.Count} children.");
       WriteLine($"{jill.Name} has {jill.Children.Count} children.");
 
-      WriteLine(string.Format(
+      WriteLine(
         format: "{0}'s first child is named \"{1}\".",
         arg0: harry.Name,
-        arg1: harry.Children[0].Name));
+        arg1: harry.Children[0].Name);
 
       // Implementing functionality using local functions
 
@@ -98,43 +98,45 @@ namespace PeopleApp
       // Working with generic methods
 
       string number1 = "4";
-      WriteLine(string.Format("{0} squared is {1}",
-        arg0: number1, arg1: Squarer.Square<string>(number1)));
+      WriteLine("{0} squared is {1}",
+        arg0: number1, 
+        arg1: Squarer.Square<string>(number1));
 
       byte number2 = 3;
-      WriteLine(string.Format("{0} squared is {1}",
-        arg0: number2, arg1: Squarer.Square(number2)));
+      WriteLine("{0} squared is {1}",
+        arg0: number2, 
+        arg1: Squarer.Square(number2));
 
       // Working with struct types
 
       var dv1 = new DisplacementVector(3, 5);
       var dv2 = new DisplacementVector(-2, 7);
       var dv3 = dv1 + dv2;
-      WriteLine($"({dv1.X}, {dv1.Y}) + ({dv2.X}, {dv2.Y}) = ({dv3.X},{dv3.Y})");
+      WriteLine($"({dv1.X}, {dv1.Y}) + ({dv2.X}, {dv2.Y}) = ({dv3.X}, {dv3.Y})");
 
       // Inheriting from classes
 
-      Employee e1 = new Employee
+      Employee john = new Employee
       {
         Name = "John Jones",
         DateOfBirth = new DateTime(1990, 7, 28)
       };
-      e1.WriteToConsole();
+      john.WriteToConsole();
 
       // Extending classes
 
-      e1.EmployeeCode = "JJ001";
-      e1.HireDate = new DateTime(2014, 11, 23);
-      WriteLine($"{e1.Name} was hired on {e1.HireDate:dd/MM/yy}");
+      john.EmployeeCode = "JJ001";
+      john.HireDate = new DateTime(2014, 11, 23);
+      WriteLine($"{john.Name} was hired on {john.HireDate:dd/MM/yy}");
 
       // Overriding  members
 
-      WriteLine(e1.ToString());
+      WriteLine(john.ToString());
 
       // Understanding polymorphism
 
       Employee aliceInEmployee = new Employee
-      { Name = "Alice", EmployeeCode = "AA123" };
+        { Name = "Alice", EmployeeCode = "AA123" };
 
       Person aliceInPerson = aliceInEmployee;
 
@@ -152,24 +154,24 @@ namespace PeopleApp
       {
         WriteLine($"{nameof(aliceInPerson)} IS an Employee");
 
-        Employee e2 = (Employee)aliceInPerson;
-        // safely do something with e2 
+        Employee aliceInEmployee = (Employee)aliceInPerson;
+        // safely do something with aliceInEmployee 
       }
 
-      Employee e3 = aliceInPerson as Employee;
+      Employee aliceInEmployee = aliceInPerson as Employee;
 
-      if (e3 != null)
+      if (aliceInEmployee != null)
       {
         WriteLine($"{nameof(aliceInPerson)} AS an Employee");
-        // do something with e3 
+        // do something with aliceInEmployee 
       }
 
       // Inheriting exceptions
 
       try
       {
-        e1.TimeTravel(new DateTime(1999, 12, 31));
-        e1.TimeTravel(new DateTime(1950, 12, 25));
+        john.TimeTravel(new DateTime(1999, 12, 31));
+        john.TimeTravel(new DateTime(1950, 12, 25));
       }
       catch (PersonException ex)
       {
@@ -181,26 +183,25 @@ namespace PeopleApp
       string email1 = "pamela@test.com";
       string email2 = "ian&test.com";
 
-      WriteLine(string.Format(
+      WriteLine(
         "{0} is a valid e-mail address: {1}",
         arg0: email1,
-        arg1: StringExtensions.IsValidEmail(email1)));
+        arg1: StringExtensions.IsValidEmail(email1));
 
-      WriteLine(string.Format(
+      WriteLine(
         "{0} is a valid e-mail address: {1}",
         arg0: email2,
-        arg1: StringExtensions.IsValidEmail(email2)));
+        arg1: StringExtensions.IsValidEmail(email2));
 
-      WriteLine(string.Format(
+      WriteLine(
         "{0} is a valid e-mail address: {1}",
         arg0: email1,
-        arg1: email1.IsValidEmail()));
+        arg1: email1.IsValidEmail());
 
-      WriteLine(string.Format(
+      WriteLine(
         "{0} is a valid e-mail address: {1}",
         arg0: email2,
-        arg1: email2.IsValidEmail()));
-
+        arg1: email2.IsValidEmail());
     }
 
     private static void Harry_Shout(object sender, EventArgs e)
@@ -208,6 +209,5 @@ namespace PeopleApp
       Person p = (Person)sender;
       WriteLine($"{p.Name} is this angry: {p.AngerLevel}.");
     }
-
   }
 }

@@ -14,10 +14,7 @@ namespace Packt.Shared
     // methods 
     public void WriteToConsole()
     {
-      WriteLine(string.Format(
-        format: "{0} was born on {1:dddd, d MMMM yyyy}",
-        arg0: Name,
-        arg1: DateOfBirth));
+      WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
     }
 
     // static method to "multiply" 
@@ -63,10 +60,10 @@ namespace Packt.Shared
       }
     }
 
-    // event 
+    // event delegate field
     public event EventHandler Shout;
 
-    // field 
+    // data field 
     public int AngerLevel;
 
     // method 
@@ -78,7 +75,7 @@ namespace Packt.Shared
         // if something is listening... 
         if (Shout != null)
         {
-          // ...then raise the event by calling the delegate
+          // ...then call the delegate
           Shout(this, EventArgs.Empty);
         }
       }
@@ -106,6 +103,5 @@ namespace Packt.Shared
         WriteLine($"Welcome to {when:yyyy}!");
       }
     }
-
   }
 }

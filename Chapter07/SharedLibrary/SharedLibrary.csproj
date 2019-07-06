@@ -6,7 +6,7 @@
     <PackageId>Packt.CS8.SharedLibrary</PackageId>
     <PackageVersion>1.0.0.0</PackageVersion>
     <Authors>Mark J Price</Authors>
-    <PackageLicenseUrl>http://opensource.org/licenses/MS-PL</PackageLicenseUrl>
+    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
     <PackageProjectUrl>http://github.com/markjprice/cs8dotnetcore3</PackageProjectUrl>
     <PackageIconUrl>http://github.com/markjprice/cs8dotnetcore3/nuget.png</PackageIconUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

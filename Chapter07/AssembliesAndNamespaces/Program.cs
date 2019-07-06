@@ -2,6 +2,7 @@
 using System.Xml.Linq;
 using DialectSoftware.Collections;
 using DialectSoftware.Collections.Generics;
+using Packt.CS7; // change to Packt.Shared when using CS8 package
 using static System.Console;
 
 namespace AssembliesAndNamespaces
@@ -15,17 +16,39 @@ namespace AssembliesAndNamespaces
       string s1 = "Hello";
       String s2 = "World";
 
+      // Testing your package
+
+      Write("Enter a color value in hex: ");
+      string hex = ReadLine();
+
+      WriteLine("Is {0} a valid color value? {1}",
+        arg0: hex, arg1: hex.IsValidHex());
+
+      Write("Enter an XML tag: ");
+      string xmlTag = ReadLine();
+
+      WriteLine("Is {0} a valid XML tag? {1}",
+        arg0: xmlTag, arg1: xmlTag.IsValidXmlTag());
+
+      Write("Enter a password: ");
+      string password = ReadLine();
+
+      WriteLine("Is {0} a valid password? {1}",
+        arg0: password, arg1: password.IsValidPassword());
+
+      // Using non-.NET Standard libraries
+
       var x = new Axis("x", 0, 10, 1);
       var y = new Axis("y", 0, 4, 1);
 
       var matrix = new Matrix<long>(new[] { x, y });
-      int i = 0;
-      for (; i < matrix.Axes[0].Points.Length; i++)
+
+      for (int i = 0; i < matrix.Axes[0].Points.Length; i++)
       {
         matrix.Axes[0].Points[i].Label = "x" + i.ToString();
       }
-      i = 0;
-      for (; i < matrix.Axes[1].Points.Length; i++)
+
+      for (int i = 0; i < matrix.Axes[1].Points.Length; i++)
       {
         matrix.Axes[1].Points[i].Label = "y" + i.ToString();
       }
@@ -42,7 +65,6 @@ namespace AssembliesAndNamespaces
           matrix.Axes[1].Points[c[1]].Label,
           c[0], c[1], matrix[c]);
       }
-
     }
   }
 }

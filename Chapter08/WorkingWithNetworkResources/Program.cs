@@ -18,6 +18,7 @@ namespace WorkingWithNetworkResources
 
       var uri = new Uri(url);
 
+      WriteLine($"URL: {url}"); 
       WriteLine($"Scheme: {uri.Scheme}");
       WriteLine($"Port: {uri.Port}");
       WriteLine($"Host: {uri.Host}");

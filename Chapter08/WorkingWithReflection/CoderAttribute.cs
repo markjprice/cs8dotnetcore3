@@ -1,7 +1,6 @@
 using System;
 
-[AttributeUsage(
-  AttributeTargets.Class | AttributeTargets.Method, 
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, 
   AllowMultiple = true)]
 public class CoderAttribute : Attribute
 {

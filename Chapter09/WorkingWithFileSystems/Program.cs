@@ -54,9 +54,9 @@ namespace WorkingWithFileSystems
     {
       // define a directory path for a new folder
       // starting in the user's folder
-      var newFolder = Combine(new string[]
-        { GetFolderPath(SpecialFolder.Personal),
-        "Code", "Chapter09", "NewFolder" });
+      var newFolder = Combine(
+        GetFolderPath(SpecialFolder.Personal),
+        "Code", "Chapter09", "NewFolder");
 
       WriteLine($"Working with: {newFolder}");
 
@@ -81,9 +81,9 @@ namespace WorkingWithFileSystems
     {
       // define a directory path to output files
       // starting in the user's folder
-      var dir = Combine(new string[]
-        { GetFolderPath(SpecialFolder.Personal),
-        "Code", "Chapter09", "OutputFiles" });
+      var dir = Combine(
+        GetFolderPath(SpecialFolder.Personal),
+        "Code", "Chapter09", "OutputFiles");
 
       CreateDirectory(dir);
 
@@ -124,6 +124,7 @@ namespace WorkingWithFileSystems
       textReader.Close();
 
       // Managing paths
+      WriteLine($"Folder Name: {GetDirectoryName(textFile)}");
       WriteLine($"File Name: {GetFileName(textFile)}");
       WriteLine("File Name without Extension: {0}",
         GetFileNameWithoutExtension(textFile));
@@ -141,10 +142,10 @@ namespace WorkingWithFileSystems
 
     static void Main(string[] args)
     {
-      // OutputFileSystemInfo();
+      OutputFileSystemInfo();
       // WorkWithDrives();
       // WorkWithDirectories();
-      WorkWithFiles();
+      // WorkWithFiles();
     }
   }
 }

@@ -18,26 +18,19 @@ namespace WorkingWithEncodings
 
       // choose an encoding
       Write("Press a number to choose an encoding: ");
-      ConsoleKey number = ReadKey(false).Key;
+      ConsoleKey number = ReadKey(intercept: false).Key;
       WriteLine();
       WriteLine();
 
-      Encoding encoder;
-      switch (number)
+      Encoding encoder = number switch
       {
-        case ConsoleKey.D1:
-          encoder = Encoding.ASCII; break;
-        case ConsoleKey.D2:
-          encoder = Encoding.UTF7; break;
-        case ConsoleKey.D3:
-          encoder = Encoding.UTF8; break;
-        case ConsoleKey.D4:
-          encoder = Encoding.Unicode; break;
-        case ConsoleKey.D5:
-          encoder = Encoding.UTF32; break;
-        default:
-          encoder = Encoding.Default; break;
-      }
+        ConsoleKey.D1 => Encoding.ASCII,
+        ConsoleKey.D2 => Encoding.UTF7,
+        ConsoleKey.D3 => Encoding.UTF8,
+        ConsoleKey.D4 => Encoding.Unicode,
+        ConsoleKey.D5 => Encoding.UTF32,
+        _             => Encoding.Default
+      };
 
       // define a string to encode
       string message = "A pint of milk is £1.99";

@@ -1,9 +1,10 @@
-﻿using System;                     // DateTime
-using System.Collections.Generic; // List<T>, HashSet<T> 
-using System.Xml.Serialization;   // XmlSerializer
-using System.IO;                  // FileStream
-using Packt.Shared;               // Person 
-using Newtonsoft.Json;
+﻿using System;                         // DateTime
+using System.Collections.Generic;     // List<T>, HashSet<T> 
+using System.Xml.Serialization;       // XmlSerializer
+using System.IO;                      // FileStream
+using Packt.Shared;                   // Person 
+using System.Threading.Tasks;         // Task
+using NuJson = System.Text.Json.Serialization.JsonSerializer;
 using static System.Console;
 using static System.Environment;
 using static System.IO.Path;
@@ -12,7 +13,7 @@ namespace WorkingWithSerialization
 {
   class Program
   {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
       // create an object graph
       var people = new List<Person>
@@ -28,21 +29,22 @@ namespace WorkingWithSerialization
             DateOfBirth = new DateTime(2000, 7, 12) } } }
         };
 
-      // create a file to write to
-      string path = Combine(CurrentDirectory, "people.xml");
-      FileStream stream = File.Create(path);
-
       // create an object that will format as List of Persons as XML 
       var xs = new XmlSerializer(typeof(List<Person>));
 
-      // serialize the object graph to the stream 
-      xs.Serialize(stream, people);
+      // create a file to write to
+      string path = Combine(CurrentDirectory, "people.xml");
 
-      // you must close the stream to release the file lock 
-      stream.Close();
+      using (FileStream stream = File.Create(path))
+      {
+        // serialize the object graph to the stream 
+        xs.Serialize(stream, people);
+      }
 
       WriteLine("Written {0:N0} bytes of XML to {1}",
-        new FileInfo(path).Length, path);
+        arg0: new FileInfo(path).Length,
+        arg1: path);
+
       WriteLine();
 
       // Display the serialized object graph 
@@ -50,35 +52,53 @@ namespace WorkingWithSerialization
 
       // Deserializing with XML
 
-      FileStream xmlLoad = File.Open(path, FileMode.Open);
-
-      // deserialize and cast the object graph into a List of Person 
-      var loadedPeople = (List<Person>)xs.Deserialize(xmlLoad);
-
-      foreach (var item in loadedPeople)
+      using (FileStream xmlLoad = File.Open(path, FileMode.Open))
       {
-        WriteLine("{0} has {1} children.",
-          item.LastName, item.Children.Count);
+        // deserialize and cast the object graph into a List of Person 
+        var loadedPeople = (List<Person>)xs.Deserialize(xmlLoad);
+
+        foreach (var item in loadedPeople)
+        {
+          WriteLine("{0} has {1} children.",
+            item.LastName, item.Children.Count);
+        }
       }
-      xmlLoad.Close();
 
       // create a file to write to
       string jsonPath = Combine(CurrentDirectory, "people.json");
-      StreamWriter jsonStream = File.CreateText(jsonPath);
 
-      // create an object that will format as JSON 
-      var jss = new JsonSerializer();
+      using (StreamWriter jsonStream = File.CreateText(jsonPath))
+      {
+        // create an object that will format as JSON 
+        var jss = new Newtonsoft.Json.JsonSerializer();
 
-      // serialize the object graph into a string 
-      jss.Serialize(jsonStream, people); 
-      jsonStream.Close(); // release the file lock
+        // serialize the object graph into a string 
+        jss.Serialize(jsonStream, people);
+      }
 
       WriteLine();
       WriteLine("Written {0:N0} bytes of JSON to: {1}",
-        new FileInfo(jsonPath).Length, jsonPath);
+        arg0: new FileInfo(jsonPath).Length,
+        arg1: jsonPath);
 
       // Display the serialized object graph 
       WriteLine(File.ReadAllText(jsonPath));
+
+      // Deserializing JSON using new APIs
+
+      using (FileStream jsonLoad = File.Open(jsonPath, FileMode.Open))
+      {
+        // deserialize and cast the object graph into a List of Person 
+        var loadedPeople = (List<Person>)await NuJson.ReadAsync(
+          utf8Json: jsonLoad,
+          returnType: typeof(List<Person>));
+
+        foreach (var item in loadedPeople)
+        {
+          WriteLine("{0} has {1} children.",
+            item.LastName, item.Children?.Count);
+        }
+      }
     }
   }
 }

@@ -14,6 +14,7 @@ namespace Packt.Shared
     {
       string path = System.IO.Path.Combine(
         System.Environment.CurrentDirectory, "Northwind.db");
+        
       optionsBuilder.UseSqlite($"Filename={path}");
     }
   }

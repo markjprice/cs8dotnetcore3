@@ -21,6 +21,7 @@ namespace Packt.Shared
     public static string Encrypt(
       string plainText, string password)
     {
+      byte[] encryptedBytes;
       byte[] plainBytes = Encoding.Unicode.GetBytes(plainText);
       var aes = Aes.Create();
       var pbkdf2 = new Rfc2898DeriveBytes(
@@ -28,18 +29,23 @@ namespace Packt.Shared
       aes.Key = pbkdf2.GetBytes(32); // set a 256-bit key 
       aes.IV = pbkdf2.GetBytes(16); // set a 128-bit IV 
 
-      var ms = new MemoryStream();
-      using (var cs = new CryptoStream(
-        ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+      using (var ms = new MemoryStream())
       {
-        cs.Write(plainBytes, 0, plainBytes.Length);
+        using (var cs = new CryptoStream(
+          ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+        {
+          cs.Write(plainBytes, 0, plainBytes.Length);
+        }
+        encryptedBytes = ms.ToArray();
       }
-      return Convert.ToBase64String(ms.ToArray());
+
+      return Convert.ToBase64String(encryptedBytes);
     }
 
     public static string Decrypt(
       string cryptoText, string password)
     {
+      byte[] plainBytes;
       byte[] cryptoBytes = Convert.FromBase64String(cryptoText);
       var aes = Aes.Create();
       var pbkdf2 = new Rfc2898DeriveBytes(
@@ -47,13 +53,17 @@ namespace Packt.Shared
       aes.Key = pbkdf2.GetBytes(32);
       aes.IV = pbkdf2.GetBytes(16);
 
-      var ms = new MemoryStream();
-      using (var cs = new CryptoStream(
-        ms, aes.CreateDecryptor(), CryptoStreamMode.Write))
+      using (var ms = new MemoryStream())
       {
-        cs.Write(cryptoBytes, 0, cryptoBytes.Length);
+        using (var cs = new CryptoStream(
+          ms, aes.CreateDecryptor(), CryptoStreamMode.Write))
+        {
+          cs.Write(cryptoBytes, 0, cryptoBytes.Length);
+        }
+        plainBytes = ms.ToArray();
       }
-      return Encoding.Unicode.GetString(ms.ToArray());
+
+      return Encoding.Unicode.GetString(plainBytes);
     }
 
     private static Dictionary<string, User> Users =
@@ -69,10 +79,8 @@ namespace Packt.Shared
       var saltText = Convert.ToBase64String(saltBytes);
 
       // generate the salted and hashed password 
-      var sha = SHA256.Create();
-      var saltedPassword = password + saltText;
-      var saltedhashedPassword = Convert.ToBase64String(
-        sha.ComputeHash(Encoding.Unicode.GetBytes(saltedPassword)));
+      var saltedhashedPassword = SaltAndHashPassword(
+        password, saltText);
 
       var user = new User
       {
@@ -95,12 +103,19 @@ namespace Packt.Shared
       var user = Users[username];
 
       // re-generate the salted and hashed password 
-      var sha = SHA256.Create();
-      var saltedPassword = password + user.Salt;
-      var saltedhashedPassword = Convert.ToBase64String(
-        sha.ComputeHash(Encoding.Unicode.GetBytes(saltedPassword)));
+      var saltedhashedPassword = SaltAndHashPassword(
+        password, user.Salt);
 
       return (saltedhashedPassword == user.SaltedHashedPassword);
+    }
+
+    private static string SaltAndHashPassword(
+      string password, string salt)
+    {
+      var sha = SHA256.Create();
+      var saltedPassword = password + salt;
+      return Convert.ToBase64String(
+        sha.ComputeHash(Encoding.Unicode.GetBytes(saltedPassword)));
     }
 
     public static string PublicKey;
@@ -129,7 +144,6 @@ namespace Packt.Shared
       }
       return xml?.ToString();
     }
-
 
     public static void FromXmlStringExt(
       this RSA rsa, string parametersAsXml)
@@ -188,13 +202,6 @@ namespace Packt.Shared
       // data is an array now filled with 
       // cryptographically strong random bytes
       return data;
-    }
-
-    public static void RegisterSomeUsers()
-    {
-      Register("Alice", "Pa$$w0rd", new[] { "Admins" });
-      Register("Bob", "Pa$$w0rd", new[] { "Sales", "TeamLeads" });
-      Register("Eve", "Pa$$w0rd");
     }
 
     public static void LogIn(string username, string password)

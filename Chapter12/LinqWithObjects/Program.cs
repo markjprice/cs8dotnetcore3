@@ -28,13 +28,13 @@ namespace LinqWithObjects
     static void LinqWithArrayOfExceptions()
     {
       var errors = new Exception[]
-{
-  new ArgumentException(), new SystemException(),
-  new IndexOutOfRangeException(), new InvalidOperationException(),
-  new NullReferenceException(), new InvalidCastException(),
-  new OverflowException(),
-  new DivideByZeroException(), new ApplicationException()
-};
+      {
+        new ArgumentException(), new SystemException(),
+        new IndexOutOfRangeException(), new InvalidOperationException(),
+        new NullReferenceException(), new InvalidCastException(),
+        new OverflowException(),
+        new DivideByZeroException(), new ApplicationException()
+      };
 
       var numberErrors = errors.OfType<ArithmeticException>();
 

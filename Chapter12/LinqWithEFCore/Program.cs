@@ -15,9 +15,10 @@ namespace LinqWithEFCore
       {
         var query = db.Products
           .ProcessSequence()
-          .Where(product => product.UnitPrice < 10M)
+          .Where(product => product.UnitPrice < 10M) // IQueryable<Product>
           .OrderByDescending(product => product.UnitPrice)
-          .Select(product => new
+          // IOrderedQueryable<Product>
+          .Select(product => new // anonymous type
           {
             product.ProductID,
             product.ProductName,
@@ -34,19 +35,13 @@ namespace LinqWithEFCore
       }
     }
 
-    static void JoinAndGroup()
+    static void JoinCategoriesAndProducts()
     {
       using (var db = new Northwind())
       {
-        // create two array sequences that we want to join together 
-        var categories = db.Categories.Select(
-          c => new { c.CategoryID, c.CategoryName }).ToArray();
-
-        var products = db.Products.Select(
-          p => new { p.ProductID, p.ProductName, p.CategoryID }).ToArray();
-
         // join every product to its category to return 77 matches 
-        var queryJoin = categories.Join(inner: products,
+        var queryJoin = db.Categories.Join(
+          inner: db.Products,
           outerKeySelector: category => category.CategoryID,
           innerKeySelector: product => product.CategoryID,
           resultSelector: (c, p) =>
@@ -56,36 +51,33 @@ namespace LinqWithEFCore
         foreach (var item in queryJoin)
         {
           WriteLine("{0}: {1} is in {2}.",
-            item.ProductID, item.ProductName, item.CategoryName);
+            arg0: item.ProductID, 
+            arg1: item.ProductName, 
+            arg2: item.CategoryName);
         }
       }
     }
 
-    static void GroupJoinProducts()
+    static void GroupJoinCategoriesAndProducts()
     {
       using (var db = new Northwind())
       {
-        // create two array sequences that we want to join together 
-        var categories = db.Categories.Select(
-          c => new { c.CategoryID, c.CategoryName }).ToArray();
-
-        var products = db.Products.Select(
-          p => new { p.ProductID, p.ProductName, p.CategoryID }).ToArray();
-
         // group all products by their category to return 8 matches 
-        var queryGroup = categories.GroupJoin(inner: products,
+        var queryGroup = db.Categories.AsEnumerable().GroupJoin(
+          inner: db.Products,
           outerKeySelector: category => category.CategoryID,
           innerKeySelector: product => product.CategoryID,
           resultSelector: (c, matchingProducts) => new
           {
             c.CategoryName,
-            Products = matchingProducts.OrderBy(p => p.ProductName)
+            Products = matchingProducts//.OrderBy(p => p.ProductName)
           });
 
         foreach (var item in queryGroup)
         {
           WriteLine("{0} has {1} products.",
-            item.CategoryName, item.Products.Count());
+            arg0: item.CategoryName, 
+            arg1: item.Products.Count());
 
           foreach (var product in item.Products)
           {
@@ -99,23 +91,30 @@ namespace LinqWithEFCore
     {
       using (var db = new Northwind())
       {
-        WriteLine("{0,-25} {1,10}", "Product count:",
-          db.Products.Count());
+        WriteLine("{0,-25} {1,10}", 
+          arg0: "Product count:",
+          arg1: db.Products.Count());
 
-        WriteLine("{0,-25} {1,10:$#,##0.00}", "Highest product price:",
-          db.Products.Max(p => p.UnitPrice));
+        WriteLine("{0,-25} {1,10:$#,##0.00}", 
+          arg0: "Highest product price:",
+          arg1: db.Products.Max(p => p.UnitPrice));
 
-        WriteLine("{0,-25} {1,10:N0}", "Sum of units in stock:",
-          db.Products.Sum(p => p.UnitsInStock));
+        WriteLine("{0,-25} {1,10:N0}", 
+          arg0: "Sum of units in stock:",
+          arg1: db.Products.Sum(p => p.UnitsInStock));
 
-        WriteLine("{0,-25} {1,10:N0}", "Sum of units on order:",
-          db.Products.Sum(p => p.UnitsOnOrder));
+        WriteLine("{0,-25} {1,10:N0}", 
+          arg0: "Sum of units on order:",
+          arg1: db.Products.Sum(p => p.UnitsOnOrder));
 
-        WriteLine("{0,-25} {1,10:$#,##0.00}", "Average unit price:",
-          db.Products.Average(p => p.UnitPrice));
+        WriteLine("{0,-25} {1,10:$#,##0.00}", 
+          arg0: "Average unit price:",
+          arg1: db.Products.Average(p => p.UnitPrice));
 
-        WriteLine("{0,-25} {1,10:$#,##0.00}", "Value of units in stock:",
-             db.Products.Sum(p => p.UnitPrice * p.UnitsInStock));
+        WriteLine("{0,-25} {1,10:$#,##0.00}", 
+          arg0: "Value of units in stock:",
+          arg1: db.Products.AsEnumerable()
+            .Sum(p => p.UnitPrice * p.UnitsInStock));
       }
     }
 
@@ -181,8 +180,8 @@ namespace LinqWithEFCore
     static void Main(string[] args)
     {
       // FilterAndSort();
-      // JoinAndGroup();
-      // GroupJoinProducts();
+      // JoinCategoriesAndProducts();
+      // GroupJoinCategoriesAndProducts();
       // AggregateProducts();
       // CustomExtensionMethods();
       // OutputProductsAsXml();

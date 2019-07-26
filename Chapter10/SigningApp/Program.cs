@@ -12,7 +12,8 @@ namespace SigningApp
       string data = ReadLine();
       var signature = Protector.GenerateSignature(data);
       WriteLine($"Signature: {signature}");
-      WriteLine("Public key used to check signature:"); WriteLine(Protector.PublicKey);
+      WriteLine("Public key used to check signature:"); 
+      WriteLine(Protector.PublicKey);
 
       if (Protector.ValidateSignature(data, signature))
       {

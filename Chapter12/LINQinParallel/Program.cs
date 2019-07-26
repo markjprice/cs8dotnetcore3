@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LINQinParallel
+namespace LinqInParallel
 {
   class Program
   {
@@ -18,15 +18,14 @@ namespace LINQinParallel
       IEnumerable<int> numbers = Enumerable.Range(1, 200_000_000);
 
       // var squares = numbers
-      //   .Select(number => number * 2).ToArray();
+      //   .Select(number => number * number).ToArray();
 
       var squares = numbers.AsParallel()
-        .Select(number => number * 2).ToArray();
+        .Select(number => number * number).ToArray();
 
       watch.Stop();
       WriteLine("{0:#,##0} elapsed milliseconds.",
         watch.ElapsedMilliseconds);
-
     }
   }
 }

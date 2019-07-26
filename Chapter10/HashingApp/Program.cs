@@ -12,7 +12,8 @@ namespace HashingApp
       var alice = Protector.Register("Alice", "Pa$$w0rd");
       WriteLine($"Name: {alice.Name}");
       WriteLine($"Salt: {alice.Salt}");
-      WriteLine($"Password: {alice.SaltedHashedPassword}");
+      WriteLine("Password (salted and hashed): {0}",
+        arg0: alice.SaltedHashedPassword);
       WriteLine();
 
       Write("Enter a new user to register: ");
@@ -22,7 +23,8 @@ namespace HashingApp
       var user = Protector.Register(username, password);
       WriteLine($"Name: {user.Name}");
       WriteLine($"Salt: {user.Salt}");
-      WriteLine($"Password: {user.SaltedHashedPassword}");
+      WriteLine("Password (salted and hashed): {0}",
+        arg0: user.SaltedHashedPassword);
       WriteLine();
 
       bool correctPassword = false;

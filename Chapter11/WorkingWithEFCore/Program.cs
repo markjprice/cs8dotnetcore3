@@ -48,13 +48,15 @@ namespace WorkingWithEFCore
         {
           if (explicitloading)
           {
-            Write($"Explicitly load products for {c.CategoryName}? (Y/N):");
-            if (ReadKey().Key == ConsoleKey.Y)
+            Write($"Explicitly load products for {c.CategoryName}? (Y/N): ");
+            ConsoleKeyInfo key = ReadKey();
+            WriteLine();
+
+            if (key.Key == ConsoleKey.Y)
             {
               var products = db.Entry(c).Collection(c2 => c2.Products);
               if (!products.IsLoaded) products.Load();
             }
-            WriteLine();
           }
           WriteLine($"{c.CategoryName} has {c.Products.Count} products.");
         }
@@ -184,7 +186,7 @@ namespace WorkingWithEFCore
 
     static void Main(string[] args)
     {
-      // QueryingCategories();
+      QueryingCategories();
       // QueryingProducts();
       // QueryingWithLike();
 
@@ -198,9 +200,9 @@ namespace WorkingWithEFCore
       //   WriteLine("Update product price successful.");
       // }
 
-      int deleted = DeleteProducts("Bob");
-      WriteLine($"{deleted} product(s) were deleted.");
-      ListProducts();
+      // int deleted = DeleteProducts("Bob");
+      // WriteLine($"{deleted} product(s) were deleted.");
+      // ListProducts();
     }
   }
 }

@@ -13,7 +13,10 @@ namespace SecureApp
   {
     static void Main(string[] args)
     {
-      Protector.RegisterSomeUsers();
+      Protector.Register("Alice", "Pa$$w0rd", new[] { "Admins" });
+      Protector.Register("Bob", "Pa$$w0rd",
+        new[] { "Sales", "TeamLeads" });
+      Protector.Register("Eve", "Pa$$w0rd");
 
       Write($"Enter your user name: ");
       string username = ReadLine();

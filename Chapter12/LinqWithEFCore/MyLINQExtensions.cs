@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace System.Linq
 {
-  public static class MyLINQExtensions
+  public static class MyLinqExtensions
   {
     // this is a chainable LINQ extension method 
     public static IEnumerable<T> ProcessSequence<T>(

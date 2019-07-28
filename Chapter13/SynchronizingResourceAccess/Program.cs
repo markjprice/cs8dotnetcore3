@@ -18,6 +18,7 @@ namespace SynchronizingResourceAccess
       try
       {
         Monitor.TryEnter(conch, TimeSpan.FromSeconds(15));
+
         for (int i = 0; i < 5; i++)
         {
           Thread.Sleep(r.Next(2000));
@@ -37,6 +38,7 @@ namespace SynchronizingResourceAccess
       try
       {
         Monitor.TryEnter(conch, TimeSpan.FromSeconds(15));
+        
         for (int i = 0; i < 5; i++)
         {
           Thread.Sleep(r.Next(2000));

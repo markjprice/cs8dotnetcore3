@@ -8,20 +8,26 @@ namespace NestedAndChildTasks
 {
   class Program
   {
+    static void OuterMethod()
+    {
+      WriteLine("Outer method starting...");
+      var inner = Task.Factory.StartNew(InnerMethod,
+        TaskCreationOptions.AttachedToParent);
+      WriteLine("Outer method finished.");
+    }
+
+    static void InnerMethod()
+    {
+      WriteLine("Inner method starting...");
+      Thread.Sleep(2000);
+      WriteLine("Inner method finished.");
+    }
+
     static void Main(string[] args)
     {
-      var outer = Task.Factory.StartNew(() =>
-        {
-          WriteLine("Outer task starting...");
-          var inner = Task.Factory.StartNew(() =>
-            {
-              WriteLine("Inner task starting...");
-              Thread.Sleep(2000);
-              WriteLine("Inner task finished.");
-            }, TaskCreationOptions.AttachedToParent);
-        });
+      var outer = Task.Factory.StartNew(OuterMethod);
       outer.Wait();
-      WriteLine("Outer task finished.");
+      WriteLine("Console app is stopping.");
     }
   }
 }

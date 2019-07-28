@@ -9,21 +9,23 @@ namespace MonitoringApp
   {
     static void Main(string[] args)
     {
-      /* 
-        Write("Press ENTER to start the timer: ");
-        ReadLine();
-        Recorder.Start();
-        int[] largeArrayOfInts = Enumerable.Range(1, 10000).ToArray();
-        Write("Press ENTER to stop the timer: ");
-        ReadLine();
-        Recorder.Stop();
-        ReadLine();
+      /*
+      WriteLine("Processing. Please wait...");
+      Recorder.Start();
+
+      // simulate a process that requires some memory resources...
+      int[] largeArrayOfInts = Enumerable.Range(1, 10_000).ToArray();
+
+      // ...and takes some time to complete
+      System.Threading.Thread.Sleep(new Random().Next(5, 10) * 1000);
+
+      Recorder.Stop();
       */
 
-      int[] numbers = Enumerable.Range(1, 50000).ToArray();
+      int[] numbers = Enumerable.Range(1, 50_000).ToArray();
 
       Recorder.Start();
-      WriteLine("Using string");
+      WriteLine("Using string with +");
       string s = "";
       for (int i = 0; i < numbers.Length; i++)
       {
@@ -39,8 +41,6 @@ namespace MonitoringApp
         builder.Append(numbers[i]); builder.Append(", ");
       }
       Recorder.Stop();
-      ReadLine();
-
     }
   }
 }

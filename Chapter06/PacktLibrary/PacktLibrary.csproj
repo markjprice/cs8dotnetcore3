@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <!-- Default interface implementation feature requires
+    a <TargetFramework> runtime that supports it like 
+    netcoreapp3.0, you cannot use netstandard2.0 or 
+    netstandard2.1 -->
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
 

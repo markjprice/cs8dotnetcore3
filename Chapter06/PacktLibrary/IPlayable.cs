@@ -8,12 +8,10 @@ namespace Packt.Shared
 
     void Pause();
 
-    void Stop();
-
-    // you cannot use default interface implementations in a class library (yet)
-    // void Stop()
-    // {
-    //   WriteLine("Default implementation of Stop.");
-    // }
+    // Default interface implementation
+    void Stop()
+    {
+      WriteLine("Default implementation of Stop.");
+    }
   }
 }

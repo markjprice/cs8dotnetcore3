@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Packt.Shared
@@ -12,12 +12,12 @@ namespace Packt.Shared
     public DateTime? RequiredDate { get; set; }
     public DateTime? ShippedDate { get; set; }
     public int ShipVia { get; set; }
-     public decimal? Freight { get; set; } = 0;
+    public decimal? Freight { get; set; } = 0;
 
     // related entities
+    public Customer Customer { get; set; }
     public Employee Employee { get; set; }
     public Shipper Shipper { get; set; }
-    public Customer Customer { get; set; }
-   public ICollection<OrderDetail> OrderDetails { get; set; }
+    public ICollection<OrderDetail> OrderDetails { get; set; }
   }
 }

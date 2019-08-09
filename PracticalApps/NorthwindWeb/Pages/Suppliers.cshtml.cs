@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using System.Collections.Generic;
+using System.Linq;
 using Packt.Shared;
+using Microsoft.AspNetCore.Mvc;
 
 namespace NorthwindWeb.Pages
 {
@@ -23,7 +21,7 @@ namespace NorthwindWeb.Pages
     {
       ViewData["Title"] = "Northwind Web Site - Suppliers";
 
-      Suppliers = db.Suppliers.Select(s => s.CompanyName).ToArray();
+      Suppliers = db.Suppliers.Select(s => s.CompanyName);
     }
 
     [BindProperty]
@@ -33,7 +31,7 @@ namespace NorthwindWeb.Pages
     {
       if (ModelState.IsValid)
       {
-        db.Suppliers.Add(Supplier); 
+        db.Suppliers.Add(Supplier);
         db.SaveChanges();
         return RedirectToPage("/suppliers");
       }

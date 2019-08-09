@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Packt.Shared;
 
-namespace Packt.Shared
+namespace NorthwindMvc.Models
 {
   public class HomeIndexViewModel
   {

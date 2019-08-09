@@ -1,12 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="3.0.0-preview.19074.3" />
+    <ProjectReference Include=
+      "..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj" />
+    <PackageReference
+      Include="Microsoft.EntityFrameworkCore.SQLite" 
+      Version="3.0.0-preview7.19362.6" />
   </ItemGroup>
 
 </Project>

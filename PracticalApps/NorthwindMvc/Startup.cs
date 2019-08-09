@@ -1,21 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
-
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
+using NorthwindMvc.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
-using NorthwindMvc.Data;
+using Microsoft.Extensions.Hosting;
+using Packt.Shared;
+using System.IO;
 
 namespace NorthwindMvc
 {
@@ -31,37 +29,25 @@ namespace NorthwindMvc
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddHttpClient(name: "NorthwindService",
-        configureClient: options =>
-        {
-          options.BaseAddress = new Uri("https://localhost:5002/");
-          options.DefaultRequestHeaders.Accept.Add(
-            new MediaTypeWithQualityHeaderValue("application/json", 1.0));
-        });
+      string databasePath = Path.Combine("..", "Northwind.db");
 
-      services.Configure<CookiePolicyOptions>(options =>
-      {
-        // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-        options.CheckConsentNeeded = context => true;
-        options.MinimumSameSitePolicy = SameSiteMode.None;
-      });
+      services.AddDbContext<Northwind>(options => 
+        options.UseSqlite($"Data Source={databasePath}"));
 
       services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlite(
           Configuration.GetConnectionString("DefaultConnection")));
 
-      services.AddDefaultIdentity<IdentityUser>()
-        .AddDefaultUI(UIFramework.Bootstrap4)
+      services.AddDefaultIdentity<IdentityUser>(
+        options => options.SignIn.RequireConfirmedAccount = true)
         .AddEntityFrameworkStores<ApplicationDbContext>();
 
-      services.AddDbContext<Packt.Shared.Northwind>(options =>
-        options.UseSqlite("Data Source=../NorthwindWeb/Northwind.db"));
-
-      services.AddMvc();
+      services.AddControllersWithViews();
+      services.AddRazorPages();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       if (env.IsDevelopment())
       {
@@ -77,15 +63,19 @@ namespace NorthwindMvc
 
       app.UseHttpsRedirection();
       app.UseStaticFiles();
-      app.UseCookiePolicy();
+
+      app.UseRouting();
 
       app.UseAuthentication();
+      app.UseAuthorization();
 
-      app.UseMvc(routes =>
+      app.UseEndpoints(endpoints =>
       {
-        routes.MapRoute(
+        endpoints.MapControllerRoute(
           name: "default",
-          template: "{controller=Home}/{action=Index}/{id?}");
+          pattern: "{controller=Home}/{action=Index}/{id?}");
+
+        endpoints.MapRazorPages();
       });
     }
   }

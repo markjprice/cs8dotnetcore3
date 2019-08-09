@@ -13,7 +13,7 @@ namespace Packt.Shared
     public DbSet<Shipper> Shippers { get; set; } 
     public DbSet<Supplier> Suppliers { get; set; }
 
-    public Northwind(DbContextOptions options)
+    public Northwind(DbContextOptions<Northwind> options)
       : base(options) { }
 
     protected override void OnModelCreating(
@@ -48,6 +48,11 @@ namespace Packt.Shared
       modelBuilder.Entity<Customer>()
         .Property(c => c.Country)
         .HasMaxLength(15);
+
+      // define a one-to-many relationship
+      modelBuilder.Entity<Employee>()
+        .HasMany(e => e.Orders)
+        .WithOne(o => o.Employee);
 
       modelBuilder.Entity<Employee>()
         .Property(c => c.LastName)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Packt.Shared
@@ -20,10 +20,8 @@ namespace Packt.Shared
     public string HomePhone { get; set; }
     public string Extension { get; set; }
     public string Notes { get; set; }
-    public int ReportsTo { get; set; }
 
     // related entities
-    public Employee Manager { get; set; }
     public ICollection<Order> Orders { get; set; }
   }
 }

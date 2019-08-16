@@ -1,6 +1,5 @@
-﻿using Piranha.AttributeBuilder; // [PageType]
-using Piranha.Extend.Fields;
-using Piranha.Models; // Page<T>
+using Piranha.AttributeBuilder;
+using Piranha.Models;
 
 namespace NorthwindCms.Models
 {

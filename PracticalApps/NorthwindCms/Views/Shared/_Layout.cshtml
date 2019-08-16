@@ -1,5 +1,5 @@
-@{
-    var site = WebApp.Site.GetContent<NorthwindCms.Models.BlogSite>();
+﻿@{
+    var site = await WebApp.Site.GetContentAsync<NorthwindCms.Models.BlogSite>();
 }
 <!doctype html>
 <html lang="en">

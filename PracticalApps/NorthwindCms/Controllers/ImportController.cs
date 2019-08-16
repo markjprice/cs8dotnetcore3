@@ -1,17 +1,13 @@
-﻿using System;
-using System.Linq;
-
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore; // Include extension method
-
+using Piranha;
+using Piranha.Models;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Packt.Shared;
 using NorthwindCms.Models;
 using NorthwindCms.Models.Regions;
-
-using Packt.Shared;
-
-using Piranha;
-using Piranha.Extend.Blocks;
-using Piranha.Models;
+using Microsoft.EntityFrameworkCore; // Include() extension method
 
 namespace NorthwindCms.Controllers
 {
@@ -28,33 +24,42 @@ namespace NorthwindCms.Controllers
     }
 
     [Route("/import")]
-    public IActionResult Import()
+    public async Task<IActionResult> Import()
     {
-      var site = api.Sites.GetDefault();
-      var catalog = api.Pages.GetBySlug<CatalogPage>("catalog");
+      var site = await api.Sites.GetDefaultAsync();
+      var catalog = await api.Pages
+        .GetBySlugAsync<CatalogPage>("catalog");
 
-      foreach (var category in db.Categories.Include(c => c.Products))
+      var categories = db.Categories.Include(c => c.Products);
+
+      foreach (var category in categories)
       {
         // if the category page already exists,
         // then skip to the next iteration of the loop
-        CategoryPage categoryPage = api.Pages.GetBySlug<CategoryPage>(
+        CategoryPage categoryPage = 
+          await api.Pages.GetBySlugAsync<CategoryPage>(
           $"catalog/{category.CategoryName.ToLower()}");
         
         if (categoryPage == null)
         {
           categoryPage = CategoryPage.Create(api);
+          
           categoryPage.Id = Guid.NewGuid();
           categoryPage.SiteId = site.Id;
           categoryPage.ParentId = catalog.Id;
         
-          categoryPage.CategoryDetail.CategoryID = category.CategoryID;
-          categoryPage.CategoryDetail.CategoryName = category.CategoryName;
-          categoryPage.CategoryDetail.Description = category.Description;
+          categoryPage.CategoryDetail.CategoryID = 
+            category.CategoryID;
+          categoryPage.CategoryDetail.CategoryName = 
+            category.CategoryName;
+          categoryPage.CategoryDetail.Description = 
+            category.Description;
 
           // find image with correct filename for category id
-          var image = api.Media.GetAll().First(media => 
-            media.Type == MediaType.Image &&
-            media.Filename == $"category{category.CategoryID}.jpeg");
+          var image = (await api.Media.GetAllAsync())
+            .First(media => media.Type == MediaType.Image 
+            && media.Filename == 
+            $"category{category.CategoryID}.jpeg");
 
           categoryPage.CategoryDetail.CategoryImage = image;
         }
@@ -68,7 +73,8 @@ namespace NorthwindCms.Controllers
             {
               ProductID = p.ProductID,
               ProductName = p.ProductName,
-              UnitPrice = p.UnitPrice.HasValue ? p.UnitPrice.Value.ToString("c") : "n/a",
+              UnitPrice = p.UnitPrice.HasValue
+                ? p.UnitPrice.Value.ToString("c") : "n/a",
               UnitsInStock = p.UnitsInStock ?? 0
             }).ToList();
         }
@@ -78,7 +84,7 @@ namespace NorthwindCms.Controllers
         categoryPage.NavigationTitle = category.CategoryName;
         categoryPage.Published = DateTime.Now;
 
-        api.Pages.Save(categoryPage);
+        await api.Pages.SaveAsync(categoryPage);
       }
 
       return Redirect("~/");

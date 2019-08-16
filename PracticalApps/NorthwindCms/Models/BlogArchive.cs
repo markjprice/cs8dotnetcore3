@@ -1,4 +1,4 @@
-﻿using Piranha.AttributeBuilder;
+using Piranha.AttributeBuilder;
 using Piranha.Models;
 
 namespace NorthwindCms.Models

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Linq;
-
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
-using NorthwindCms.Models;
-
 using Piranha;
+using NorthwindCms.Models;
+using System.Linq;
 
 namespace NorthwindCms.Controllers
 {
@@ -32,16 +30,11 @@ namespace NorthwindCms.Controllers
     /// <param name="category">The optional category</param>
     /// <param name="tag">The optional tag</param>
     [Route("archive")]
-    public IActionResult Archive(Guid id, int? year = null, int? month = null, int? page = null,
+    public async Task<IActionResult> Archive(Guid id, int? year = null, int? month = null, int? page = null,
         Guid? category = null, Guid? tag = null)
     {
-      Models.BlogArchive model;
-
-      if (category.HasValue)
-        model = _api.Archives.GetByCategoryId<Models.BlogArchive>(id, category.Value, page, year, month);
-      else if (tag.HasValue)
-        model = _api.Archives.GetByTagId<Models.BlogArchive>(id, tag.Value, page, year, month);
-      else model = _api.Archives.GetById<Models.BlogArchive>(id, page, year, month);
+      var model = await _api.Pages.GetByIdAsync<BlogArchive>(id);
+      model.Archive = await _api.Archives.GetByIdAsync(id, page, category, tag, year, month);
 
       return View(model);
     }
@@ -51,9 +44,21 @@ namespace NorthwindCms.Controllers
     /// </summary>
     /// <param name="id">The unique page id</param>
     [Route("page")]
-    public IActionResult Page(Guid id)
+    public async Task<IActionResult> Page(Guid id)
     {
-      var model = _api.Pages.GetById<Models.StandardPage>(id);
+      var model = await _api.Pages.GetByIdAsync<StandardPage>(id);
+
+      return View(model);
+    }
+
+    /// <summary>
+    /// Gets the page with the given id.
+    /// </summary>
+    /// <param name="id">The unique page id</param>
+    [Route("pagewide")]
+    public async Task<IActionResult> PageWide(Guid id)
+    {
+      var model = await _api.Pages.GetByIdAsync<StandardPage>(id);
 
       return View(model);
     }
@@ -62,53 +67,57 @@ namespace NorthwindCms.Controllers
     /// Gets the post with the given id.
     /// </summary>
     /// <param name="id">The unique post id</param>
+    ///
     [Route("post")]
-    public IActionResult Post(Guid id)
+    public async Task<IActionResult> Post(Guid id)
     {
-      var model = _api.Posts.GetById<Models.BlogPost>(id);
+      var model = await _api.Posts.GetByIdAsync<BlogPost>(id);
 
       return View(model);
     }
 
-    /// <summary>
-    /// Gets the catalog page with the given id.
-    /// </summary>
-    /// <param name="id">The unique catalog page id</param>
     [Route("catalog")]
-    public IActionResult Catalog(Guid id)
+    public async Task<IActionResult> Catalog(Guid id)
     {
-      var catalog = _api.Pages.GetById<CatalogPage>(id);
+      var catalog = await _api.Pages.GetByIdAsync<CatalogPage>(id);
 
       var model = new CatalogViewModel
       {
         CatalogPage = catalog,
-        Categories = _api.Sites.GetSitemap()
-            .Where(item => item.Id == catalog.Id)
-            .SelectMany(item => item.Items)
-            .Select(item =>
+        Categories = (await _api.Sites.GetSitemapAsync())
+
+          // get the catalog page
+          .Where(item => item.Id == catalog.Id)
+
+          // get its children
+          .SelectMany(item => item.Items)
+          
+          // for the child sitemap item, get the page,
+          // and return a simplified model for the view
+          .Select(item =>
+            {
+              var page = _api.Pages.GetByIdAsync<CategoryPage>(item.Id).Result;
+
+              var ci = new CategoryItem
               {
-                var page = _api.Pages.GetById<CategoryPage>(item.Id);
-                var ci = new CategoryItem
-                {
-                  Title = page.Title,
-                  PageUrl = page.Permalink,
-                  ImageUrl = page.CategoryDetail.CategoryImage.Resize(_api, 200).Substring(2)
-                };
-                return ci;
-              })
+                Title = page.Title,
+                Description = page.CategoryDetail.Description,
+                PageUrl = page.Permalink,
+                ImageUrl = page.CategoryDetail.CategoryImage
+                  .Resize(_api, 200)
+              };
+
+              return ci;
+            })
       };
 
       return View(model);
     }
 
-    /// <summary>
-    /// Gets the category page with the given id.
-    /// </summary>
-    /// <param name="id">The unique category page id</param>
-    [Route("category")]
-    public IActionResult Category(Guid id)
+    [Route("catalog-category")]
+    public async Task<IActionResult> Category(Guid id)
     {
-      var model = _api.Pages.GetById<Models.CategoryPage>(id);
+      var model = await _api.Pages.GetByIdAsync<Models.CategoryPage>(id);
 
       return View(model);
     }

@@ -1,4 +1,4 @@
-﻿using Piranha.AttributeBuilder;
+using Piranha.AttributeBuilder;
 using Piranha.Extend.Fields;
 using Piranha.Models;
 
@@ -12,10 +12,12 @@ namespace NorthwindCms.Models.Regions
     [Field(Title = "Product name")]
     public TextField ProductName { get; set; }
     
-    [Field(Title = "Unit price", Options = FieldOption.HalfWidth)]
+    [Field(Title = "Unit price", 
+      Options = FieldOption.HalfWidth)]
     public StringField UnitPrice { get; set; }
 
-    [Field(Title = "Units in stock", Options = FieldOption.HalfWidth)]
+    [Field(Title = "Units in stock", 
+      Options = FieldOption.HalfWidth)]
     public NumberField UnitsInStock { get; set; }
   }
 }

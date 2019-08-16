@@ -86,6 +86,7 @@ namespace NorthwindMvc.Controllers
       IEnumerable<Product> model = db.Products
         .Include(p => p.Category)
         .Include(p => p.Supplier)
+        .AsEnumerable() // switch to client-side
         .Where(p => p.UnitPrice > price)
         .ToArray();
 
@@ -98,6 +99,7 @@ namespace NorthwindMvc.Controllers
       return View(model); // pass model to view
     }
 
+    [Route("private")]
     public IActionResult Privacy()
     {
       return View();

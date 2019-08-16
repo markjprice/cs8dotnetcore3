@@ -50,11 +50,11 @@
     {
         <article>
             <header>
-                @if (post.Regions.Heading.PrimaryImage.HasValue) 
+                @if (post.Regions.Hero.PrimaryImage.HasValue) 
                 {
                     <div class="row justify-content-center">
                         <div class="col-sm">
-                            <a href="@post.Permalink"><img src="@Url.Content(post.Regions.Heading.PrimaryImage.Resize(Api, 930, 360))"></a>
+                            <a href="@post.Permalink"><img src="@Url.Content(post.Regions.Hero.PrimaryImage.Resize(Api, 930, 360))"></a>
                         </div>
                     </div>
                 }
@@ -79,7 +79,7 @@
             <div class="row justify-content-center">
                 <div class="col-sm-10">
                     <div class="ingress">
-                        @Html.Raw(post.Regions.Heading.Ingress)
+                        @Html.Raw(post.Regions.Hero.Ingress)
                     </div>
                     <p><a class="btn btn-link" href="@post.Permalink">Read more</a></p>
                 </div>

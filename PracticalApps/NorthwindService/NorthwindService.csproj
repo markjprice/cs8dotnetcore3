@@ -2,20 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include=
       "..\NorthwindContextLib\NorthwindContextLib.csproj" />
 
-    <PackageReference 
-      Include="Swashbuckle.AspNetCore" 
-      Version="5.0.0-beta" />
-
-    <PackageReference 
-      Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" 
-      Version="3.0.0-preview-19075-0444" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc2" />
+    
+    <PackageReference Include=
+      "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" 
+      Version="3.0.0-preview8.19405.7" />
   </ItemGroup>
 
 </Project>

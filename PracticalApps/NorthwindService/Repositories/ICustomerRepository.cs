@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic; 
-using System.Threading.Tasks;
-
 using Packt.Shared;
+using System.Collections.Generic; 
+using System.Threading.Tasks;
 
 namespace NorthwindService.Repositories
 {
@@ -11,6 +10,6 @@ namespace NorthwindService.Repositories
     Task<IEnumerable<Customer>> RetrieveAllAsync();
     Task<Customer> RetrieveAsync(string id);
     Task<Customer> UpdateAsync(string id, Customer c);
-    Task<bool> DeleteAsync(string id);
+    Task<bool?> DeleteAsync(string id);
   }
 }

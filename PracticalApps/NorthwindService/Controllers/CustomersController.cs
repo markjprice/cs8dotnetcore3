@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Packt.Shared;
+using NorthwindService.Repositories;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-using Microsoft.AspNetCore.Mvc;
-
-using NorthwindService.Repositories;
-
-using Packt.Shared;
+using Microsoft.AspNetCore.Http;
 
 namespace NorthwindService.Controllers
 {
@@ -15,7 +13,7 @@ namespace NorthwindService.Controllers
   [ApiController]
   public class CustomersController : ControllerBase
   {
-    private readonly ICustomerRepository repo;
+    private ICustomerRepository repo;
 
     // constructor injects repository registered in Startup
     public CustomersController(ICustomerRepository repo)
@@ -25,6 +23,7 @@ namespace NorthwindService.Controllers
 
     // GET: api/customers
     // GET: api/customers/?country=[country] 
+    // this will always return a list of customers even if its empty
     [HttpGet]
     [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
     public async Task<IEnumerable<Customer>> GetCustomers(string country)
@@ -46,7 +45,7 @@ namespace NorthwindService.Controllers
     [ProducesResponseType(404)]
     public async Task<IActionResult> GetCustomer(string id)
     {
-      Customer c = await repo.RetrieveAsync(id); 
+      Customer c = await repo.RetrieveAsync(id);
       if (c == null)
       {
         return NotFound(); // 404 Resource not found
@@ -65,7 +64,12 @@ namespace NorthwindService.Controllers
       {
         return BadRequest(); // 400 Bad request
       }
-      
+
+      if (!ModelState.IsValid)
+      {
+        return BadRequest(ModelState); // 400 Bad request
+      }
+
       Customer added = await repo.CreateAsync(c);
 
       return CreatedAtRoute( // 201 Created
@@ -80,7 +84,8 @@ namespace NorthwindService.Controllers
     [ProducesResponseType(204)]
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
-    public async Task<IActionResult> Update(string id, [FromBody] Customer c)
+    public async Task<IActionResult> Update(
+      string id, [FromBody] Customer c)
     {
       id = id.ToUpper();
       c.CustomerID = c.CustomerID.ToUpper();
@@ -88,6 +93,11 @@ namespace NorthwindService.Controllers
       if (c == null || c.CustomerID != id)
       {
         return BadRequest(); // 400 Bad request
+      }
+
+      if (!ModelState.IsValid)
+      {
+        return BadRequest(ModelState); // 400 Bad request
       }
 
       var existing = await repo.RetrieveAsync(id);
@@ -104,23 +114,40 @@ namespace NorthwindService.Controllers
 
     // DELETE: api/customers/[id] 
     [HttpDelete("{id}")]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
     public async Task<IActionResult> Delete(string id)
     {
-      var existing = await repo.RetrieveAsync(id); 
+      if (id == "bad")
+      {
+        var problemDetails = new ProblemDetails
+        {
+          Status = StatusCodes.Status400BadRequest,
+          Type = "https://localhost:5001/customers/failed-to-delete",
+          Title = $"Customer ID {id} found but failed to delete.",
+          Detail = "More details like Company Name, Country and so on.",
+          Instance = HttpContext.Request.Path
+        };
+        return BadRequest(problemDetails); // 400 Bad request
+      }
+
+      var existing = await repo.RetrieveAsync(id);
       if (existing == null)
       {
         return NotFound(); // 404 Resource not found
       }
 
-      bool deleted = await repo.DeleteAsync(id);
+      bool? deleted = await repo.DeleteAsync(id);
 
-      if (deleted)
+      if (deleted.HasValue && deleted.Value) // short circuit AND
       {
         return new NoContentResult(); // 204 No content
       }
       else
       {
-        return BadRequest();
+        return BadRequest( // 400 Bad request
+          $"Customer {id} was found but failed to delete.");
       }
     }
   }

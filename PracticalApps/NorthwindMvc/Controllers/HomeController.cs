@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using NorthwindMvc.Models;
 using Packt.Shared;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace NorthwindMvc.Controllers
 {
@@ -17,34 +19,39 @@ namespace NorthwindMvc.Controllers
 
     private readonly Northwind db;
 
-    public HomeController(ILogger<HomeController> logger,
-      Northwind injectedContext)
+    private readonly IHttpClientFactory clientFactory;
+
+    public HomeController(
+      ILogger<HomeController> logger,
+      Northwind injectedContext,
+      IHttpClientFactory httpClientFactory)
     {
       _logger = logger;
       db = injectedContext;
+      clientFactory = httpClientFactory;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
       var model = new HomeIndexViewModel
       {
         VisitorCount = (new Random()).Next(1, 1001),
-        Categories = db.Categories.ToList(),
-        Products = db.Products.ToList()
+        Categories = await db.Categories.ToListAsync(),
+        Products = await db.Products.ToListAsync()
       };
 
       return View(model); // pass model to view
     }
 
-    public IActionResult ProductDetail(int? id)
+    public async Task<IActionResult> ProductDetail(int? id)
     {
       if (!id.HasValue)
       {
         return NotFound("You must pass a product ID in the route, for example, /Home/ProductDetail/21");
       }
 
-      var model = db.Products
-        .SingleOrDefault(p => p.ProductID == id);
+      var model = await db.Products
+        .SingleOrDefaultAsync(p => p.ProductID == id);
 
       if (model == null)
       {
@@ -87,8 +94,7 @@ namespace NorthwindMvc.Controllers
         .Include(p => p.Category)
         .Include(p => p.Supplier)
         .AsEnumerable() // switch to client-side
-        .Where(p => p.UnitPrice > price)
-        .ToArray();
+        .Where(p => p.UnitPrice > price);
 
       if (model.Count() == 0)
       {
@@ -114,6 +120,37 @@ namespace NorthwindMvc.Controllers
         RequestId =
         Activity.Current?.Id ?? HttpContext.TraceIdentifier
       });
+    }
+
+    public async Task<IActionResult> Customers(string country)
+    {
+      string uri;
+
+      if (string.IsNullOrEmpty(country))
+      {
+        ViewData["Title"] = "All Customers Worldwide";
+        uri = "api/customers/";
+      }
+      else
+      {
+        ViewData["Title"] = $"Customers in {country}";
+        uri = $"api/customers/?country={country}";
+      }
+
+      var client = clientFactory.CreateClient(
+        name: "NorthwindService");
+
+      var request = new HttpRequestMessage(
+        method: HttpMethod.Get, requestUri: uri);
+
+      HttpResponseMessage response = await client.SendAsync(request);
+
+      string jsonString = await response.Content.ReadAsStringAsync();
+
+      IEnumerable<Customer> model = JsonConvert
+        .DeserializeObject<IEnumerable<Customer>>(jsonString);
+
+      return View(model);
     }
   }
 }

@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "NorthwindCms"
+		},
+		{
+			"path": "NorthwindService"
 		}
 	],
 	"settings": {}

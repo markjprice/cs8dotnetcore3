@@ -1,7 +1,0 @@
-GET https://localhost:5002/api/customers/ HTTP/1.1
-
-GET https://localhost:5002/api/customers/?country=Germany HTTP/1.1
-
-GET https://localhost:5002/api/customers/?country=USA HTTP/1.1
-
-GET https://localhost:5002/api/customers/ALFKI HTTP/1.1

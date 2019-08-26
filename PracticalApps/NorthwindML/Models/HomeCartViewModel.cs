@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Packt.Shared;
 
 namespace NorthwindML.Models
 {
@@ -7,6 +6,7 @@ namespace NorthwindML.Models
   {
     public Cart Cart { get; set; }
     
-    public List<EnrichedRecommendation> Recommendations { get; set; }
+    public List<EnrichedRecommendation> 
+      Recommendations { get; set; }
   }
 }

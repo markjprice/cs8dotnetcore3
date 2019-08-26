@@ -35,13 +35,9 @@ namespace NorthwindCms
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
     public void ConfigureServices(IServiceCollection services)
     {
-      // Piranha CMS 6.1
-      // services.AddMvc(config =>
-      // {
-      //     config.ModelBinderProviders.Insert(0, new Piranha.Manager.Binders.AbstractModelBinderProvider());
-      // }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-      // Piranha CMS 7.0 and later
+      services.AddLocalization(options =>
+        options.ResourcesPath = "Resources"
+      );
       services.AddMvc()
         .AddPiranhaManagerOptions()
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -71,7 +67,7 @@ namespace NorthwindCms
 
       string databasePath = Path.Combine("..", "Northwind.db");
 
-      services.AddDbContext<Packt.Shared.Northwind>(options => 
+      services.AddDbContext<Packt.Shared.Northwind>(options =>
         options.UseSqlite($"Data Source={databasePath}"));
     }
 
@@ -118,7 +114,7 @@ namespace NorthwindCms
       app.UsePiranhaManager();
 
       app.UseHttpsRedirection();
-      
+
       app.UseMvc(routes =>
       {
         routes.MapRoute(name: "areaRoute",

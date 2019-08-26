@@ -81,6 +81,14 @@ namespace Packt.Shared
         .HasOne(p => p.Supplier)
         .WithMany(s => s.Products);
 
+      // define a one-to-many relationship
+      // with a property key that does not
+      // follow naming conventions
+      modelBuilder.Entity<Order>()
+        .HasOne(o => o.Shipper)
+        .WithMany(s => s.Orders)
+        .HasForeignKey(o => o.ShipVia);
+
       // the table name has a space in it
       modelBuilder.Entity<OrderDetail>()
         .ToTable("Order Details");

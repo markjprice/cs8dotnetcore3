@@ -4,20 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{37A86992-62D6-4A82-87B7-B4632419C4CB}</ProjectGuid>
+    <ProjectGuid>{F316AFC0-FA7A-4516-900C-62DA1B8F6BD4}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NorthwindFluent</RootNamespace>
     <AssemblyName>NorthwindFluent</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <PackageCertificateKeyFile>NorthwindFluent_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -136,7 +136,8 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="NorthwindFluent_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Assets\categories-small.jpeg" />
     <Content Include="Assets\categories.jpeg" />
     <Content Include="Assets\category1-small.jpeg" />
@@ -155,9 +156,6 @@
     <Content Include="Assets\category7.jpeg" />
     <Content Include="Assets\category8-small.jpeg" />
     <Content Include="Assets\category8.jpeg" />
-    <Content Include="selfcertlocalhost.cer" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -187,12 +185,15 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.2</Version>
+      <Version>6.2.8</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="selfcertlocalhost.cer" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj">
-      <Project>{848a8d5b-4991-4379-a7c0-cfc88426d19f}</Project>
+      <Project>{44b72222-cb9f-4002-bbe3-a0ec6198e505}</Project>
       <Name>NorthwindEntitiesLib</Name>
     </ProjectReference>
   </ItemGroup>

@@ -17,7 +17,7 @@ namespace LegacyWinForms
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnGoToChristmas_Click(object sender, EventArgs e)
         {
             DateTime christmas = new DateTime(2019, 12, 25);
             monthCalendar1.SelectionStart = christmas;

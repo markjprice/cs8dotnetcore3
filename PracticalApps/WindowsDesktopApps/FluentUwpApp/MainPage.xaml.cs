@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -18,30 +17,33 @@ using Windows.UI.Xaml.Navigation;
 
 namespace FluentUwpApp
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+  /// <summary>
+  /// An empty page that can be used on its own or navigated to within a Frame.
+  /// </summary>
+  public sealed partial class MainPage : Page
+  {
+    public MainPage()
     {
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
-
-        private void ClickMeButton_Click(object sender, RoutedEventArgs e)
-        {
-            ClickMeButton.Content = DateTime.Now.ToString("hh:mm:ss");
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            foreach (Button b in gridCalculator.Children.OfType<Button>())
-            {
-                b.FontSize = 24;
-                b.Width = 54;
-                b.Height = 54;
-                b.Style = Resources.ThemeDictionaries["ButtonRevealStyle"] as Style;
-            }
-        }
+      this.InitializeComponent();
     }
+
+    private void ClickMeButton_Click(object sender, RoutedEventArgs e)
+    {
+      ClickMeButton.Content = DateTime.Now.ToString("hh:mm:ss");
+    }
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+      Style reveal = Resources.ThemeDictionaries[
+        "ButtonRevealStyle"] as Style;
+
+      foreach (Button b in gridCalculator.Children.OfType<Button>())
+      {
+        b.FontSize = 24;
+        b.Width = 54;
+        b.Height = 54;
+        b.Style = reveal;
+      }
+    }
+  }
 }

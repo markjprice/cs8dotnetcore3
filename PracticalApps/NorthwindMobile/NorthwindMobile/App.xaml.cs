@@ -3,7 +3,6 @@ using NorthwindMobile.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace NorthwindMobile
 {
 	public partial class App : Application

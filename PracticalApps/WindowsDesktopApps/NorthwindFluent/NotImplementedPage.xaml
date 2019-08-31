@@ -9,8 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Not yet implemented." 
+    <TextBlock Text="Not yet implemented." 
            VerticalAlignment="Center" HorizontalAlignment="Center" 
            FontSize="20" />
-    </Grid>
+
+  </Grid>
 </Page>

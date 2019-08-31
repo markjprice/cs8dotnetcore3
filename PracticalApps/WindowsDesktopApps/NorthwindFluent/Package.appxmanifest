@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="529cf086-0296-4709-a466-6b572fe2b47d"
+    Name="0f80b6c4-6e12-40a3-ae23-c34c3ef8549c"
     Publisher="CN=markj"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="529cf086-0296-4709-a466-6b572fe2b47d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="0f80b6c4-6e12-40a3-ae23-c34c3ef8549c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>NorthwindFluent</DisplayName>
@@ -50,7 +50,7 @@
   <Extensions>
     <Extension Category="windows.certificates">
       <Certificates>
-        <Certificate StoreName="root" Content="selfcertlocalhost.cer"/>
+        <Certificate Content="selfcertlocalhost.cer" StoreName="root"/>
       </Certificates>
     </Extension>
   </Extensions>

@@ -1,18 +1,20 @@
 ﻿using Android.Content;
 using Android.Telephony;
-using NorthwindMobile.Android;
+using NorthwindMobile.Droid;
+using Plugin.CurrentActivity;
 using System.Linq;
 using Xamarin.Forms;
 using Uri = Android.Net.Uri;
 
 [assembly: Dependency(typeof(PhoneDialer))]
-namespace NorthwindMobile.Android
+namespace NorthwindMobile.Droid
 {
 	public class PhoneDialer : IDialer
 	{
 		public bool Dial(string number)
 		{
-			var context = Forms.Context;
+			var context = CrossCurrentActivity.Current.Activity;
+
 			if (context == null) return false;
 
 			var intent = new Intent(Intent.ActionCall);

@@ -25,16 +25,18 @@ namespace NorthwindMobile.Views
 			};
 
 			client.DefaultRequestHeaders.Accept.Add(
-				new MediaTypeWithQualityHeaderValue("application/json"));
+				new MediaTypeWithQualityHeaderValue(
+				"application/json"));
 
 			HttpResponseMessage response = client
-			  .GetAsync("api/customers").Result;
+				.GetAsync("api/customers").Result;
 
 			response.EnsureSuccessStatusCode();
 
-      string content = response.Content.ReadAsStringAsync().Result;
+			string content = response.Content
+				.ReadAsStringAsync().Result;
 
-      var customersFromService = JsonConvert
+			var customersFromService = JsonConvert
 				.DeserializeObject<IEnumerable<Customer>>(content);
 
 			foreach (Customer c in customersFromService
@@ -47,7 +49,7 @@ namespace NorthwindMobile.Views
 		}
 
 		async void Customer_Tapped(
-			object sender, ItemTappedEventArgs e)
+	    object sender, ItemTappedEventArgs e)
 		{
 			var c = e.Item as Customer;
 			if (c == null) return;
@@ -90,5 +92,6 @@ namespace NorthwindMobile.Views
 		{
 			await Navigation.PushAsync(new CustomerDetails());
 		}
+
 	}
 }

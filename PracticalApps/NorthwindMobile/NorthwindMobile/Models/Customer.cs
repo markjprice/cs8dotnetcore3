@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace NorthwindMobile.Models
 {
@@ -22,14 +23,24 @@ namespace NorthwindMobile.Models
 		private string country;
 		private string phone;
 
+		// this attribute sets the propertyName parameter
+		// using the context in which this method is called
+		private void NotifyPropertyChanged(
+			[CallerMemberName] string propertyName = "")
+		{
+			// if an event handler has been set then invoke
+			// the delegate and pass the name of the property
+			PropertyChanged?.Invoke(this,
+				new PropertyChangedEventArgs(propertyName));
+		}
+
 		public string CustomerID
 		{
 			get => customerID;
 			set
 			{
 				customerID = value;
-				PropertyChanged?.Invoke(this,
-					new PropertyChangedEventArgs("CustomerID"));
+				NotifyPropertyChanged();
 			}
 		}
 
@@ -39,8 +50,7 @@ namespace NorthwindMobile.Models
 			set
 			{
 				companyName = value;
-				PropertyChanged?.Invoke(this,
-					new PropertyChangedEventArgs("CompanyName"));
+				NotifyPropertyChanged();
 			}
 		}
 
@@ -50,8 +60,7 @@ namespace NorthwindMobile.Models
 			set
 			{
 				contactName = value;
-				PropertyChanged?.Invoke(this,
-					new PropertyChangedEventArgs("ContactName"));
+				NotifyPropertyChanged();
 			}
 		}
 
@@ -61,8 +70,7 @@ namespace NorthwindMobile.Models
 			set
 			{
 				city = value;
-				PropertyChanged?.Invoke(this,
-					new PropertyChangedEventArgs("City"));
+				NotifyPropertyChanged();
 			}
 		}
 
@@ -72,8 +80,7 @@ namespace NorthwindMobile.Models
 			set
 			{
 				country = value;
-				PropertyChanged?.Invoke(this,
-					new PropertyChangedEventArgs("Country"));
+				NotifyPropertyChanged();
 			}
 		}
 
@@ -83,14 +90,13 @@ namespace NorthwindMobile.Models
 			set
 			{
 				phone = value;
-				PropertyChanged?.Invoke(this,
-					new PropertyChangedEventArgs("Phone"));
+				NotifyPropertyChanged();
 			}
 		}
 
 		public string Location
 		{
-			get => string.Format("{0}, {1}", City, Country);
+			get => $"{City}, {Country}";
 		}
 
 		// for testing before calling web service 

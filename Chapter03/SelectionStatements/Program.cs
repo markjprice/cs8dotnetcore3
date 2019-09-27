@@ -8,8 +8,6 @@ namespace SelectionStatements
   {
     static void Main(string[] args)
     {
-      // Branching with the if statement
-
       if (args.Length == 0)
       {
         WriteLine("There are no arguments.");
@@ -19,9 +17,9 @@ namespace SelectionStatements
         WriteLine("There is at least one argument.");
       }
 
-      // Pattern matching with the if statement
+      // add and remove the "" to change the behavior
+      object o = 3;
 
-      object o = "3"; // add and remove the "" to change the behavior
       int j = 4;
 
       if (o is int i)
@@ -32,8 +30,6 @@ namespace SelectionStatements
       {
         WriteLine("o is not an int so it cannot multiply!");
       }
-
-    // Branching with the switch statement
 
     A_label:
       var number = (new Random()).Next(1, 7);
@@ -61,10 +57,8 @@ namespace SelectionStatements
           break;
       } // end of switch statement
 
-      // Pattern matching with the switch statement
-
-      string path = "/Users/markjprice/Code/Chapter03"; // macOS
-      // string path = @"C:\Code\Chapter03"; // Windows
+      string path = "/Users/markjprice/Code/Chapter03";
+      // string path = @"C:\Code\Chapter03";
 
       Stream s = File.Open(
         Path.Combine(path, "file.txt"), FileMode.OpenOrCreate);
@@ -74,13 +68,13 @@ namespace SelectionStatements
       switch (s)
       {
         case FileStream writeableFile when s.CanWrite:
-          message = "The stream is to a file that I can write to.";
+          message = "The stream is a file that I can write to.";
           break;
         case FileStream readOnlyFile:
-          message = "The stream is to a read-only file.";
+          message = "The stream is a read-only file.";
           break;
         case MemoryStream ms:
-          message = "The stream is to a memory address.";
+          message = "The stream is a memory address.";
           break;
         default: // always evaluated last despite its current position
           message = "The stream is some other type.";
@@ -92,16 +86,14 @@ namespace SelectionStatements
 
       WriteLine(message);
 
-      // Simplifying switch statements with switch expressions
-
       message = s switch
       {
         FileStream writeableFile when s.CanWrite
-          => "The stream is to a file that I can write to.",
+          => "The stream is a file that I can write to.",
         FileStream readOnlyFile
-          => "The stream is to a read-only file.",
+          => "The stream is a read-only file.",
         MemoryStream ms
-          => "The stream is to a memory address.",
+          => "The stream is a memory address.",
         null
           => "The stream is null.",
         _

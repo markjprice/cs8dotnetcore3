@@ -20,14 +20,15 @@ namespace Packt.Shared
         .UseSqlite($"Filename={path}");
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(
+      ModelBuilder modelBuilder)
     {
       // example of using Fluent API instead of attributes
-      // to limit the length of a category name to under 40
+      // to limit the length of a category name to under 15
       modelBuilder.Entity<Category>()
         .Property(category => category.CategoryName)
-        .IsRequired()
-        .HasMaxLength(40);
+        .IsRequired() // NOT NULL
+        .HasMaxLength(15);
 
       // global filter to remove discontinued products
       modelBuilder.Entity<Product>()

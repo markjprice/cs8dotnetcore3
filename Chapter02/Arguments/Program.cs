@@ -1,5 +1,5 @@
-﻿using static System.Console;
-using System;
+﻿using System;
+using static System.Console;
 
 namespace Arguments
 {
@@ -22,13 +22,13 @@ namespace Arguments
       }
 
       ForegroundColor = (ConsoleColor)Enum.Parse(
-        enumType: typeof(ConsoleColor), 
-        value: args[0], 
+        enumType: typeof(ConsoleColor),
+        value: args[0],
         ignoreCase: true);
 
       BackgroundColor = (ConsoleColor)Enum.Parse(
-        enumType: typeof(ConsoleColor), 
-        value: args[1], 
+        enumType: typeof(ConsoleColor),
+        value: args[1],
         ignoreCase: true);
 
       try

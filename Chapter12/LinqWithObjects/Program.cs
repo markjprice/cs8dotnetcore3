@@ -11,9 +11,10 @@ namespace LinqWithObjects
       var names = new string[] { "Michael", "Pam", "Jim", "Dwight",
         "Angela", "Kevin", "Toby", "Creed" };
 
-      //var query = names.Where(new Func<string, bool>(NameLongerThanFour));
+      // var query = names.Where(
+      //   new Func<string, bool>(NameLongerThanFour));
 
-      //var query = names.Where(NameLongerThanFour);
+      // var query = names.Where(NameLongerThanFour);
 
       var query = names
         .Where(name => name.Length > 4)
@@ -29,11 +30,15 @@ namespace LinqWithObjects
     {
       var errors = new Exception[]
       {
-        new ArgumentException(), new SystemException(),
-        new IndexOutOfRangeException(), new InvalidOperationException(),
-        new NullReferenceException(), new InvalidCastException(),
+        new ArgumentException(), 
+        new SystemException(),
+        new IndexOutOfRangeException(), 
+        new InvalidOperationException(),
+        new NullReferenceException(), 
+        new InvalidCastException(),
         new OverflowException(),
-        new DivideByZeroException(), new ApplicationException()
+        new DivideByZeroException(), 
+        new ApplicationException()
       };
 
       var numberErrors = errors.OfType<ArithmeticException>();

@@ -4,7 +4,7 @@ using System.Xml.Serialization;       // XmlSerializer
 using System.IO;                      // FileStream
 using Packt.Shared;                   // Person 
 using System.Threading.Tasks;         // Task
-using NuJson = System.Text.Json.Serialization.JsonSerializer;
+using NuJson = System.Text.Json.JsonSerializer;
 using static System.Console;
 using static System.Environment;
 using static System.IO.Path;
@@ -29,7 +29,7 @@ namespace WorkingWithSerialization
             DateOfBirth = new DateTime(2000, 7, 12) } } }
         };
 
-      // create an object that will format as List of Persons as XML 
+      // create object that will format a List of Persons as XML 
       var xs = new XmlSerializer(typeof(List<Person>));
 
       // create a file to write to
@@ -86,12 +86,14 @@ namespace WorkingWithSerialization
 
       // Deserializing JSON using new APIs
 
-      using (FileStream jsonLoad = File.Open(jsonPath, FileMode.Open))
+      using (FileStream jsonLoad = File.Open(
+        jsonPath, FileMode.Open))
       {
-        // deserialize and cast the object graph into a List of Person 
-        var loadedPeople = (List<Person>)await NuJson.ReadAsync(
-          utf8Json: jsonLoad,
-          returnType: typeof(List<Person>));
+        // deserialize object graph into a List of Person 
+        var loadedPeople = (List<Person>)
+          await NuJson.DeserializeAsync(
+            utf8Json: jsonLoad,
+            returnType: typeof(List<Person>));
 
         foreach (var item in loadedPeople)
         {

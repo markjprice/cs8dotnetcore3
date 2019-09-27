@@ -7,7 +7,8 @@ namespace LinqWithSets
 {
   class Program
   {
-    static void Output(IEnumerable<string> cohort, string description = "")
+    static void Output(IEnumerable<string> cohort, 
+      string description = "")
     {
       if (!string.IsNullOrEmpty(description))
       {

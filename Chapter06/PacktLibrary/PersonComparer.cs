@@ -7,7 +7,8 @@ namespace Packt.Shared
       public int Compare(Person x, Person y) 
       { 
          // Compare the Name lengths...
-         int result = x.Name.Length.CompareTo(y.Name.Length);
+         int result = x.Name.Length
+           .CompareTo(y.Name.Length);
 
          /// ...if they are equal... 
          if (result == 0) 

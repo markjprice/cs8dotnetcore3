@@ -6,8 +6,10 @@ namespace Arrays
   {
     static void Main(string[] args)
     {
-      // declaring the size of the array
-      string[] names = new string[4];
+      string[] names; // can reference any array of strings
+
+      // allocating memory for four strings in an array
+      names = new string[4];
 
       // storing items at index positions
       names[0] = "Kate";
@@ -18,7 +20,8 @@ namespace Arrays
       // looping through the names
       for (int i = 0; i < names.Length; i++)
       {
-        Console.WriteLine(names[i]); // read the item at this index
+        // output the item at index position i
+        Console.WriteLine(names[i]);
       }
     }
   }

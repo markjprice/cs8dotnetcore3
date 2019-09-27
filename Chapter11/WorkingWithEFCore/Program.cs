@@ -24,7 +24,8 @@ namespace WorkingWithEFCore
 
         // a query to get all categories and their related products 
         IQueryable<Category> cats;
-        // = db.Categories; // .Include(c => c.Products);
+        // = db.Categories; 
+        // .Include(c => c.Products);
 
         db.ChangeTracker.LazyLoadingEnabled = false;
 
@@ -85,7 +86,8 @@ namespace WorkingWithEFCore
 
         foreach (Product item in prods)
         {
-          WriteLine("{0}: {1} costs {2:$#,##0.00} and has {3} in stock.",
+          WriteLine(
+            "{0}: {1} costs {2:$#,##0.00} and has {3} in stock.",
             item.ProductID, item.ProductName, item.Cost, item.Stock);
         }
       }

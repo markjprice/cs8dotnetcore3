@@ -8,10 +8,10 @@
   <ItemGroup>
     <PackageReference 
       Include="Microsoft.EntityFrameworkCore.Sqlite" 
-      Version="3.0.0-preview7.19362.6" />
+      Version="3.0.0" />
     <PackageReference
       Include="Microsoft.EntityFrameworkCore.Proxies"
-      Version="3.0.0-preview7.19362.6" />
+      Version="3.0.0" />
   </ItemGroup>
 
 </Project>

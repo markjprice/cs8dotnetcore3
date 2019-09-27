@@ -13,10 +13,5 @@ namespace Packt.Shared
     {
       WriteLine("DVD player is playing.");
     }
-
-    public void Stop()
-    {
-      WriteLine("DVD player is stopping.");
-    }
   }
 }

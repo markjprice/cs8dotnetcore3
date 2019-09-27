@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
+using Microsoft.Extensions.Configuration;
 
 namespace Instrumenting
 {
@@ -19,11 +19,9 @@ namespace Instrumenting
       Debug.WriteLine("Debug says, I am watching!");
       Trace.WriteLine("Trace says, I am watching!");
 
-      // Switching trace levels
-
       var builder = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.json", 
+        .AddJsonFile("appsettings.json",
           optional: true, reloadOnChange: true);
 
       IConfigurationRoot configuration = builder.Build();
@@ -38,6 +36,7 @@ namespace Instrumenting
       Trace.WriteLineIf(ts.TraceWarning, "Trace warning");
       Trace.WriteLineIf(ts.TraceInfo, "Trace information");
       Trace.WriteLineIf(ts.TraceVerbose, "Trace verbose");
+
     }
   }
 }

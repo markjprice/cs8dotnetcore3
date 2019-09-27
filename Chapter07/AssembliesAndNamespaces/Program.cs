@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 using DialectSoftware.Collections;
 using DialectSoftware.Collections.Generics;
-using Packt.CS7; // change to Packt.Shared when using CS8 package
+using Packt.Shared;
 using static System.Console;
 
 namespace AssembliesAndNamespaces

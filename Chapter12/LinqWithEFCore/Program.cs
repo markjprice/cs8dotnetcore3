@@ -15,7 +15,8 @@ namespace LinqWithEFCore
       {
         var query = db.Products
           .ProcessSequence()
-          .Where(product => product.UnitPrice < 10M) // IQueryable<Product>
+          .Where(product => product.UnitPrice < 10M)
+          // IQueryable<Product>
           .OrderByDescending(product => product.UnitPrice)
           // IOrderedQueryable<Product>
           .Select(product => new // anonymous type

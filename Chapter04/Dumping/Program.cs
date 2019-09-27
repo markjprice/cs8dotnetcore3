@@ -12,11 +12,13 @@ namespace Dumping
       var complexObject = new
       {
         FirstName = "Petr",
-        BirthDate = new DateTime(year: 1972, month: 12, day: 25),
+        BirthDate = new DateTime(
+          year: 1972, month: 12, day: 25),
         Friends = new[] { "Amir", "Geoff", "Sal" }
       };
 
-      WriteLine($"Dumping {nameof(complexObject)} to SharpPad.");
+      WriteLine(
+        $"Dumping {nameof(complexObject)} to SharpPad.");
 
       await complexObject.Dump();
     }

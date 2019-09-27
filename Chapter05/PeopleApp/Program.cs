@@ -34,15 +34,16 @@ namespace PeopleApp
 
       bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
 
-      WriteLine(
-        format: "{0}'s favorite wonder is {1}. It's integer is {2}.",
+      WriteLine(format: 
+        "{0}'s favorite wonder is {1}. It's integer is {2}.",
         arg0: bob.Name,
         arg1: bob.FavoriteAncientWonder,
         arg2: (int)bob.FavoriteAncientWonder);
 
       // Storing multiple values using an enum type
 
-      bob.BucketList = WondersOfTheAncientWorld.HangingGardensOfBabylon
+      bob.BucketList = 
+        WondersOfTheAncientWorld.HangingGardensOfBabylon
         | WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
 
       // bob.BucketList = (WondersOfTheAncientWorld)18; 
@@ -54,7 +55,8 @@ namespace PeopleApp
       bob.Children.Add(new Person { Name = "Alfred" }); 
       bob.Children.Add(new Person { Name = "Zoe" });
 
-      WriteLine($"{bob.Name} has {bob.Children.Count} children:");
+      WriteLine(
+        $"{bob.Name} has {bob.Children.Count} children:");
 
       for (int child = 0; child < bob.Children.Count; child++)
       {
@@ -65,7 +67,7 @@ namespace PeopleApp
 
       BankAccount.InterestRate = 0.012M; // store a shared value
 
-      var jonesAccount = new BankAccount(); // create a bank account
+      var jonesAccount = new BankAccount();
       jonesAccount.AccountName = "Mrs. Jones";
       jonesAccount.Balance = 2400;
 
@@ -73,7 +75,7 @@ namespace PeopleApp
         arg0: jonesAccount.AccountName,
         arg1: jonesAccount.Balance * BankAccount.InterestRate);
 
-      var gerrierAccount = new BankAccount(); // create another bank account
+      var gerrierAccount = new BankAccount();
       gerrierAccount.AccountName = "Ms. Gerrier";
       gerrierAccount.Balance = 98;
 
@@ -93,16 +95,16 @@ namespace PeopleApp
 
       var blankPerson = new Person();
 
-      WriteLine(
-        format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
+      WriteLine(format: 
+        "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
         arg0: blankPerson.Name,
         arg1: blankPerson.HomePlanet,
         arg2: blankPerson.Instantiated);
 
       var gunny = new Person("Gunny", "Mars");
 
-      WriteLine(
-        format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
+      WriteLine(format: 
+        "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
         arg0: gunny.Name,
         arg1: gunny.HomePlanet,
         arg2: gunny.Instantiated);
@@ -146,7 +148,8 @@ namespace PeopleApp
 
       WriteLine(bob.OptionalParameters("Jump!", 98.5));
 
-      WriteLine(bob.OptionalParameters(number: 52.7, command: "Hide!"));
+      WriteLine(bob.OptionalParameters(
+        number: 52.7, command: "Hide!"));
 
       WriteLine(bob.OptionalParameters("Poke!", active: false));
 
@@ -165,7 +168,8 @@ namespace PeopleApp
       int d = 10;
       int e = 20;
 
-      WriteLine($"Before: d = {d}, e = {e}, f doesn't exist yet!");
+      WriteLine(
+        $"Before: d = {d}, e = {e}, f doesn't exist yet!");
 
       // simplified C# 7 syntax for the out parameter
       bob.PassingParameters(d, ref e, out int f);
@@ -187,12 +191,12 @@ namespace PeopleApp
       // Defining settable properties
 
       sam.FavoriteIceCream = "Chocolate Fudge";
-      WriteLine(
-        $"Sam's favorite ice-cream flavor is {sam.FavoriteIceCream}.");
+      
+      WriteLine($"Sam's favorite ice-cream flavor is {sam.FavoriteIceCream}.");
 
       sam.FavoritePrimaryColor = "Red";
-      WriteLine(
-        $"Sam's favorite primary color is {sam.FavoritePrimaryColor}.");
+
+      WriteLine($"Sam's favorite primary color is {sam.FavoritePrimaryColor}.");
 
       // Defining indexers
 

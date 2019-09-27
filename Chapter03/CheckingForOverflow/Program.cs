@@ -7,8 +7,6 @@ namespace CheckingForOverflow
   {
     static void Main(string[] args)
     {
-      // Throwing overflow exceptions with the checked statement
-
       try
       {
         checked
@@ -28,11 +26,10 @@ namespace CheckingForOverflow
         WriteLine("The code overflowed but I caught the exception.");
       }
 
-      // Disabling compiler overflow checks with the unchecked statement
-
       unchecked
       {
         int y = int.MaxValue + 1;
+
         WriteLine($"Initial value: {y}");
         y--;
         WriteLine($"After decrementing: {y}");

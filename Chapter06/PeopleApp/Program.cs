@@ -154,13 +154,13 @@ namespace PeopleApp
       {
         WriteLine($"{nameof(aliceInPerson)} IS an Employee");
 
-        aliceInEmployee = (Employee)aliceInPerson;
-        // safely do something with aliceInEmployee 
+        Employee explicitAlice = (Employee)aliceInPerson;
+        // safely do something with explicitAlice 
       }
 
-      aliceInEmployee = aliceInPerson as Employee;
+      Employee aliceAsEmployee = aliceInPerson as Employee;
 
-      if (aliceInEmployee != null)
+      if (aliceAsEmployee != null)
       {
         WriteLine($"{nameof(aliceInPerson)} AS an Employee");
         // do something with aliceInEmployee 

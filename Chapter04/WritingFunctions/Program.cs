@@ -10,7 +10,7 @@ namespace WritingFunctions
       for (int row = 1; row <= 12; row++)
       {
         WriteLine(
-        $"{row} x {number} = {row * number}");
+          $"{row} x {number} = {row * number}");
       }
       WriteLine();
     }
@@ -38,7 +38,7 @@ namespace WritingFunctions
     }
 
     static decimal CalculateTax(
-      decimal amount, string twoLetterRegionCode)
+  decimal amount, string twoLetterRegionCode)
     {
       decimal rate = 0.0M;
       switch (twoLetterRegionCode)
@@ -99,7 +99,7 @@ namespace WritingFunctions
     /// <summary>
     /// Pass a 32-bit integer and it will be converted into its ordinal equivalent.
     /// </summary>
-    /// <param name="number">Number as a cardinal value e.g. 1, 2, 3, and so on.</param>
+    /// <param name="number">Number is a cardinal value e.g. 1, 2, 3, and so on.</param>
     /// <returns>Number as an ordinal value e.g. 1st, 2nd, 3rd, and so on.</returns>
     static string CardinalToOrdinal(int number)
     {
@@ -165,7 +165,7 @@ namespace WritingFunctions
         Write("Enter a number: ");
 
         isNumber = int.TryParse(
-            ReadLine(), out int number);
+          ReadLine(), out int number);
 
         if (isNumber)
         {
@@ -182,10 +182,10 @@ namespace WritingFunctions
 
     static void Main(string[] args)
     {
-      RunTimesTable();
-      //RunCalculateTax();
-      //RunCardinalToOrdinal();
-      //RunFactorial();
+      // RunTimesTable();
+      // RunCalculateTax();
+      // RunCardinalToOrdinal();
+      RunFactorial();
     }
   }
 }

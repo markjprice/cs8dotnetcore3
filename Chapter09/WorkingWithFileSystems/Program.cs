@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO; // import types for managing the filesystem
+using System.IO; // types for managing the filesystem
 using static System.Console;
 using static System.IO.Directory;
 using static System.IO.Path;

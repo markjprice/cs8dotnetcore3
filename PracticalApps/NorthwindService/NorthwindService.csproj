@@ -8,11 +8,11 @@
     <ProjectReference Include=
       "..\NorthwindContextLib\NorthwindContextLib.csproj" />
 
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc3" />
     
     <PackageReference Include=
       "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" 
-      Version="3.0.0-preview8.19405.7" />
+      Version="3.0.0" />
   </ItemGroup>
 
 </Project>

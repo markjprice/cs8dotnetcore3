@@ -50,9 +50,9 @@ namespace Packt.Shared
         .HasMaxLength(15);
 
       // define a one-to-many relationship
-      modelBuilder.Entity<Employee>()
-        .HasMany(e => e.Orders)
-        .WithOne(o => o.Employee);
+      modelBuilder.Entity<Customer>()
+        .HasMany(c => c.Orders)
+        .WithOne(o => o.Customer);
 
       modelBuilder.Entity<Employee>()
         .Property(c => c.LastName)
@@ -67,6 +67,11 @@ namespace Packt.Shared
       modelBuilder.Entity<Employee>()
         .Property(c => c.Country)
         .HasMaxLength(15);
+
+      // define a one-to-many relationship
+      modelBuilder.Entity<Employee>()
+        .HasMany(e => e.Orders)
+        .WithOne(o => o.Employee);
 
       modelBuilder.Entity<Product>()
         .Property(c => c.ProductName)

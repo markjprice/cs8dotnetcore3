@@ -20,11 +20,10 @@ Chapter 17 was written using Piranha CMS 7.0 that targets .NET Core 2.2. This ve
 The solution code for this chapter has been updated to use Piranha CMS 8.0 which targets .NET Core 3.1.
 [Announcing 8.0 for .NET Core 3.1](http://piranhacms.org/blog/announcing-80-for-net-core-31)
 ### Changes for Chapter 17
-As well as targetting .NET Core 3.1, Piranha CMS 8.0 has made the following changes that affect Chapter 17:
+As well as targetting .NET Core 3.1, Piranha CMS 8.0 has the following changes that affect Chapter 17:
 - Page 567. The **Save** button does not have a dropdown arrow with **Preview** as an option. Instead, there is a separate Preview icon button.
 - Page 569. When creating a new user, the prompt placeholder text has not been localized into English.
 - Page 579. `ArchivePage<T>` has been replaced with a `Page<T>`, the `[PageType]` attribute now has a parameter named `IsArchive` that should be set to `true`, and a property named `Archive` of type `PostArchive<DynamicPost>`. 
-- Page 581. The class named `Heading` has been renamed `Hero`.
 - Page 587. The `[Field]` attribute has moved from the `Piranha.AttributeBuilder` namespace to the `Piranha.Extend` namespace.
 - Page 588. Now that Piranha CMS 8.0 is compatible with .NET Core 3.1, we can reuse both the entities and database context libraries instead of needing to recreate a local database context.
 ```

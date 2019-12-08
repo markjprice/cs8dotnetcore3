@@ -16,3 +16,8 @@ To this:
 ## Chapter 17 and Piranha CMS
 Chapter 17 was written using Piranha CMS 7.0 that targets .NET Core 2.2. This version loses support three months after the release of .NET Core 3.0 meaning on 23rd December 2019. 
 The solution code for this chapter has been updated to use Piranha CMS 8.0 which targets .NET Core 3.1.
+## Links
+For reference:
+- [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+- [Announcing .NET Core 3.1](https://devblogs.microsoft.com/dotnet/announcing-net-core-3-1/)
+- [Announcing 8.0 for .NET Core 3.1](http://piranhacms.org/blog/announcing-80-for-net-core-31)

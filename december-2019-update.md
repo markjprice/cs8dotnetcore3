@@ -1,5 +1,5 @@
 # December 2019 update for .NET Core 3.1
-.NET Core 3.0 was released on 23rd September 2019. This version is a Current release meaning that three months after the release of a subsequent release it loses official support. 
+.NET Core 3.0 was released on 23rd September 2019. This version is a Current release meaning that three months after a subsequent release it loses official support. 
 .NET Core 3.1 was released on 3rd December 2019. This version is a Long Term Support (LTS) release meaning that it will be supported for three years. Microsoft recommends all .NET Core developers upgrade to .NET Core 3.1 as soon as possible.
 - [Announcing .NET Core 3.1](https://devblogs.microsoft.com/dotnet/announcing-net-core-3-1/)
 - [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)

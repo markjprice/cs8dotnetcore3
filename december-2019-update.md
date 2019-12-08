@@ -6,7 +6,7 @@
 ## Chapters 1 to 16, 18 and 19
 All but three of the chapters in the fourth edition of this book were written using .NET Core 3.0. 
 Any projects that target .NET Core 3.0 must upgrade to .NET Core 3.1 by 3rd March 2020.
-To upgrade from .NET Core 3.0 to .NET Core 3.1 simply requires a change in your project file.
+To upgrade a console application from .NET Core 3.0 to .NET Core 3.1 simply requires a small change in your project file.
 Change this:
 ```
 <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -38,3 +38,10 @@ As well as targetting .NET Core 3.1, Piranha CMS 8.0 has made the following chan
 - Page 589. The `[Region]` attribute has moved from the `Piranha.AttributeBuilder` namespace to the `Piranha.Extend` namespace.
 - Page 595. In Piranha CMS 7.0, `PageTypeBuilder` was used to manually add each page type. This has been replaced with `ContentTypeBuilder` that only needs to have an assembly added and all content types in that assembly will be registered. So no code changes are needed.
 - Page 597. The `GetAllAsync()` extension method has been replaced by `GetAllByFolderIdAsync()`.
+## Chapter 20 and Windows Desktop Apps
+### Windows Forms and WPF apps
+As with console applications, for Windows Forms and WPF apps, simply change the target framework to 3.1.
+### Universal Windows Platform apps
+UWP apps use a custom version of .NET Core.
+## Chapter 21 and Mobile apps
+Mobile apps currently use Xamarin so they are not affected by .NET Core 3.1.

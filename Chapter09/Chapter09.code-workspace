@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "WorkingWithSerialization"
+		},
+		{
+			"path": "Exercise02"
 		}
 	]
 }

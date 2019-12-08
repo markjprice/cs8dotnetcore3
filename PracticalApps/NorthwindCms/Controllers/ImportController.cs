@@ -56,7 +56,7 @@ namespace NorthwindCms.Controllers
             category.Description;
 
           // find image with correct filename for category id
-          var image = (await api.Media.GetAllAsync())
+          var image = (await api.Media.GetAllByFolderIdAsync())
             .First(media => media.Type == MediaType.Image 
             && media.Filename == 
             $"category{category.CategoryID}.jpeg");

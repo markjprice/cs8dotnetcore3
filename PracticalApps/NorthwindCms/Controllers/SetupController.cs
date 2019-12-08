@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Piranha;
+using Piranha.Extend;
 using Piranha.Extend.Blocks;
 using NorthwindCms.Models;
 
@@ -118,10 +120,19 @@ namespace NorthwindCms.Controllers
             {
                 Body = "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod."
             });
-            page.Blocks.Add(new HtmlColumnBlock
+            page.Blocks.Add(new ColumnBlock
             {
-                Column1 = $"<p><img src=\"{banner.PublicUrl.Replace("~", "")}\"></p>",
-                Column2 = "<p>Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>"
+                Items = new List<Block>
+                {
+                    new HtmlBlock
+                    {
+                        Body = $"<p><img src=\"{banner.PublicUrl.Replace("~", "")}\"></p>"
+                    },
+                    new HtmlBlock
+                    {
+                        Body = "<p>Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>"
+                    }
+                }
             });
             page.Published = DateTime.Now;
             await _api.Pages.SaveAsync(page);

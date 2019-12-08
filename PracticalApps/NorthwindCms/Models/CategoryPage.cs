@@ -1,4 +1,5 @@
 using Piranha.AttributeBuilder;
+using Piranha.Extend;
 using Piranha.Extend.Fields;
 using Piranha.Models;
 using NorthwindCms.Models.Regions;

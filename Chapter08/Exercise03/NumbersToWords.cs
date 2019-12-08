@@ -1,7 +1,12 @@
-public static class NumbersToWords
+﻿using System;
+
+namespace Packt.Shared
 {
-  public static string ToWords(this int number)
+  public static class NumbersToWords
   {
-    return "";
+    public static string ToWords(this int number)
+    {
+      return "";
+    }
   }
 }

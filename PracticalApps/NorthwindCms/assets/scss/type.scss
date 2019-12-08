@@ -2,6 +2,7 @@
 
 body {
     color: $text_regular;
+    font-size: 1.1rem;
     font-weight: 300;
 }
 
@@ -49,7 +50,7 @@ blockquote {
         font-size: 8rem;
         color: $border_color;
         font-family: Georgia,"Times New Roman",Times,serif;
-        font-style: initial;        
+        font-style: initial;
     }
 }
 
@@ -74,7 +75,7 @@ article {
                     text-decoration: none;
                 }
             }
-        }        
+        }
     }
 
     .post-meta {
@@ -89,7 +90,7 @@ article {
             color: $text_strong;
             font-weight: normal;
         }
-    }    
+    }
 }
 
 .blog-filter-header {

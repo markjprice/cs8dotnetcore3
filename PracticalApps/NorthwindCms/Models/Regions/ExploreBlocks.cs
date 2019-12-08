@@ -1,5 +1,5 @@
 using Piranha.Extend.Blocks;
-
+/*
 class ExploreBlocks
 {
   HtmlBlock a;
@@ -8,3 +8,4 @@ class ExploreBlocks
   QuoteBlock d;
   TextBlock e;
 }
+*/

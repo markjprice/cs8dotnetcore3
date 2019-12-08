@@ -37,58 +37,46 @@
             <div class="col blog-filter-header">
                 <h1>Posts from @MonthName() @Model.Archive.Year</h1>
             </div>
-        </div>        
+        </div>
     } else {
         <div class="row">
             <div class="col blog-filter-header">
                 <h1>Latest posts</h1>
             </div>
-        </div>        
+        </div>
     }
 
-    @foreach (var post in Model.Archive.Posts) 
+    @foreach (var post in Model.Archive.Posts)
     {
         <article>
             <header>
-                @if (post.Regions.Hero.PrimaryImage.HasValue) 
+                @if (post.Regions.Hero.PrimaryImage.HasValue)
                 {
-                    <div class="row justify-content-center">
-                        <div class="col-sm">
-                            <a href="@post.Permalink"><img src="@Url.Content(post.Regions.Hero.PrimaryImage.Resize(Api, 930, 360))"></a>
-                        </div>
-                    </div>
+                    <a href="@post.Permalink"><img src="@Url.Content(post.Regions.Hero.PrimaryImage.Resize(Api, 930, 360))"></a>
                 }
-                <div class="row justify-content-center">
-                    <div class="col-sm-10">
-                        <h2><a href="@post.Permalink">@post.Title</a></h2>
-                        <p class="post-meta">
-                            <strong>In</strong> <a href="@Model.Permalink/category/@post.Category.Slug">@post.Category.Title</a>
-                            <span class="sep">&#9670;</span>
-                            <strong>Tags</strong>
-                            @foreach (var tag in post.Tags) 
-                            {
-                                <span class="tag"><a href="@Model.Permalink/tag/@tag.Slug">#@tag.Title</a></span>
-                            }
-                            <span class="sep">&#9670;</span>
-                            <strong>Published</strong>
-                            @post.Published.Value.ToString("yyyy-MM-dd")
-                        </p>
-                    </div>
-                </div>
+                <h2><a href="@post.Permalink">@post.Title</a></h2>
+                <p class="post-meta">
+                    <strong>In</strong> <a href="@Model.Permalink/category/@post.Category.Slug">@post.Category.Title</a>
+                    <span class="sep">&#9670;</span>
+                    <strong>Tags</strong>
+                    @foreach (var tag in post.Tags)
+                    {
+                        <span class="tag"><a href="@Model.Permalink/tag/@tag.Slug">#@tag.Title</a></span>
+                    }
+                    <span class="sep">&#9670;</span>
+                    <strong>Published</strong>
+                    @post.Published.Value.ToString("yyyy-MM-dd")
+                </p>
             </header>
-            <div class="row justify-content-center">
-                <div class="col-sm-10">
-                    <div class="ingress">
-                        @Html.Raw(post.Regions.Hero.Ingress)
-                    </div>
-                    <p><a class="btn btn-link" href="@post.Permalink">Read more</a></p>
-                </div>
+            <div class="ingress">
+                @Html.Raw(post.Regions.Hero.Ingress)
             </div>
+            <p><a class="btn btn-link" href="@post.Permalink">Read more</a></p>
         </article>
     }
     @if (Model.Archive.TotalPages > 1) {
         <div class="row">
-            <div class="col-sm">
+            <div class="col">
                 <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
@@ -109,18 +97,18 @@
                     <li class="page-item">
                         <a class="page-link" href="@BlogLink()/page/@Math.Min(Model.Archive.TotalPages, Model.Archive.CurrentPage + 1)">
                             <span aria-hidden="true">&rsaquo;</span>
-                            <span class="sr-only">Next</span>                        
+                            <span class="sr-only">Next</span>
                         </a>
                     </li>
                     <li class="page-item">
                         <a class="page-link" href="@BlogLink()/page/@Model.Archive.TotalPages">
                             <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>                        
+                            <span class="sr-only">Next</span>
                         </a>
                     </li>
                 </ul>
                 </nav>
             </div>
-        </div>        
+        </div>
     }
 </div>

@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,21 +8,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />
-    <PackageReference Include="Piranha" Version="7.0.2" />
-    <PackageReference Include="Piranha.AspNetCore" Version="7.0.0" />
-    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="7.0.0" />
-    <PackageReference Include="Piranha.AttributeBuilder" Version="7.0.0" />
-    <PackageReference Include="Piranha.Data.EF" Version="7.0.1" />
-    <PackageReference Include="Piranha.ImageSharp" Version="7.0.0-rc1" />
-    <PackageReference Include="Piranha.Local.FileStorage" Version="7.0.0" />
-    <PackageReference Include="Piranha.Manager" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.0" />
+    <PackageReference Include="Piranha" Version="8.0.0" />
+    <PackageReference Include="Piranha.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="8.0.0" />
+    <PackageReference Include="Piranha.AttributeBuilder" Version="8.0.0" />
+    <PackageReference Include="Piranha.Data.EF" Version="8.0.0" />
+    <PackageReference Include="Piranha.ImageSharp" Version="8.0.0-rc1" />
+    <PackageReference Include="Piranha.Local.FileStorage" Version="8.0.0" />
+    <PackageReference Include="Piranha.Manager" Version="8.0.0" />
+    <PackageReference Include="Piranha.Manager.TinyMCE" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include=
       "..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj" />
+    <ProjectReference Include=
+      "..\NorthwindContextLib\NorthwindContextLib.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
-# cs8dotnetcore3
-## Important
+# Important
 [December 2019 update for .NET Core 3.1](december-2019-update.md)
 # Repository for the Packt Publishing book
 ## C# 8.0 and .NET Core 3.0 - Modern Cross-Platform Development, Fourth Edition

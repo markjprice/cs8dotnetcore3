@@ -35,8 +35,8 @@ As well as targetting .NET Core 3.1, Piranha CMS 8.0 has the following changes t
 </ItemGroup>
 ```
 - Page 589. The `[Region]` attribute has moved from the `Piranha.AttributeBuilder` namespace to the `Piranha.Extend` namespace.
-- Page 595. In Piranha CMS 7.0, `PageTypeBuilder` was used to manually add each page type. This has been replaced with `ContentTypeBuilder` that only needs to have an assembly added and all content types in that assembly will be registered. So no code changes are needed.
-- Page 597. The `GetAllAsync()` extension method has been replaced by `GetAllByFolderIdAsync()`.
+- Page 595. In Piranha CMS 7.0, `PageTypeBuilder` was used to manually add each page type. This has been replaced with `ContentTypeBuilder` that only needs to have an assembly added and all content types in that assembly will be registered.
+- Page 597. The `GetAllAsync()` extension method has been replaced by `GetAllByFolderIdAsync()` with no folder ID passed.
 ## Chapter 20 and Windows Desktop Apps
 ### Windows Forms and WPF apps
 As with console applications, for Windows Forms and WPF apps, simply change the target framework to 3.1.

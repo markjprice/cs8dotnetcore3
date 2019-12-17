@@ -80,7 +80,8 @@ namespace WorkingWithEFCore
           input = ReadLine();
         } while (!decimal.TryParse(input, out price));
 
-        IQueryable<Product> prods = db.Products
+        IOrderedEnumerable<Product> prods = db.Products
+          .AsEnumerable()
           .Where(product => product.Cost > price)
           .OrderByDescending(product => product.Cost);
 
@@ -188,8 +189,8 @@ namespace WorkingWithEFCore
 
     static void Main(string[] args)
     {
-      QueryingCategories();
-      // QueryingProducts();
+      // QueryingCategories();
+      QueryingProducts();
       // QueryingWithLike();
 
       // if (AddProduct(6, "Bob's Burgers", 500M))

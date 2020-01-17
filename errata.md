@@ -12,6 +12,8 @@ Should be:
 In the second paragraph, the phrase "first-in, first-out" should be "last-in, first-out".
 ## Page 217 - Inheriting exceptions
 In Step 3, the variable named `e1` should be named `john`.
+## Page 363 - Creating the Northwind sample database for SQLite
+If the < character is not supported on your operating system because you use a non-English language, try using `sqlite3 Northwind.db ".read Northwind.sql"` or `sqlite3 Northwind.db -init Northwind.sql`
 ## Page 374 - Filtering and sorting products
 In Step 1, the LINQ query requires an explicit call to the `AsEnumerable` method to force execution on the client-side because the final release version of EF Core 3.0 dropped support for server-side sorting using SQLite Money type.
 ```

@@ -8,6 +8,8 @@ In the first paragraph, the second sentence:
 "This method waits for the user to type some text, then as soon as the user presses Enter, whatever the user has typed is returned as a `string` value."
 Should be:
 "This method waits for the user to press a key or key combination that is then returned as a `ConsoleKeyInfo` value."
+## Page 203 - Managing memory with reference and value types
+In the second paragraph, the phrase "first-in, first-out" should be "last-in, first-out".
 ## Page 217 - Inheriting exceptions
 In Step 3, the variable named `e1` should be named `john`.
 ## Page 374 - Filtering and sorting products

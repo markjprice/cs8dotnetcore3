@@ -8,6 +8,12 @@ In the first paragraph, the second sentence:
 "This method waits for the user to type some text, then as soon as the user presses Enter, whatever the user has typed is returned as a `string` value."
 Should be:
 "This method waits for the user to press a key or key combination that is then returned as a `ConsoleKeyInfo` value."
+## Page 114 - Writing a gunction that returns a value
+In Step 2, the code block calls a method named RunSalesTax. The method name should be RunCalculateTax:
+```
+// RunTimesTable();
+RunCalculateTax()
+```
 ## Page 203 - Managing memory with reference and value types
 In the second paragraph, the phrase "first-in, first-out" should be "last-in, first-out".
 ## Page 217 - Inheriting exceptions

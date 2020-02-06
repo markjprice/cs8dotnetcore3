@@ -19,7 +19,7 @@ In the second paragraph, the phrase "first-in, first-out" should be "last-in, fi
 ## Page 217 - Inheriting exceptions
 In Step 3, the variable named `e1` should be named `john`.
 ## Page 262 - Understanding the syntax of a regular expression
-In the table of common symbols, the entries for '\w' and '\W' should have meanings of word characters and NON-word characters. The symbol for whitespace is '\s', and for NON-whitespace is '\S'.
+In the table of common symbols, the entries for `\w` and `\W` should have meanings of word characters and NON-word characters. The symbol for whitespace is `\s`, and for NON-whitespace is `\S`.
 ## Page 363 - Creating the Northwind sample database for SQLite
 If the `<` character is not supported on your operating system because you use a non-English language, try using `sqlite3 Northwind.db ".read Northwind.sql"` or `sqlite3 Northwind.db -init Northwind.sql`
 ## Page 374 - Filtering and sorting products

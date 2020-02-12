@@ -39,7 +39,7 @@ A more efficient "fix" would be to specify in the `Northwind` database context c
 ```
 modelBuilder.Entity<Product>()
   .Property(product => product.Cost)
-  .HasConversion(typeof(double));
+  .HasConversion<double>();
 ```
 ## Page 503 - Using Razor class libraries
 In Step 4, the command: `dotnet new razorclasslib` should be: `dotnet new razorclasslib -s` or `dotnet new razorclasslib --support-pages-and-views`

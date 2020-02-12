@@ -22,13 +22,24 @@ In Step 3, the variable named `e1` should be named `john`.
 In the table of common symbols, the entries for `\w` and `\W` should have meanings of word characters and NON-word characters. The symbol for whitespace is `\s`, and for NON-whitespace is `\S`.
 ## Page 363 - Creating the Northwind sample database for SQLite
 If the `<` character is not supported on your operating system because you use a non-English language, try using `sqlite3 Northwind.db ".read Northwind.sql"` or `sqlite3 Northwind.db -init Northwind.sql`
-## Page 374 - Filtering and sorting products
-In Step 1, the LINQ query requires an explicit call to the `AsEnumerable` method to force execution on the client-side because the final release version of EF Core 3.0 dropped support for server-side sorting using SQLite Money type.
+## Page 375 - Filtering and sorting products
+In Step 3, we run the console application but the QueryingProducts method throws an exception because the final release version of EF Core 3.0 dropped support for server-side sorting using SQLite Money type, as shown in the following output: 
+```
+Unhandled exception. System.InvalidOperationException: The LINQ expression 'DbSet<Product>
+    .Where(p => p.Cost > __price_0)' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to either AsEnumerable(), AsAsyncEnumerable(), ToList(), or ToListAsync().
+```
+There are multiple ways to "fix" this. The exception detail suggests adding an explicit call to the `AsEnumerable` method to force execution on the client-side and change the variable type to `IOrderedEnumerable<Product>`, as shown in the following code:
 ```
 IOrderedEnumerable<Product> prods = db.Products
   .AsEnumerable() ' force execution on client-side
   .Where(product => product.Cost > price)
   .OrderByDescending(product => product.Cost);
+```
+Another way would be to specify in the data context class that you created on page 372 that the Product class property named Cost that is a nullable decimal type can be converted to a type like double that *is* supported, as shown in the following code:
+```
+modelBuilder.Entity<Product>()
+  .Property(product => product.Cost)
+  .HasConversion(typeof(double));
 ```
 ## Page 503 - Using Razor class libraries
 In Step 4, the command: `dotnet new razorclasslib` should be: `dotnet new razorclasslib -s` or `dotnet new razorclasslib --support-pages-and-views`

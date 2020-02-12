@@ -80,10 +80,17 @@ namespace WorkingWithEFCore
           input = ReadLine();
         } while (!decimal.TryParse(input, out price));
 
-        IOrderedEnumerable<Product> prods = db.Products
-          .AsEnumerable()
+        IQueryable<Product> prods = db.Products
           .Where(product => product.Cost > price)
           .OrderByDescending(product => product.Cost);
+
+        /*
+        // alternative "fix"
+        IOrderedEnumerable<Product> prods = db.Products
+          .AsEnumerable() // force client-side execution
+          .Where(product => product.Cost > price)
+          .OrderByDescending(product => product.Cost);
+        */
 
         foreach (Product item in prods)
         {

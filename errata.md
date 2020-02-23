@@ -12,7 +12,7 @@ Should be:
 In Step 2, the code block calls a method named `RunSalesTax`. The method name should be `RunCalculateTax`:
 ```
 // RunTimesTable();
-RunCalculateTax()
+RunCalculateTax();
 ```
 ## Page 203 - Managing memory with reference and value types
 In the second paragraph, the phrase "first-in, first-out" should be "last-in, first-out".

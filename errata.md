@@ -21,7 +21,7 @@ In Step 3, the variable named `e1` should be named `john`.
 ## Page 262 - Understanding the syntax of a regular expression
 In the table of common symbols, the entries for `\w` and `\W` should have meanings of word characters and NON-word characters. The symbol for whitespace is `\s`, and for NON-whitespace is `\S`.
 ## Page 264 - Splitting a complex comma-separated string
-In Step 2, I use a complex regular expression to split a comma-separated string but I neglected to include the link to the original Stackoverflow discussion that explains how it works: [Regex to split a CSV](https://stackoverflow.com/questions/18144431/regex-to-split-a-csv)
+In Step 2, I use a complex regular expression to split a comma-separated string but I neglected to include the link to the Stack Overflow discussion that explains how it works: [Regex to split a CSV](https://stackoverflow.com/questions/18144431/regex-to-split-a-csv)
 ## Page 363 - Creating the Northwind sample database for SQLite
 If the `<` character is not supported on your operating system because you use a non-English language, try using `sqlite3 Northwind.db ".read Northwind.sql"` or `sqlite3 Northwind.db -init Northwind.sql`
 ## Page 375 - Filtering and sorting products

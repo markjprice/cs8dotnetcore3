@@ -46,4 +46,4 @@ modelBuilder.Entity<Product>()
 ## Page 503 - Using Razor class libraries
 In Step 4, the command: `dotnet new razorclasslib` should be: `dotnet new razorclasslib -s` or `dotnet new razorclasslib --support-pages-and-views`
 ### Note about Compact folders in Explorer
-A new feature introduced in Visual Studio Code 1.41 in November 2019 might confuse you: [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer). The compact folders feature means that nested folders like /Areas/MyFeature/Pages/ are shown in a compact form if they do not contain files.
+In Step 7, a feature introduced in Visual Studio Code 1.41 in November 2019 might confuse you: [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer). The compact folders feature means that nested folders like `/Areas/MyFeature/Pages/` are shown in a compact form if they do not contain files.

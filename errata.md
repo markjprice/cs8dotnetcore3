@@ -52,7 +52,7 @@ modelBuilder.Entity<Product>()
   .HasConversion<double>();
 ```
 ## Page 503 - Using Razor class libraries
-In Step 7, if the `MyFeature` folder is missing, then that is caused by an errata in Step 4, where the command: 
+In Step 7, if the `Areas` and `MyFeature` folders are missing, then that is caused by an errata in Step 4, where the command: 
 ```
 dotnet new razorclasslib
 ```
@@ -65,7 +65,7 @@ or
 dotnet new razorclasslib --support-pages-and-views
 ```
 Also, the [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer) feature introduced in Visual Studio Code 1.41 in November 2019 might confuse you. The compact folders feature means that nested folders like `/Areas/MyFeature/Pages/` are shown in a compact form if they do not contain files. If you would like to disable the compact folders feature, complete the following steps:
-1. In Visual Studio Code, navigate to **Code** | **Preferences** | **Settings**, or press `Cmd` + `,`
+1. In Visual Studio Code on Mac, navigate to **Code** | **Preferences** | **Settings**, or press `Cmd` + `,`. On Windows, navigate to **File** | **Preferences** | **Settings**, or press `Ctrl` + `,`.
 2. In the **Search settings** box, enter `compact`
 3. Clear the **Explorer: Compact Folders** check box, as shown in the following screenshot:
 ![Disabling the compact folders feature](https://github.com/markjprice/cs8dotnetcore3/blob/master/disable-compact-folders.png)

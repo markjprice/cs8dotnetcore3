@@ -23,8 +23,8 @@ In the table of common symbols, the entries for `\w` and `\W` should have meanin
 ## Page 264 - Splitting a complex comma-separated string
 In Step 2, I use a complex regular expression to split a comma-separated string but I neglected to include the link to the Stack Overflow discussion that explains how it works: [Regex to split a CSV](https://stackoverflow.com/questions/18144431/regex-to-split-a-csv)
 ## Page 363 - Creating the Northwind sample database for SQLite
-In Step 2, I say to download the SQL script. It is easier if you have created a local Git repository as explained in Chapter 1. Then you can simply copy the SQL script file from your local repository.
-In Step 4, if the `<` character is not supported on your operating system because you use a non-English language, try using
+- In Step 2, I say to download the SQL script. It is easier if you have created a local Git repository as explained in Chapter 1. Then you can simply copy the SQL script file from your local repository folder.
+- In Step 4, if the `<` character is not supported on your operating system because you use a non-English language, try using
 ```
 sqlite3 Northwind.db ".read Northwind.sql"
 ```
@@ -52,7 +52,7 @@ modelBuilder.Entity<Product>()
   .HasConversion<double>();
 ```
 ## Page 503 - Using Razor class libraries
-In Step 7, if the MyFeature folder is missing, then that is caused by an errata in Step 4, where the command: 
+In Step 7, if the `MyFeature` folder is missing, then that is caused by an errata in Step 4, where the command: 
 ```
 dotnet new razorclasslib
 ```
@@ -64,9 +64,9 @@ or
 ```
 dotnet new razorclasslib --support-pages-and-views
 ```
-In Step 7, the [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer) feature introduced in Visual Studio Code 1.41 in November 2019 might confuse you. The compact folders feature means that nested folders like `/Areas/MyFeature/Pages/` are shown in a compact form if they do not contain files. If you would like to disable the compact folders feature:
+Also, the [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer) feature introduced in Visual Studio Code 1.41 in November 2019 might confuse you. The compact folders feature means that nested folders like `/Areas/MyFeature/Pages/` are shown in a compact form if they do not contain files. If you would like to disable the compact folders feature, complete the following steps:
 1. In Visual Studio Code, navigate to **Code** | **Preferences** | **Settings**, or press `Cmd` + `,`
 2. In the **Search settings** box, enter `compact`
-3. Clear the check box.
-4. Close the settings editor.
+3. Clear the **Explorer: Compact Folders** check box, as shown in the following screenshot:
 ![Disabling the compact folders feature](https://github.com/markjprice/cs8dotnetcore3/blob/master/disable-compact-folders.png)
+4. Close the **Settings** editor.

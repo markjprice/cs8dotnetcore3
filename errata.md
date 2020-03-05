@@ -32,6 +32,7 @@ or
 ```
 sqlite3 Northwind.db -init Northwind.sql
 ```
+and then press `Ctrl` + `D` to exit SQLite command mode.
 ## Page 375 - Filtering and sorting products
 In Step 3, we run the console application but the `QueryingProducts` method throws an exception because the final release version of EF Core 3.0 dropped support for server-side sorting using SQLite Money type, as shown in the following output: 
 ```

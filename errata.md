@@ -23,7 +23,15 @@ In the table of common symbols, the entries for `\w` and `\W` should have meanin
 ## Page 264 - Splitting a complex comma-separated string
 In Step 2, I use a complex regular expression to split a comma-separated string but I neglected to include the link to the Stack Overflow discussion that explains how it works: [Regex to split a CSV](https://stackoverflow.com/questions/18144431/regex-to-split-a-csv)
 ## Page 363 - Creating the Northwind sample database for SQLite
-If the `<` character is not supported on your operating system because you use a non-English language, try using `sqlite3 Northwind.db ".read Northwind.sql"` or `sqlite3 Northwind.db -init Northwind.sql`
+In Step 2, I say to download the SQL script. It is easier if you have created a local Git repository as explained in Chapter 1. Then you can simply copy the SQL script file from your local repository.
+In Step 4, if the `<` character is not supported on your operating system because you use a non-English language, try using
+```
+sqlite3 Northwind.db ".read Northwind.sql"
+```
+or 
+```
+sqlite3 Northwind.db -init Northwind.sql
+```
 ## Page 375 - Filtering and sorting products
 In Step 3, we run the console application but the `QueryingProducts` method throws an exception because the final release version of EF Core 3.0 dropped support for server-side sorting using SQLite Money type, as shown in the following output: 
 ```
@@ -44,6 +52,20 @@ modelBuilder.Entity<Product>()
   .HasConversion<double>();
 ```
 ## Page 503 - Using Razor class libraries
-In Step 4, the command: `dotnet new razorclasslib` should be: `dotnet new razorclasslib -s` or `dotnet new razorclasslib --support-pages-and-views`
-### Note about Compact folders in Explorer
-In Step 7, a feature introduced in Visual Studio Code 1.41 in November 2019 might confuse you: [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer). The compact folders feature means that nested folders like `/Areas/MyFeature/Pages/` are shown in a compact form if they do not contain files.
+In Step 7, if the MyFeature folder is missing, then that is caused by an errata in Step 4, where the command: 
+```
+dotnet new razorclasslib
+```
+Should be: 
+```
+dotnet new razorclasslib -s
+```
+or 
+```
+dotnet new razorclasslib --support-pages-and-views
+```
+In Step 7, the [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer) feature introduced in Visual Studio Code 1.41 in November 2019 might confuse you. The compact folders feature means that nested folders like `/Areas/MyFeature/Pages/` are shown in a compact form if they do not contain files. If you would like to disable the compact folders feature:
+1. In Visual Studio Code, navigate to **Code** | **Preferences** | **Settings**, or press `Cmd` + `,`
+2. In the **Search settings** box, enter `compact`
+3. Clear the check box.
+4. Close the settings editor.

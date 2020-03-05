@@ -69,3 +69,4 @@ In Step 7, the [compact folders](https://github.com/microsoft/vscode-docs/blob/v
 2. In the **Search settings** box, enter `compact`
 3. Clear the check box.
 4. Close the settings editor.
+![Disabling the compact folders feature](https://github.com/markjprice/cs8dotnetcore3/blob/master/disable-compact-folders.png)

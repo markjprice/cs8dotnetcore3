@@ -1,5 +1,5 @@
 # Support for .NET 5.0
-.NET 5.0 Preview 1 was released on 16th March 2020. Preview 1 includes C# 8.0 so there aren't any new language features. I expect Microsoft to release new previews each month until the final version in November 2020. The code examples in most of the chapters in the fourth edition work with .NET 5.0, as well as .NET Core 3.0 and .NET Core 3.1.
+.NET 5.0 Preview 1 was released on 16th March 2020. Preview 1 includes C# 8.0 so there aren't any new language features. I expect Microsoft to release new previews each month until the final version in November 2020. The code examples in most of the chapters in the fourth edition work with .NET 5.0, and of course all of the code examples are 100% compatible with either .NET Core 3.0 or .NET Core 3.1.
 - [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
 ## Most chapters

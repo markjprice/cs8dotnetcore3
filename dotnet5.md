@@ -1,7 +1,7 @@
 # Support for .NET 5.0
 .NET 5.0 Preview 1 was released on 16th March 2020. Preview 1 includes C# 8.0 so there aren't any new language features. I expect Microsoft to release new previews each month until the final version in November 2020. The code examples in most of the chapters in the fourth edition work with .NET 5.0, as well as .NET Core 3.0 and .NET Core 3.1.
 - [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
-- [Download .NET 5.0](https://dotnet.microsoft.com/download/dotnet-core/5.0)
+- [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
 ## Most chapters
 After installing the .NET 5.0 SDK, to upgrade a console application from .NET Core 3.0 to .NET 5.0 simply requires a version number change in your project file.
 Change this:

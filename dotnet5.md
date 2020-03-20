@@ -3,7 +3,7 @@
 - [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
 - [Download .NET 5.0](https://dotnet.microsoft.com/download/dotnet-core/5.0)
 ## Most chapters
-To upgrade a console application from .NET Core 3.0 to .NET 5.0 simply requires a version number change in your project file.
+After installing the .NET 5.0 SDK, to upgrade a console application from .NET Core 3.0 to .NET 5.0 simply requires a version number change in your project file.
 Change this:
 ```
 <TargetFramework>netcoreapp3.0</TargetFramework>

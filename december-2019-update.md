@@ -14,6 +14,7 @@ To this:
 ```
 <TargetFramework>netcoreapp3.1</TargetFramework>
 ```
+The projects for chapters 1 to 16, 18 and 19 in this GitHub repository have been upgraded to .NET Core 3.1.
 ![GitHub update to .NET Core 3.1](github-update-30-to-31.png)
 ## Chapter 17 and Piranha CMS
 Chapter 17 was written using Piranha CMS 7.0 that targets .NET Core 2.2. This version loses support three months after the release of .NET Core 3.0 meaning on 23rd December 2019. 

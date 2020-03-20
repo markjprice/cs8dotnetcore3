@@ -4,8 +4,7 @@
 - [Announcing .NET Core 3.1](https://devblogs.microsoft.com/dotnet/announcing-net-core-3-1/)
 - [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 ## Chapters 1 to 16, 18 and 19
-All but three of the chapters in the fourth edition of this book were written using .NET Core 3.0. 
-Any projects that target .NET Core 3.0 must upgrade to .NET Core 3.1 by 3rd March 2020.
+18 of the 21 chapters in the fourth edition of this book work with either .NET Core 3.0 or .NET Core 3.1. 
 To upgrade a console application from .NET Core 3.0 to .NET Core 3.1 simply requires a small change in your project file.
 Change this:
 ```
@@ -15,6 +14,7 @@ To this:
 ```
 <TargetFramework>netcoreapp3.1</TargetFramework>
 ```
+The projects for chapters 1 to 16, 18 and 19 in this GitHub repository have been upgraded to .NET Core 3.1.
 ![GitHub update to .NET Core 3.1](github-update-30-to-31.png)
 ## Chapter 17 and Piranha CMS
 Chapter 17 was written using Piranha CMS 7.0 that targets .NET Core 2.2. This version loses support three months after the release of .NET Core 3.0 meaning on 23rd December 2019. 

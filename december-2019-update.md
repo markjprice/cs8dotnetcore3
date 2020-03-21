@@ -82,6 +82,14 @@ And make the UseEF<T> method call use SQLiteDb, as shown in the following code:
 options.UseEF<SQLiteDb>(db =>
   db.UseSqlite(Configuration.GetConnectionString("piranha")));
 ```
+The `IModelLoader.GetPage` and `GetPost` methods are marked as obsolete and have been replaced by the `IModelLoaded.GetPageAsync` and `GetPostAsync` methods. In `CmsController.cs`, change code like:
+```
+var model = await _loader.GetPost<BlogPost>(id, HttpContext.User, draft);
+```
+With:
+```
+var model = await _loader.GetPostAsync<BlogPost>(id, HttpContext.User, draft);
+```
 The `Page<T>.Create` method has been replaced by the `Page<T>.CreateAsync()` method. In `ImportController.cs`, change the following code:
 ```
 categoryPage = CategoryPage.Create(api);

@@ -4,28 +4,28 @@
 - [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
 
-Preview 1 uses the C# 8.0 compiler so there aren't any new language features. Preview 1 also does not include any new features for the base class libraries or app models like ASP.NET Core. .NET 5.0 Preview 1 is functionally equivalent to a .NET Core 3.1.1 since it only includes a few bug fixes. 
+Preview 1 uses the C# 8.0 compiler so there aren't any new language features. Preview 1 also does not include any new features for the base class libraries or app models like ASP.NET Core. Preview 1 is functionally equivalent to a .NET Core 3.1.1 since it only includes a few bug fixes. For this reason, unless you really want to use .NET 5.0 as soon as possible, I'd recommend continuing to use .NET Core 3.1.
 
-I expect Microsoft to release new previews each month until the final version in November 2020. 
+I expect Microsoft to release new previews each month until the final version in November 2020 and I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book. 
 
 ## Most chapters
-The code examples in most of the chapters in the fourth edition work with .NET 5.0, and of course all of the code examples are 100% compatible with either .NET Core 3.0 or .NET Core 3.1.
+The code examples in most of the chapters in the fourth edition work with .NET 5.0 Preview 1, and of course all of the code examples are 100% compatible with either .NET Core 3.0 or .NET Core 3.1.
 
-After installing the .NET 5.0 SDK, following the step-by-step instructions in the book should work as normal since the project file will automatically reference .NET 5.0 as the target framework. 
+After installing the .NET 5.0 SDK, following the step-by-step instructions in the book should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 
 
-To upgrade a console application solution from the GitHub repository from .NET Core 3.1 to .NET 5.0 simply requires a version number change in your project file.
+To upgrade a console application solution from the GitHub repository from .NET Core 3.1 to .NET 5.0 just requires a version number change in your project file.
 
 Change this:
 ```
-<TargetFramework>netcoreapp3.0</TargetFramework>
+<TargetFramework>netcoreapp3.1</TargetFramework>
 ```
 To this:
 ```
 <TargetFramework>netcoreapp5.0</TargetFramework>
 ```
-For projects that use additional NuGet packages, use the equivalent Preview 1 package version instead of the version given in the book. 
-## Chapter 4
-For the `Instrumenting` project, the additional referenced NuGet packages should use the Preview 1 versions, as shown in the following markup: 
+For projects that use additional NuGet packages, use the latest NuGet package version (including preview versions) instead of the version given in the book. 
+## Chapter 4 Writing, Debugging, and Testing Functions
+For the `Instrumenting` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup: 
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -43,7 +43,7 @@ For the `Instrumenting` project, the additional referenced NuGet packages should
 
 </Project>
 ```
-For the `CalculatorLibUnitTests` project, the additional referenced NuGet packages for unit testing can use the latest versions, as shown in the following markup:
+For the `CalculatorLibUnitTests` project, the additional referenced NuGet packages for unit testing can use the latest versions including preview versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -62,6 +62,45 @@ For the `CalculatorLibUnitTests` project, the additional referenced NuGet packag
   <ItemGroup>
     <ProjectReference 
       Include="..\CalculatorLib\CalculatorLib.csproj" />
+  </ItemGroup>
+
+</Project>
+```
+# Chapter 11 Working with Databases Using Entity Framework Core
+For the `WorkingWithEFCore` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference 
+      Include="Microsoft.EntityFrameworkCore.Sqlite" 
+      Version="5.0.0-preview.2.20120.8" />
+    <PackageReference
+      Include="Microsoft.EntityFrameworkCore.Proxies"
+      Version="5.0.0-preview.2.20120.8" />
+  </ItemGroup>
+
+</Project>
+```
+# Chapter 12 Querying and Manipulating Data Using LINQ
+For the `LinqWithEFCore` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference 
+      Include="Microsoft.EntityFrameworkCore.Sqlite" 
+      Version="5.0.0-preview.2.20120.8" />
   </ItemGroup>
 
 </Project>

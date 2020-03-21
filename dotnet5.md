@@ -8,7 +8,7 @@ Preview 1 uses the C# 8.0 compiler so there aren't any new language features. Pr
 
 I expect Microsoft to release new previews each month until the final version in November 2020 and I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book. 
 
-## All chapters
+## Chapters 1 to 19
 After installing the .NET 5.0 SDK, following the step-by-step instructions in the book should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 
 
 To upgrade a console application solution from the GitHub repository from .NET Core 3.1 to .NET 5.0 just requires a version number change in your project file.

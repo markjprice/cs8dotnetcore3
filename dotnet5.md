@@ -154,3 +154,92 @@ For the `NorthwindMvc` project, the referenced NuGet packages should use the pre
 
 </Project>
 ```
+## Chapter 17 - Building Websites Using a Content Management System
+For the `NorthwindCms` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.2.20120.8" />
+    <PackageReference Include="Piranha" Version="8.1.0" />
+    <PackageReference Include="Piranha.AspNetCore" Version="8.1.0" />
+    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="8.1.0" />
+    <PackageReference Include="Piranha.AttributeBuilder" Version="8.1.0" />
+    <PackageReference Include="Piranha.Data.EF.SQLite" Version="8.1.2" />
+    <PackageReference Include="Piranha.ImageSharp" Version="8.1.0-rc1" />
+    <PackageReference Include="Piranha.Local.FileStorage" Version="8.1.0" />
+    <PackageReference Include="Piranha.Manager" Version="8.1.0" />
+    <PackageReference Include="Piranha.Manager.TinyMCE" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=
+      "..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj" />
+    <ProjectReference Include=
+      "..\NorthwindContextLib\NorthwindContextLib.csproj" />
+  </ItemGroup>
+
+</Project>
+```
+## Chapter 18 - Building and Consuming Web Services
+For the `NorthwindService` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=
+      "..\NorthwindContextLib\NorthwindContextLib.csproj" />
+
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.0" />
+    
+    <PackageReference Include=
+      "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" 
+      Version="5.0.0-preview.1.20124.5" />
+  </ItemGroup>
+
+</Project>
+```
+## Chapter 19 - Building Intelligent Apps Using Machine Learning
+For the `NorthwindML` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference 
+      Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" 
+      Version="5.0.0-preview.1.20124.5" />
+    <PackageReference 
+      Include="Microsoft.EntityFrameworkCore.Sqlite" 
+      Version="5.0.0-preview.2.20120.8" />
+    <PackageReference 
+      Include="Microsoft.ML" 
+      Version="1.5.0-preview2" />
+    <PackageReference 
+      Include="Microsoft.ML.Recommender" 
+      Version="0.17.0-preview2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=
+      "..\NorthwindContextLib\NorthwindContextLib.csproj" />
+    <ProjectReference Include=
+      "..\NorthwindEmployees\NorthwindEmployees.csproj" />
+  </ItemGroup>
+
+</Project>
+```

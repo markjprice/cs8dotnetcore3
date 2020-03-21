@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Piranha;
 using Piranha.AspNetCore.Identity.SQLite;
 using Piranha.AttributeBuilder;
+using Piranha.Data.EF.SQLite;
 using Piranha.Manager.Editor;
 using System.IO;
 
@@ -40,10 +41,10 @@ namespace NorthwindCms
         options.UseManager();
         options.UseTinyMCE();
         options.UseMemoryCache();
-        options.UseEF(db =>
-                  db.UseSqlite(Configuration.GetConnectionString("piranha")));
+        options.UseEF<SQLiteDb>(db =>
+          db.UseSqlite(Configuration.GetConnectionString("piranha")));
         options.UseIdentityWithSeed<IdentitySQLiteDb>(db =>
-                  db.UseSqlite(Configuration.GetConnectionString("piranha")));
+          db.UseSqlite(Configuration.GetConnectionString("piranha")));
       });
 
       string databasePath = Path.Combine("..", "Northwind.db");

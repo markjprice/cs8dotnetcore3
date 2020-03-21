@@ -42,7 +42,7 @@ namespace NorthwindCms.Controllers
         
         if (categoryPage == null)
         {
-          categoryPage = CategoryPage.Create(api);
+          categoryPage = await CategoryPage.CreateAsync(api);
           
           categoryPage.Id = Guid.NewGuid();
           categoryPage.SiteId = site.Id;

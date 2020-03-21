@@ -61,7 +61,7 @@ namespace NorthwindCms.Controllers
             }
 
             // Add the site info
-            var blogSite = BlogSite.Create(_api);
+            var blogSite = await BlogSite.CreateAsync(_api);
             blogSite.Information.SiteLogo = logoId;
             blogSite.Information.SiteTitle = "Piranha CMS";
             blogSite.Information.Tagline = "A lightweight & unobtrusive CMS for Asp.NET Core.";
@@ -69,7 +69,7 @@ namespace NorthwindCms.Controllers
 
             // Add the blog archive
             var blogId = Guid.NewGuid();
-            var blogPage = BlogArchive.Create(_api);
+            var blogPage = await BlogArchive.CreateAsync(_api);
             blogPage.Id = blogId;
             blogPage.SiteId = site.Id;
             blogPage.Title = "Blog Archive";
@@ -81,7 +81,7 @@ namespace NorthwindCms.Controllers
             await _api.Pages.SaveAsync(blogPage);
 
             // Add a blog post
-            var post = BlogPost.Create(_api);
+            var post = await BlogPost.CreateAsync(_api);
             post.BlogId = blogPage.Id;
             post.Category = "Piranha CMS";
             post.Tags.Add("Welcome", "Fresh Start", "Information");
@@ -106,7 +106,7 @@ namespace NorthwindCms.Controllers
             await _api.Posts.SaveAsync(post);
 
             // Add about page
-            var page = StandardPage.Create(_api);
+            var page = await StandardPage.CreateAsync(_api);
             page.SiteId = site.Id;
             page.SortOrder = 1;
             page.Title = "About Me";

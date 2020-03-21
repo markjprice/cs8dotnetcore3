@@ -24,7 +24,7 @@ To this:
 <TargetFramework>netcoreapp5.0</TargetFramework>
 ```
 For projects that use additional NuGet packages, use the latest NuGet package version (including preview versions) instead of the version given in the book. 
-## Chapter 4 Writing, Debugging, and Testing Functions
+## Chapter 4 - Writing, Debugging, and Testing Functions
 For the `Instrumenting` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup: 
 ```
 <Project Sdk="Microsoft.NET.Sdk">
@@ -66,7 +66,7 @@ For the `CalculatorLibUnitTests` project, the additional referenced NuGet packag
 
 </Project>
 ```
-# Chapter 11 Working with Databases Using Entity Framework Core
+## Chapter 11 - Working with Databases Using Entity Framework Core
 For the `WorkingWithEFCore` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">
@@ -87,7 +87,7 @@ For the `WorkingWithEFCore` project, the additional referenced NuGet packages sh
 
 </Project>
 ```
-# Chapter 12 Querying and Manipulating Data Using LINQ
+## Chapter 12 - Querying and Manipulating Data Using LINQ
 For the `LinqWithEFCore` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">

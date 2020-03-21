@@ -15,6 +15,7 @@ To this:
 <TargetFramework>netcoreapp3.1</TargetFramework>
 ```
 The projects for chapters 1 to 19 in this GitHub repository have been upgraded to .NET Core 3.1, as shown in the following screenshot:
+
 ![GitHub update to .NET Core 3.1](github-update-30-to-31.png)
 ## Chapter 17 and Piranha CMS
 Chapter 17 was written using Piranha CMS 7.0 that targets .NET Core 2.2. This version loses support three months after the release of .NET Core 3.0 meaning on 23rd December 2019. 
@@ -38,6 +39,65 @@ As well as targetting .NET Core 3.1, Piranha CMS 8.0 has the following changes t
 - Page 589. The `[Region]` attribute has moved from the `Piranha.AttributeBuilder` namespace to the `Piranha.Extend` namespace.
 - Page 595. In Piranha CMS 7.0, `PageTypeBuilder` was used to manually add each page type. This has been replaced with `ContentTypeBuilder` that only needs to have an assembly added and all content types in that assembly will be registered.
 - Page 597. The `GetAllAsync()` extension method has been replaced by `GetAllByFolderIdAsync()` with no folder ID passed.
+### Additional breaking changes in Piranha CMS 8.1
+Modify the project file to use version 8.1, and make the package reference for Entity Framework Core database-specific, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.0" />
+    <PackageReference Include="Piranha" Version="8.1.0" />
+    <PackageReference Include="Piranha.AspNetCore" Version="8.1.0" />
+    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="8.1.0" />
+    <PackageReference Include="Piranha.AttributeBuilder" Version="8.1.0" />
+    <PackageReference Include="Piranha.Data.EF.SQLite" Version="8.1.2" />
+    <PackageReference Include="Piranha.ImageSharp" Version="8.1.0-rc1" />
+    <PackageReference Include="Piranha.Local.FileStorage" Version="8.1.0" />
+    <PackageReference Include="Piranha.Manager" Version="8.1.0" />
+    <PackageReference Include="Piranha.Manager.TinyMCE" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=
+      "..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj" />
+    <ProjectReference Include=
+      "..\NorthwindContextLib\NorthwindContextLib.csproj" />
+  </ItemGroup>
+
+</Project>
+```
+To upgrade 8.0 to 8.1, in Startup.cs, import the following namespace:
+```
+using Piranha.Data.EF.SQLite;
+```
+And make the UseEF<T> method call use SQLiteDb, as shown in the following code:
+```
+options.UseEF<SQLiteDb>(db =>
+  db.UseSqlite(Configuration.GetConnectionString("piranha")));
+```
+The `IModelLoader.GetPage` and `GetPost` methods are marked as obsolete and have been replaced by the `IModelLoaded.GetPageAsync` and `GetPostAsync` methods. In `CmsController.cs`, change code like:
+```
+var model = await _loader.GetPost<BlogPost>(id, HttpContext.User, draft);
+```
+With:
+```
+var model = await _loader.GetPostAsync<BlogPost>(id, HttpContext.User, draft);
+```
+The `Page<T>.Create` method has been replaced by the `Page<T>.CreateAsync()` method. In `ImportController.cs`, change the following code:
+```
+categoryPage = CategoryPage.Create(api);
+```
+To:
+```
+categoryPage = await CategoryPage.CreateAsync(api);
+```
 ## Chapter 20 and Windows Desktop Apps
 ### Windows Forms and WPF apps
 As with console applications, for Windows Forms and WPF apps, simply change the target framework to 3.1.

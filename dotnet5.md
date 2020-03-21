@@ -1,19 +1,29 @@
 # Support for .NET 5.0
-.NET 5.0 Preview 1 was released on 16th March 2020. Preview 1 includes C# 8.0 so there aren't any new language features. I expect Microsoft to release new previews each month until the final version in November 2020. The code examples in most of the chapters in the fourth edition work with .NET 5.0, as well as .NET Core 3.0 and .NET Core 3.1.
+.NET 5.0 Preview 1 was released on 16th March 2020. 
+
 - [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
-## Most chapters
-After installing the .NET 5.0 SDK, to upgrade a console application from .NET Core 3.0 to .NET 5.0 simply requires a version number change in your project file.
+
+Preview 1 uses the C# 8.0 compiler so there aren't any new language features. Preview 1 also does not include any new features for the base class libraries or app models like ASP.NET Core. Preview 1 is functionally equivalent to a .NET Core 3.1.1 since it only includes a few bug fixes. For this reason, unless you really want to use .NET 5.0 as soon as possible, I'd recommend continuing to use .NET Core 3.1.
+
+I expect Microsoft to release new previews each month until the final version in November 2020 and I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book. 
+
+## Chapters 1 to 19
+After installing the .NET 5.0 SDK, following the step-by-step instructions in the book should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 
+
+To upgrade a console application solution from the GitHub repository from .NET Core 3.1 to .NET 5.0 just requires a version number change in your project file.
+
 Change this:
 ```
-<TargetFramework>netcoreapp3.0</TargetFramework>
+<TargetFramework>netcoreapp3.1</TargetFramework>
 ```
 To this:
 ```
 <TargetFramework>netcoreapp5.0</TargetFramework>
 ```
-## Chapter 4
-For the `Instrumenting` project, the additional NuGet packages should use the Preview 1 versions, as shown in the following markup: 
+For projects that reference additional NuGet packages, use the latest NuGet package version (including preview versions) instead of the version given in the book. You can search for them here: https://www.nuget.org
+## Chapter 4 - Writing, Debugging, and Testing Functions
+For the `Instrumenting` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup: 
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -31,7 +41,7 @@ For the `Instrumenting` project, the additional NuGet packages should use the Pr
 
 </Project>
 ```
-For the `CalculatorLibUnitTests` project, the additional NuGet packages should use the Preview 1 versions, as shown in the following markup:
+For the `CalculatorLibUnitTests` project, the additional referenced NuGet packages for unit testing can use the latest versions including preview versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -50,6 +60,96 @@ For the `CalculatorLibUnitTests` project, the additional NuGet packages should u
   <ItemGroup>
     <ProjectReference 
       Include="..\CalculatorLib\CalculatorLib.csproj" />
+  </ItemGroup>
+
+</Project>
+```
+## Chapter 11 - Working with Databases Using Entity Framework Core
+For the `WorkingWithEFCore` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference 
+      Include="Microsoft.EntityFrameworkCore.Sqlite" 
+      Version="5.0.0-preview.2.20120.8" />
+    <PackageReference
+      Include="Microsoft.EntityFrameworkCore.Proxies"
+      Version="5.0.0-preview.2.20120.8" />
+  </ItemGroup>
+
+</Project>
+```
+## Chapter 12 - Querying and Manipulating Data Using LINQ
+For the `LinqWithEFCore` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference 
+      Include="Microsoft.EntityFrameworkCore.Sqlite" 
+      Version="5.0.0-preview.2.20120.8" />
+  </ItemGroup>
+
+</Project>
+```
+## Chapter 14 - Practical Applications of C# and .NET
+For the `NorthwindContextLib` project, the referenced NuGet package for SQLite should use the preview version, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=
+      "..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj" />
+    <PackageReference
+      Include="Microsoft.EntityFrameworkCore.SQLite" 
+      Version="5.0.0-preview.2.20120.8" />
+  </ItemGroup>
+
+</Project>
+```
+## Chapter 16 - Building Websites Using the Model-View-Controller Pattern
+For the `NorthwindMvc` project, the referenced NuGet packages should use the preview versions, as shown in the following markup:
+```
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+    <UserSecretsId>aspnet-NorthwindMvc-72F8E5E5-AF15-4520-91A9-EF8090AF2961</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0-preview.1.20124.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0-preview.1.20124.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.0-preview.1.20124.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.2.20120.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-preview.2.20120.8" />
+    
+    <!-- added in Chapter 18 to call a web service -->
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=
+      "..\NorthwindContextLib\NorthwindContextLib.csproj" />
   </ItemGroup>
 
 </Project>

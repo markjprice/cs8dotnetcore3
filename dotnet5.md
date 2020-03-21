@@ -21,7 +21,7 @@ To this:
 ```
 <TargetFramework>netcoreapp5.0</TargetFramework>
 ```
-For projects that use additional NuGet packages, use the latest NuGet package version (including preview versions) instead of the version given in the book. 
+For projects that reference additional NuGet packages, use the latest NuGet package version (including preview versions) instead of the version given in the book. You can search for them here: https://www.nuget.org
 ## Chapter 4 - Writing, Debugging, and Testing Functions
 For the `Instrumenting` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup: 
 ```

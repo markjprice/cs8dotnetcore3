@@ -1,13 +1,9 @@
 # Upgrading to Piranha CMS 8.1
-Chapter 17 was written using Piranha CMS 7.0 that targets .NET Core 2.2.
-
-The solution code for this chapter has been updated to use Piranha CMS 8.1 which targets .NET Core 3.1.
-
 [Announcing 8.0 for .NET Core 3.1](http://piranhacms.org/blog/announcing-80-for-net-core-31)
 
-As well as targetting .NET Core 3.1, Piranha CMS 8.0 and 8.1 have the following changes that affect Chapter 17:
+Chapter 17 was written using Piranha CMS 7.0 that targets .NET Core 2.2. The solution code for this chapter has been updated to use Piranha CMS 8.1 which targets .NET Core 3.1. As well as targetting .NET Core 3.1, Piranha CMS 8.0 and 8.1 have the following changes that affect Chapter 17.
 ## Page 557 - Creating and exploring a Piranha CMS website
-The project file will use version 8.1, and the package reference for Entity Framework Core is database-specific, as shown in the following markup:
+The project file will use Piranha CMS NuGet packages version 8.1, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>

@@ -52,7 +52,9 @@ The `[Region]` attribute has moved from the `Piranha.AttributeBuilder` namespace
 ## Page 595 - Configuring start up and importing from a database
 In Piranha CMS 7.0, `PageTypeBuilder` was used to manually add each page type. This has been replaced with `ContentTypeBuilder` that only needs to have an assembly added and all content types in that assembly will be registered.
 ## Page 597 - Configuring start up and importing from a database
-The `Page<T>.Create` method has been replaced by the `Page<T>.CreateAsync()` method. In `ImportController.cs`, change the following code:
+The `Page<T>.Create` method has been replaced by the `Page<T>.CreateAsync()` method. 
+
+In `ImportController.cs`, change the following code:
 ```
 categoryPage = CategoryPage.Create(api);
 ```

@@ -51,9 +51,7 @@ Now that Piranha CMS 8.0 is compatible with .NET Core 3.1, we can reuse both the
 The `[Region]` attribute has moved from the `Piranha.AttributeBuilder` namespace to the `Piranha.Extend` namespace.
 ## Page 595 - Configuring start up and importing from a database
 In Piranha CMS 7.0, `PageTypeBuilder` was used to manually add each page type. This has been replaced with `ContentTypeBuilder` that only needs to have an assembly added and all content types in that assembly will be registered.
-## Page 597
-The `GetAllAsync()` extension method has been replaced by `GetAllByFolderIdAsync()` with no folder ID passed.
-## Page 597
+## Page 597 - Configuring start up and importing from a database
 The `Page<T>.Create` method has been replaced by the `Page<T>.CreateAsync()` method. In `ImportController.cs`, change the following code:
 ```
 categoryPage = CategoryPage.Create(api);
@@ -62,3 +60,4 @@ To:
 ```
 categoryPage = await CategoryPage.CreateAsync(api);
 ```
+The `GetAllAsync()` extension method has been replaced by `GetAllByFolderIdAsync()` with no folder ID passed.

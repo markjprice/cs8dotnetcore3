@@ -80,5 +80,6 @@ Also, the [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/
 1. In Visual Studio Code on Mac, navigate to **Code** | **Preferences** | **Settings**, or press `Cmd` + `,`. On Windows, navigate to **File** | **Preferences** | **Settings**, or press `Ctrl` + `,`.
 2. In the **Search settings** box, enter `compact`
 3. Clear the **Explorer: Compact Folders** check box, as shown in the following screenshot:
+
 ![Disabling the compact folders feature](https://github.com/markjprice/cs8dotnetcore3/blob/master/disable-compact-folders.png)
 4. Close the **Settings** editor.

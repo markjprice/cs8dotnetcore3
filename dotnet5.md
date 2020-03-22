@@ -188,6 +188,7 @@ For the `NorthwindCms` project, the referenced NuGet packages should use the lat
 
 </Project>
 ```
+Also read [Upgrading to Piranha CMS 8.1](piranha-cms.md)
 ## Chapter 18 - Building and Consuming Web Services
 For the `NorthwindService` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
 ```

@@ -6,6 +6,7 @@
 ## Chapters 1 to 16, 18 and 19
 18 of the 21 chapters in the fourth edition of this book work with either .NET Core 3.0 or .NET Core 3.1. 
 To upgrade a console application from .NET Core 3.0 to .NET Core 3.1 simply requires a small change in your project file.
+
 Change this:
 ```
 <TargetFramework>netcoreapp3.0</TargetFramework>

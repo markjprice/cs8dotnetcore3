@@ -22,6 +22,17 @@ In Step 3, the variable named `e1` should be named `john`.
 In the table of common symbols, the entries for `\w` and `\W` should have meanings of word characters and NON-word characters. The symbol for whitespace is `\s`, and for NON-whitespace is `\S`.
 ## Page 264 - Splitting a complex comma-separated string
 In Step 2, I use a complex regular expression to split a comma-separated string but I neglected to include the link to the Stack Overflow discussion that explains how it works: [Regex to split a CSV](https://stackoverflow.com/questions/18144431/regex-to-split-a-csv)
+## Page 281 - Reading assembly metadata
+In Step 3, there is a missing variable named `assembly` in the printed book (it is correct in the GitHub repo file). 
+
+Change:
+```
+Assembly = Assembly.GetEntryAssembly();
+```
+To:
+```
+Assembly assembly = Assembly.GetEntryAssembly();
+```
 ## Page 363 - Creating the Northwind sample database for SQLite
 - In Step 2, I say to download the SQL script. It is easier if you have created a local Git repository as explained in Chapter 1. Then you can simply copy the SQL script file from your local repository folder.
 - In Step 4, if the `<` character is not supported on your operating system because you use a non-English language, try using

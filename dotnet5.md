@@ -11,7 +11,7 @@ I expect Microsoft to release new previews each month until the final version in
 ## Chapters 1 to 19
 After installing the .NET 5.0 SDK, following the step-by-step instructions in the book should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 
 
-To upgrade a console application solution from the GitHub repository from .NET Core 3.1 to .NET 5.0 just requires a version number change in your project file.
+To upgrade a project in the GitHub repository from .NET Core 3.1 to .NET 5.0 just requires a version number change in your project file.
 
 Change this:
 ```

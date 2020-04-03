@@ -159,6 +159,8 @@ For the `NorthwindMvc` project, the referenced NuGet packages should use the pre
 </Project>
 ```
 ## Chapter 17 - Building Websites Using a Content Management System
+Also read [Upgrading to Piranha CMS 8.1](piranha-cms.md)
+
 For the `NorthwindCms` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -192,7 +194,6 @@ For the `NorthwindCms` project, the referenced NuGet packages should use the lat
 
 </Project>
 ```
-Also read [Upgrading to Piranha CMS 8.1](piranha-cms.md)
 ## Chapter 18 - Building and Consuming Web Services
 For the `NorthwindService` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
 ```
@@ -210,7 +211,7 @@ For the `NorthwindService` project, the referenced NuGet packages should use the
     
     <PackageReference Include=
       "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" 
-      Version="5.0.0-preview.1.20124.5" />
+      Version="5.0.0-preview.2.20167.3" />
   </ItemGroup>
 
 </Project>
@@ -227,7 +228,7 @@ For the `NorthwindML` project, the referenced NuGet packages should use the late
   <ItemGroup>
     <PackageReference 
       Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" 
-      Version="5.0.0-preview.1.20124.5" />
+      Version="5.0.0-preview.2.20167.3" />
     <PackageReference 
       Include="Microsoft.EntityFrameworkCore.Sqlite" 
       Version="5.0.0-preview.2.20159.4" />

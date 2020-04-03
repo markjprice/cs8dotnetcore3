@@ -1,12 +1,11 @@
 # Support for .NET 5.0
-.NET 5.0 Preview 1 was released on 16th March 2020. 
+Microsoft will release new previews of .NET 5.0 regularly until the final version in November 2020. I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book.
 
-- [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
+- 16 March 2020: [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
+- 2 April 2020: [Announcing .NET 5 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-2/)
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
 
-Preview 1 uses the C# 8.0 compiler so there aren't any new language features. Preview 1 also does not include any new features for the base class libraries or app models like ASP.NET Core. Preview 1 is functionally equivalent to a .NET Core 3.1.1 since it only includes a few bug fixes. For this reason, unless you really want to use .NET 5.0 as soon as possible, I'd recommend continuing to use .NET Core 3.1.
-
-I expect Microsoft to release new previews each month until the final version in November 2020 and I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book. 
+Previews 1 and 2 use the C# 8.0 compiler so there aren't any new language features. Previews 1 and 2 also do not include any new features for the base class libraries or app models like ASP.NET Core. Previews 1 and 2 are functionally equivalent to a .NET Core 3.1.1 since they only include a few bug fixes and performance improvements. These are important improvements (of course!) but from the perspective of the content of my book, they don't need any special notes.
 
 ## Chapters 1 to 19
 After installing the .NET 5.0 SDK, following the step-by-step instructions in the book should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 

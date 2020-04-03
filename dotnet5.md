@@ -20,9 +20,12 @@ To this:
 ```
 <TargetFramework>netcoreapp5.0</TargetFramework>
 ```
-Previews 1 and 2 use `netcoreapp5.0` as the target framework name. This will change to `net5.0` in a future preview, as described at the following link: https://github.com/dotnet/designs/blob/master/accepted/2020/net5/net5.md
+Previews 1 and 2 use `netcoreapp5.0` as the target framework name. This will change to `net5.0` in a future preview, as described in detail at the following link: https://github.com/dotnet/designs/blob/master/accepted/2020/net5/net5.md
 
-For projects that reference additional NuGet packages, use the latest NuGet package version (including preview versions) instead of the version given in the book. You can search for them here: https://www.nuget.org
+For projects that reference additional NuGet packages, use the latest NuGet package version (including preview versions), as shown in the rest of this page, instead of the version given in the book. 
+
+If I am slow updating this page then you can search for them yourself at the following link: https://www.nuget.org
+
 ## Chapter 4 - Writing, Debugging, and Testing Functions
 For the `Instrumenting` project, the additional referenced NuGet packages should use the latest preview versions, as shown in the following markup: 
 ```

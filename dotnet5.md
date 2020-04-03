@@ -5,7 +5,7 @@ Microsoft will release new previews of .NET 5.0 regularly until the final versio
 - 16 March 2020: [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
 - 2 April 2020: [Announcing .NET 5 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-2/)
 
-Previews 1 and 2 use the C# 8.0 compiler so there aren't any new language features. Previews 1 and 2 also do not include any new features for the base class libraries or app models like ASP.NET Core. Previews 1 and 2 are functionally equivalent to a .NET Core 3.1.1 since they only include a few bug fixes and performance improvements. Of course, those are important improvements but from the perspective of the code in my book, they don't need changes beyond the project file updates shown on this page.
+Previews 1 and 2 use the C# 8.0 compiler so there aren't any new language features. Previews 1 and 2 also do not include any new features for the base class libraries or app models like ASP.NET Core. They mostly include a few bug fixes and performance improvements. Of course, those are important improvements but from the perspective of the code in my book, they don't require changes beyond the project file updates shown on this page.
 
 ## Chapters 1 to 19
 After installing the .NET 5.0 SDK, following the step-by-step instructions in the book should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 

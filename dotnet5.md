@@ -19,7 +19,7 @@ Change this:
 ```
 To this:
 ```
-<TargetFramework>netcoreapp5.0</TargetFramework>
+<TargetFramework>net5.0</TargetFramework>
 ```
 Previews 1 to 2 used `netcoreapp5.0` as the target framework name. This changed to `net5.0` in a Preview 3 and later, as described in detail at the following link: https://github.com/dotnet/designs/blob/master/accepted/2020/net5/net5.md
 

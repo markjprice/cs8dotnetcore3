@@ -9,9 +9,9 @@ Microsoft will release new previews of .NET 5.0 regularly until the final versio
 Previews 1 to 3 use the C# 8.0 compiler so there aren't any new language features. Previews 1 to 3 also do not include any major new features for the base class libraries or app models like ASP.NET Core. They mostly include a few bug fixes and performance improvements. Of course, those are important improvements but from the perspective of the code in my book, they don't require changes beyond the project file updates shown on this page.
 
 ## Chapters 1 to 19
-After installing the .NET 5.0 SDK, following the step-by-step instructions in the book should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 
+After [downloading](https://dotnet.microsoft.com/download/dotnet-core/5.0) and installing .NET 5.0 SDK, follow the step-by-step instructions in the book and they should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 
 
-To upgrade a project in the GitHub repository from .NET Core 3.1 to .NET 5.0 just requires a version number change in your project file.
+To upgrade a project in the GitHub repository from .NET Core 3.1 to .NET 5.0 just requires a target framework change in your project file.
 
 Change this:
 ```
@@ -21,11 +21,11 @@ To this:
 ```
 <TargetFramework>net5.0</TargetFramework>
 ```
-Previews 1 to 2 used `netcoreapp5.0` as the target framework name. This changed to `net5.0` in a Preview 3 and later, as described in detail at the following link: https://github.com/dotnet/designs/blob/master/accepted/2020/net5/net5.md
+Previews 1 to 2 used `netcoreapp5.0` as the target framework name. This changed to `net5.0` in Preview 3 and later as described in detail at the following link: https://github.com/dotnet/designs/blob/master/accepted/2020/net5/net5.md
 
 For projects that reference additional NuGet packages, use the latest NuGet package version (including preview versions), as shown in the rest of this page, instead of the version given in the book.
 
-If I am slow updating this page then you can search for them yourself at the following link: https://www.nuget.org
+If I have not updated this page immediately after a new preview is released then you can search for the correct NuGet package version numbers yourself at the following link: https://www.nuget.org
 
 ## Chapter 4 - Writing, Debugging, and Testing Functions
 For the `Instrumenting` project, the additional referenced NuGet packages should use the latest preview versions, as shown in the following markup: 
@@ -46,7 +46,7 @@ For the `Instrumenting` project, the additional referenced NuGet packages should
 
 </Project>
 ```
-For the `CalculatorLibUnitTests` project, the additional referenced NuGet packages for unit testing can use the latest versions including preview versions, as shown in the following markup:
+For the `CalculatorLibUnitTests` project, the additional referenced NuGet packages for unit testing can use the latest versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -87,7 +87,7 @@ For the `WorkingWithEFCore` project, the additional referenced NuGet packages sh
 </Project>
 ```
 ## Chapter 12 - Querying and Manipulating Data Using LINQ
-For the `LinqWithEFCore` and `Exercise02` projects, the additional referenced NuGet packages should use the preview versions, as shown in the following markup:
+For the `LinqWithEFCore` and `Exercise02` projects, the additional referenced NuGet packages should use the preview version, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -196,7 +196,6 @@ For the `NorthwindService` project, the referenced NuGet packages should use the
     <ProjectReference Include="..\NorthwindContextLib\NorthwindContextLib.csproj" />
 
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.3" />
-    
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="5.0.0-preview.3.20215.14" />
   </ItemGroup>
 

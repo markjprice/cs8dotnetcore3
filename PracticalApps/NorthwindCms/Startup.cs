@@ -64,6 +64,9 @@ namespace NorthwindCms
       // Initialize Piranha
       App.Init(api);
 
+      // register custom block
+      App.Blocks.Register<Models.Blocks.YouTubeBlock>();
+
       // register GIFs as a media type
       App.MediaTypes.Images.Add(".gif", "image/gif");
 

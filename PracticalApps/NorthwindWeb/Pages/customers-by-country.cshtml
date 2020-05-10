@@ -18,7 +18,7 @@
           @foreach (Customer customer in country)
           {
             <li>
-              <a href="customer?id=@customer.CustomerID">
+              <a asp-page="customer" asp-route-id="@customer.CustomerID">
                 @customer.CompanyName
               </a>
             </li>

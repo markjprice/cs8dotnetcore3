@@ -2,7 +2,7 @@
 - [Errata](errata.md)
 - [December 2019 update for .NET Core 3.1](december-2019-update.md)
 - [Upgrading to Piranha CMS 8.1](piranha-cms.md)
-- [Support for .NET 5.0](dotnet5.md)
+- [Fourth Edition's support for .NET 5.0](dotnet5.md)
 - [Appendix, Answers to the Test Your Knowledge Questions](https://static.packt-cdn.com/downloads/9781788478120_Appendix_Answers_to_the_Test_Your_Knowledge_Questions.pdf)
 - [Color images of the screenshots/diagrams used in this book](https://static.packt-cdn.com/downloads/9781788478120_ColorImages.pdf)
 # Repository for the Packt Publishing book

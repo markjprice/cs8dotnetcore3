@@ -96,3 +96,8 @@ Also, the [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/
 
 ![Disabling the compact folders feature](https://github.com/markjprice/cs8dotnetcore3/blob/master/disable-compact-folders.png)
 4. Close the **Settings** editor.
+## Page 540 - Validating the model
+In Step 7, the class name should be `HomeModelBindingViewModel`, as shown in the following code:
+```
+var model = new HomeModelBindingViewModel
+```

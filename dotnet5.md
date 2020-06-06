@@ -13,6 +13,10 @@ Previews 1 to 3 use the C# 8.0 compiler so there aren't any new language feature
 
 Preview 4 can use the C# 9.0 compiler but most new C# language features like those discussed in the following link are not yet supported: [Welcome to C# 9.0](https://devblogs.microsoft.com/dotnet/welcome-to-c-9-0/)
 
+To use the C# 9.0 compiler, add an element to set language version to preview in your project file:
+```
+<LangVersion>preview</LangVersion>
+```
 ## Chapters 1 to 19
 After [downloading](https://dotnet.microsoft.com/download/dotnet-core/5.0) and installing .NET 5.0 SDK, follow the step-by-step instructions in the book and they should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 
 
@@ -27,11 +31,6 @@ To this:
 <TargetFramework>net5.0</TargetFramework>
 ```
 Previews 1 to 2 used `netcoreapp5.0` as the target framework name. This changed to `net5.0` in Preview 3 and later as described in detail at the following link: https://github.com/dotnet/designs/blob/master/accepted/2020/net5/net5.md
-
-To use the C# 9.0 compiler, add an element to set language version to preview in your project file:
-```
-<LangVersion>preview</LangVersion>
-```
 
 For projects that reference additional NuGet packages, use the latest NuGet package version (including preview versions), as shown in the rest of this page, instead of the version given in the book.
 

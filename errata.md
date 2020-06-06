@@ -22,6 +22,19 @@ In Step 3, the variable named `e1` should be named `john`.
 In the table of common symbols, the entries for `\w` and `\W` should have meanings of word characters and NON-word characters. The symbol for whitespace is `\s`, and for NON-whitespace is `\S`.
 ## Page 264 - Splitting a complex comma-separated string
 In Step 2, I use a complex regular expression to split a comma-separated string but I neglected to include the link to the Stack Overflow discussion that explains how it works: [Regex to split a CSV](https://stackoverflow.com/questions/18144431/regex-to-split-a-csv)
+## Page 275 - Using indexes and ranges
+In Step 2, the expression to set the startIndex to get the last name can be simplified. Change:
+```
+string lastName = name.Substring(
+  startIndex: name.Length - (name.Length - indexOfSpace - 1),
+  length: name.Length - indexOfSpace - 1);
+```
+To:
+```
+string lastName = name.Substring(
+  startIndex: indexOfSpace + 1,
+  length: name.Length - indexOfSpace - 1);
+```
 ## Page 281 - Reading assembly metadata
 In Step 3, there is a missing variable named `assembly` in the printed book (it is correct in the GitHub repo file). 
 
@@ -83,3 +96,8 @@ Also, the [compact folders](https://github.com/microsoft/vscode-docs/blob/vnext/
 
 ![Disabling the compact folders feature](https://github.com/markjprice/cs8dotnetcore3/blob/master/disable-compact-folders.png)
 4. Close the **Settings** editor.
+## Page 540 - Validating the model
+In Step 7, the class name should be `HomeModelBindingViewModel`, as shown in the following code:
+```
+var model = new HomeModelBindingViewModel
+```

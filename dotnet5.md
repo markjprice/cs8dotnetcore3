@@ -1,9 +1,10 @@
-# Support for .NET 5.0
-Microsoft will release new previews of .NET 5.0 regularly until the final version in November 2020. I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book.
+# Fourth edition support for .NET 5.0
+Microsoft will release new previews of .NET 5.0 regularly until the final version in November 2020. They say, "We expect that the release will be very close to feature-complete by Preview 7." I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book.
 
 Microsoft originally hoped that .NET 5.0 would unify all .NET platforms including mobile development using Xamarin but that plan is delayed; "we expect these features to be available in preview by November 2020, but the unification will be truly completed with .NET 6, our Long-Term Support (LTS) release. Our vision hasn’t changed, but our timeline has."
 
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
+- June 10, 2020: [Announcing .NET 5.0 Preview 5](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-5/)
 - May 19, 2020: [Announcing .NET 5 Preview 4 and our journey to one .NET](https://devblogs.microsoft.com/dotnet/announcing-net-5-preview-4-and-our-journey-to-one-net/)
 - April 23, 2020: [Announcing .NET 5 Preview 3](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-3/)
 - April 2, 2020: [Announcing .NET 5 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-2/)

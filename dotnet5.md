@@ -1,9 +1,10 @@
 # Fourth Edition's support for .NET 5.0
-Microsoft will release new previews of .NET 5.0 regularly until the final version in November 2020. They say, "We expect that the release will be very close to feature-complete by Preview 7." I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book.
+Microsoft will release new previews of .NET 5.0 regularly until the final version in November 2020. They say, "We expect that the release will be feature-complete with Preview 8." I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book.
 
 Microsoft originally hoped that .NET 5.0 would unify all .NET platforms including mobile development using Xamarin but that plan is delayed; "we expect these features to be available in preview by November 2020, but the unification will be truly completed with .NET 6, our Long-Term Support (LTS) release. Our vision hasn’t changed, but our timeline has."
 
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
+- June 25, 2020: [Announcing .NET 5.0 Preview 6](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-6/)
 - June 10, 2020: [Announcing .NET 5.0 Preview 5](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-5/)
 - May 19, 2020: [Announcing .NET 5 Preview 4 and our journey to one .NET](https://devblogs.microsoft.com/dotnet/announcing-net-5-preview-4-and-our-journey-to-one-net/)
 - April 23, 2020: [Announcing .NET 5 Preview 3](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-3/)
@@ -12,7 +13,7 @@ Microsoft originally hoped that .NET 5.0 would unify all .NET platforms includin
 
 Previews 1 to 3 use the C# 8.0 compiler so there aren't any new language features. Previews 1 to 3 also do not include any major new features for the base class libraries or app models like ASP.NET Core. They mostly include a few bug fixes and performance improvements. Of course, those are important improvements but from the perspective of the code in my book, they don't require changes beyond the project file updates shown on this page.
 
-Preview 4 and later can use the C# 9.0 compiler but most new C# language features like those discussed in the following link are not yet supported: [Welcome to C# 9.0](https://devblogs.microsoft.com/dotnet/welcome-to-c-9-0/)
+Preview 4 and later can use the C# 9.0 compiler but many new C# language features like those discussed in the following link are not yet supported: [Welcome to C# 9.0](https://devblogs.microsoft.com/dotnet/welcome-to-c-9-0/)
 
 To use the C# 9.0 compiler, add an element to set language version to preview in your project file:
 ```

@@ -76,6 +76,36 @@ modelBuilder.Entity<Product>()
   .Property(product => product.Cost)
   .HasConversion<double>();
 ```
+## Page 407 - Building an EF Core model
+This is the same issue as on Page 375 above. To fix it, in Step 2, add an OnModelCreating method, as shown in the following code:
+```
+protected override void OnModelCreating(
+  ModelBuilder modelBuilder)
+{
+  modelBuilder.Entity<Product>()
+    .Property(product => product.UnitPrice)
+    .HasConversion<double>();
+}
+```
+## Page 423 - Creating your own LINQ extension methods
+In Step 2, the logic for the `Mode` method is wrong. Since we sort by default in ascending order, the most frequent number will be last but in the book code we return the first item. We could fix this by calling `LastOrDefault`, but when debugging it is easiest if the data we are interested in appear at the top of the results, so the best way to fix this is to sort in descending order, as shown in the following code:
+```
+public static int? Mode(this IEnumerable<int?> sequence)
+{
+  var grouped = sequence.GroupBy(item => item);
+  var orderedGroups = grouped.OrderByDescending(group => group.Count());
+  return orderedGroups.FirstOrDefault().Key;
+}
+```
+And:
+```
+public static decimal? Mode(this IEnumerable<decimal?> sequence)
+{
+  var grouped = sequence.GroupBy(item => item);
+  var orderedGroups = grouped.OrderByDescending(group => group.Count());
+  return orderedGroups.FirstOrDefault().Key;
+}
+```
 ## Page 503 - Using Razor class libraries
 In Step 7, if the `Areas` and `MyFeature` folders are missing, then that is caused by an errata in Step 4, where the command: 
 ```

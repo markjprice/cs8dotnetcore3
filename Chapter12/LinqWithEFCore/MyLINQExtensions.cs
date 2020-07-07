@@ -42,7 +42,7 @@ namespace System.Linq
     public static int? Mode(this IEnumerable<int?> sequence)
     {
       var grouped = sequence.GroupBy(item => item);
-      var orderedGroups = grouped.OrderBy(group => group.Count());
+      var orderedGroups = grouped.OrderByDescending(group => group.Count());
       return orderedGroups.FirstOrDefault().Key;
     }
 
@@ -55,7 +55,7 @@ namespace System.Linq
     public static decimal? Mode(this IEnumerable<decimal?> sequence)
     {
       var grouped = sequence.GroupBy(item => item);
-      var orderedGroups = grouped.OrderBy(group => group.Count());
+      var orderedGroups = grouped.OrderByDescending(group => group.Count());
       return orderedGroups.FirstOrDefault().Key;
     }
 

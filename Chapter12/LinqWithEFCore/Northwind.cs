@@ -17,5 +17,13 @@ namespace Packt.Shared
         
       optionsBuilder.UseSqlite($"Filename={path}");
     }
+
+    protected override void OnModelCreating(
+      ModelBuilder modelBuilder)
+    {
+      modelBuilder.Entity<Product>()
+        .Property(product => product.UnitPrice)
+        .HasConversion<double>();
+    }
   }
 }

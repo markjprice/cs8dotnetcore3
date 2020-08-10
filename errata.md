@@ -14,6 +14,36 @@ In Step 2, the code block calls a method named `RunSalesTax`. The method name sh
 // RunTimesTable();
 RunCalculateTax();
 ```
+## Page 117 - Calculating factorials with recursion
+In Step 1, the Factorial function does not check for 32-bit integer overflows and the RunFactorial function prompts the user to enter a number and then calculates its factorial. This led to me incorrectly stating that the Factorial function overflows when passed integers of 32 or higher when it will actually overflow when passed integers of 13 or higher. Better implementations of the two functions are shown in the following code: 
+```
+static int Factorial(int number)
+{
+  if (number < 1)
+  {
+    return 0;
+  }
+  else if (number == 1)
+  {
+    return 1;
+  }
+  else
+  {
+    checked // for overflow
+    {
+      return number * Factorial(number - 1);
+    }
+  }
+}
+
+static void RunFactorial()
+{
+  for (int i = 1; i < 15; i++)
+  {
+    WriteLine($"{i}! = {Factorial(i):N0}");
+  }
+}
+```
 ## Page 203 - Managing memory with reference and value types
 In the second paragraph, the phrase "first-in, first-out" should be "last-in, first-out".
 ## Page 217 - Inheriting exceptions

@@ -15,7 +15,7 @@ In Step 2, the code block calls a method named `RunSalesTax`. The method name sh
 RunCalculateTax();
 ```
 ## Page 117 - Calculating factorials with recursion
-In Step 1, the `Factorial` function does not check for overflows and the `RunFactorial` function prompts the user to enter a number and then calculates its factorial. This led to me incorrectly state that the `Factorial` function overflows when passed integers of 32 or higher when it will actually overflow when passed integers of 13 or higher. Improved implementations of the two functions that illustrate this are shown in the following code: 
+In Step 1, the `Factorial` function does not check for overflows and the `RunFactorial` function prompts the user to enter a number and then calculates its factorial. This led me to incorrectly state that the `Factorial` function overflows when passed integers of 32 or higher when it will actually overflow when passed integers of 13 or higher. Improved implementations of the two functions that illustrate this are shown in the following code: 
 ```
 static int Factorial(int number)
 {

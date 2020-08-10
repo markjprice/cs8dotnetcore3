@@ -8,6 +8,60 @@ In the first paragraph, the second sentence:
 "This method waits for the user to type some text, then as soon as the user presses Enter, whatever the user has typed is returned as a `string` value."
 Should be:
 "This method waits for the user to press a key or key combination that is then returned as a `ConsoleKeyInfo` value."
+## Page 84 - Pattern matching with the switch statement
+In Step 2, you write code to open a file and then branch depending on its properties, for example to show if it is readonly or writeable. Since the code to open the file always uses the default of read/write, then the switch statement will always use the first branch indicating that it is writeable. It will never be readonly or a memory stream or use the default branchg or be null.
+
+If you manually change the file in your filesystem to be readonly and run the code again, then the file open code throws an exception unless you change the code to open the file readonly.
+
+To make the example code a little more interesting but still very artificial, then modify the statements as shown in the following code:
+```
+string path = "/Users/markjprice/Code/Chapter03";
+// string path = @"C:\Code\Chapter03";
+
+Write("Press R for readonly or W for write: ");
+ConsoleKeyInfo key = ReadKey();
+WriteLine();
+
+Stream s = null;
+
+if (key.Key == ConsoleKey.R)
+{
+  s = File.Open(
+    Path.Combine(path, "file.txt"),
+    FileMode.OpenOrCreate,
+    FileAccess.Read);
+}
+else
+{
+  s = File.Open(
+    Path.Combine(path, "file.txt"),
+    FileMode.OpenOrCreate,
+    FileAccess.Write);
+}
+
+string message = string.Empty;
+
+switch (s)
+{
+  case FileStream writeableFile when s.CanWrite:
+    message = "The stream is a file that I can write to.";
+    break;
+  case FileStream readOnlyFile:
+    message = "The stream is a read-only file.";
+    break;
+  case MemoryStream ms:
+    message = "The stream is a memory address.";
+    break;
+  default: // always evaluated last despite its current position
+    message = "The stream is some other type.";
+    break;
+  case null:
+    message = "The stream is null.";
+    break;
+}
+
+WriteLine(message);
+```
 ## Page 114 - Writing a function that returns a value
 In Step 2, the code block calls a method named `RunSalesTax`. The method name should be `RunCalculateTax`:
 ```

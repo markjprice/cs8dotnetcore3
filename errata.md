@@ -40,7 +40,14 @@ static void RunFactorial()
 {
   for (int i = 1; i < 15; i++)
   {
-    WriteLine($"{i}! = {Factorial(i):N0}");
+    try
+    {
+      WriteLine($"{i}! = {Factorial(i):N0}");
+    }
+    catch (System.OverflowException)
+    {
+      WriteLine($"{i}! is too big for a 32-bit integer.");
+    }
   }
 }
 ```

@@ -1,4 +1,6 @@
 # Errata
+# Errata
+If you find any mistakes in the fourth edition, C# 8.0 and .NET Core 3.0, then please raise an issue in this repository or email me at markjprice (at) gmail.com.
 ## Page 14 - Comparing .NET technologies
 In the table row for Xamarin, the description should be "Mobile _and desktop_ apps only."
 ## Page 30 - Discovering your C# compiler versions

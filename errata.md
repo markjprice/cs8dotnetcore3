@@ -199,7 +199,7 @@ public static decimal? Mode(this IEnumerable<decimal?> sequence)
 }
 ```
 ## Page 454 - Working with async streams
-The original code used System.Threading.Thread.Sleep which blocks the thread. Using Task.Delay instead allows thread to execute asynchronously.
+The original code used `System.Threading.Thread.Sleep` method which blocks the thread. Using `Task.Delay` method instead allows thread to execute asynchronously.
 ```
 async static IAsyncEnumerable<int> GetNumbers()
 {

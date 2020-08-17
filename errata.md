@@ -198,6 +198,24 @@ public static decimal? Mode(this IEnumerable<decimal?> sequence)
   return orderedGroups.FirstOrDefault().Key;
 }
 ```
+## Page 454 - Working with async streams
+The original code used System.Threading.Thread.Sleep which blocks the thread. Using Task.Delay instead allows thread to execute asynchronously.
+```
+async static IAsyncEnumerable<int> GetNumbers()
+{
+  var r = new Random();
+
+  // simulate work
+  await Task.Run(() => Task.Delay(r.Next(1500, 3000)));
+  yield return r.Next(0, 101);
+
+  await Task.Run(() => Task.Delay(r.Next(1500, 3000)));
+  yield return r.Next(0, 101);
+
+  await Task.Run(() => Task.Delay(r.Next(1500, 3000)));
+  yield return r.Next(0, 101);
+}
+```
 ## Page 503 - Using Razor class libraries
 In Step 7, if the `Areas` and `MyFeature` folders are missing, then that is caused by an errata in Step 4, where the command: 
 ```

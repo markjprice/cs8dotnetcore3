@@ -52,10 +52,10 @@ For the `Instrumenting` project, the additional referenced NuGet packages should
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-preview.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-rc.*" />
   </ItemGroup>
 
 </Project>
@@ -70,9 +70,9 @@ For the `CalculatorLibUnitTests` project, the additional referenced NuGet packag
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.0-*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0-preview-*" />
     <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
     <PackageReference Include="coverlet.collector" Version="1.3.0" />
   </ItemGroup>
 
@@ -94,8 +94,8 @@ For the `WorkingWithEFCore` project, the additional referenced NuGet packages sh
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.0-preview.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.0-rc.*" />
   </ItemGroup>
 
 </Project>
@@ -111,7 +111,7 @@ For the `LinqWithEFCore` and `Exercise02` projects, the additional referenced Nu
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
   </ItemGroup>
 
 </Project>
@@ -127,7 +127,7 @@ For the `NorthwindContextLib` project, the referenced NuGet package for SQLite s
 
   <ItemGroup>
     <ProjectReference Include="..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="5.0.0-preview.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="5.0.0-rc.*" />
   </ItemGroup>
 
 </Project>
@@ -147,11 +147,11 @@ For the `NorthwindMvc` project, the referenced NuGet packages should use the pre
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-preview.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-rc.*" />
     
     <!-- added in Chapter 18 to call a web service -->
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
@@ -178,16 +178,16 @@ For the `NorthwindCms` project, the referenced NuGet packages should use the lat
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.*" />
-    <PackageReference Include="Piranha" Version="8.3.0" />
-    <PackageReference Include="Piranha.AspNetCore" Version="8.3.0" />
-    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="8.3.0" />
-    <PackageReference Include="Piranha.AttributeBuilder" Version="8.3.0" />
-    <PackageReference Include="Piranha.Data.EF.SQLite" Version="8.3.0" />
-    <PackageReference Include="Piranha.ImageSharp" Version="8.3.0-rc1" />
-    <PackageReference Include="Piranha.Local.FileStorage" Version="8.3.0" />
-    <PackageReference Include="Piranha.Manager" Version="8.3.0" />
-    <PackageReference Include="Piranha.Manager.TinyMCE" Version="8.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
+    <PackageReference Include="Piranha" Version="8.4.0" />
+    <PackageReference Include="Piranha.AspNetCore" Version="8.4.1" />
+    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="8.4.0" />
+    <PackageReference Include="Piranha.AttributeBuilder" Version="8.4.0" />
+    <PackageReference Include="Piranha.Data.EF.SQLite" Version="8.4.0" />
+    <PackageReference Include="Piranha.ImageSharp" Version="8.4.0" />
+    <PackageReference Include="Piranha.Local.FileStorage" Version="8.4.0" />
+    <PackageReference Include="Piranha.Manager" Version="8.4.1" />
+    <PackageReference Include="Piranha.Manager.TinyMCE" Version="8.4.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -209,9 +209,9 @@ For the `NorthwindService` project, the referenced NuGet packages should use the
   <ItemGroup>
     <ProjectReference Include="..\NorthwindContextLib\NorthwindContextLib.csproj" />
 
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.0" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" 
-                      Version="5.0.0-preview.*" />
+                      Version="5.0.0-rc.*" />
   </ItemGroup>
 
 </Project>
@@ -226,10 +226,10 @@ For the `NorthwindML` project, the referenced NuGet packages should use the late
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.*" />
-    <PackageReference Include="Microsoft.ML" Version="1.5.0" />
-    <PackageReference Include="Microsoft.ML.Recommender" Version="0.17.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.ML" Version="1.5.2" />
+    <PackageReference Include="Microsoft.ML.Recommender" Version="0.17.2" />
   </ItemGroup>
 
   <ItemGroup>

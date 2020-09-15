@@ -6,7 +6,7 @@ Microsoft will release new previews of .NET 5.0 regularly until the final versio
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
 - November 10, 2020: Announcing .NET 5.0 (coming soon)
 - October, 2020: Announcing .NET 5.0 Release Candidate 2 (coming soon)
-- September, 2020: Announcing .NET 5.0 Release Candidate 1 (coming soon)
+- September 14, 2020: [Announcing .NET 5.0 RC 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-rc-1/)
 - August 25, 2020: [Announcing .NET 5.0 Preview 8](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-8/)
 - July 21, 2020: [Announcing .NET 5.0 Preview 7](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-7/)
 - June 25, 2020: [Announcing .NET 5.0 Preview 6](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-6/)

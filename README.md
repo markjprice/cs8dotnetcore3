@@ -5,6 +5,11 @@
 - [Fourth Edition's support for .NET 5.0](dotnet5.md)
 - [Appendix, Answers to the Test Your Knowledge Questions](https://static.packt-cdn.com/downloads/9781788478120_Appendix_Answers_to_the_Test_Your_Knowledge_Questions.pdf)
 - [Color images of the screenshots/diagrams used in this book](https://static.packt-cdn.com/downloads/9781788478120_ColorImages.pdf)
+## Podcast interviews
+Podcast interviews with me about the fourth edition:
+- [The .NET Core Podcast](https://dotnetcore.show/episode-44-learning-net-core-with-mark-j-price/)
+- [Yet Another Podcast with Jesse Liberty](http://jesseliberty.com/2020/02/23/mark-price-c-net-core/)
+- [Packt Podcasts](https://soundcloud.com/packt-podcasts/csharp-8-dotnet-core-3-the-evolution-of-the-microsoft-ecosystem)
 # Repository for the Packt Publishing book
 ## C# 8.0 and .NET Core 3.0 - Modern Cross-Platform Development, Fourth Edition
 All of the code examples are 100% compatible with either .NET Core 3.0 or .NET Core 3.1.

@@ -106,6 +106,8 @@ static void RunFactorial()
   }
 }
 ```
+## Page 154 - Storing multiple values using an enum type
+The table that represents a byte on this page should not have a zero column.
 ## Page 203 - Managing memory with reference and value types
 In the second paragraph, the phrase "first-in, first-out" should be "last-in, first-out".
 ## Page 217 - Inheriting exceptions

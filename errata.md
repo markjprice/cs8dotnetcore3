@@ -181,6 +181,18 @@ protected override void OnModelCreating(
     .HasConversion<double>();
 }
 ```
+## Page 412 - Joining and grouping sequences
+In Step 1, the query does not specify a sort order. The old behavior sorted by category (as described in the book) but the current behavior sorts by product. To sort by category, add a call to OrderBy at the end of the query, as shown in the following code:
+```
+// join every product to its category to return 77 matches 
+var queryJoin = db.Categories.Join(
+  inner: db.Products,
+  outerKeySelector: category => category.CategoryID, 
+  innerKeySelector: product => product.CategoryID, 
+  resultSelector: (c, p) =>
+    new { c.CategoryName, p.ProductName, p.ProductID })
+  .OrderBy(cp => cp.CategoryName);
+```
 ## Page 423 - Creating your own LINQ extension methods
 In Step 2, the logic for the `Mode` method is wrong. Since we sort by default in ascending order, the most frequent number will be last but in the book code we return the first item. We could fix this by calling `LastOrDefault`, but when debugging it is easiest if the data we are interested in appear at the top of the results, so the best way to fix this is to sort in descending order, as shown in the following code:
 ```

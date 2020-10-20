@@ -1,5 +1,5 @@
 # Errata
-If you find any mistakes in the fourth edition, C# 8.0 and .NET Core 3.0, then please raise an issue in this repository or email me at markjprice (at) gmail.com. All of the errata listed below have been corrected for the fifth edition.
+If you find any mistakes in the fourth edition, C# 8.0 and .NET Core 3.0, then please raise an issue in this repository or email me at markjprice (at) gmail.com. All of the errata listed below have been corrected in the [fifth edition](https://github.com/markjprice/cs9dotnet5).
 ## Page 14 - Comparing .NET technologies
 In the table row for Xamarin, the description should be "Mobile _and desktop_ apps only."
 ## Page 30 - Discovering your C# compiler versions
@@ -182,7 +182,7 @@ protected override void OnModelCreating(
 }
 ```
 ## Page 412 - Joining and grouping sequences
-In Step 1, the query does not specify a sort order. The old behavior sorted by category (as described in the book) but the current behavior sorts by product. To sort by category, add a call to OrderBy at the end of the query, as shown in the following code:
+In Step 1, the query does not specify a sort order. The old behavior sorted by category (as described in the book) but the current behavior sorts by product. To sort by category, add a call to `OrderBy` at the end of the query, as shown in the following code:
 ```
 // join every product to its category to return 77 matches 
 var queryJoin = db.Categories.Join(

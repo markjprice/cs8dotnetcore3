@@ -149,6 +149,35 @@ To:
 ```
 Assembly assembly = Assembly.GetEntryAssembly();
 ```
+## Page 339 - Hashing with the commonly used SHA256
+To make it easier to complete Exercise 10.3, I have split the `CheckPassword` method into two overloaded methods, as shown in the following code:
+```
+// check a user's password that is stored
+// in the private static dictionary Users
+public static bool CheckPassword(string username, string password)
+{
+  if (!Users.ContainsKey(username))
+  {
+    return false;
+  }
+
+  var user = Users[username];
+
+  return CheckPassword(username, password, 
+    user.Salt, user.SaltedHashedPassword);
+}
+
+// check a user's password using salt and hashed password
+public static bool CheckPassword(string username, string password, 
+  string salt, string hashedPassword)
+{
+  // re-generate the salted and hashed password 
+  var saltedhashedPassword = SaltAndHashPassword(
+    password, salt);
+
+  return (saltedhashedPassword == hashedPassword);
+}
+```
 ## Page 363 - Creating the Northwind sample database for SQLite
 - In Step 2, I say to download the SQL script. It is easier if you have created a local Git repository as explained in Chapter 1. Then you can simply copy the SQL script file from your local repository folder.
 - In Step 4, if the `<` character is not supported on your operating system because you use a non-English language, try using

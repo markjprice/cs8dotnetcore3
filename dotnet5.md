@@ -4,7 +4,7 @@ Microsoft originally hoped that .NET 5.0 would unify all .NET platforms includin
 Microsoft will release new previews of .NET 5.0 regularly until the final version in November 2020. They say, "We expect that the release will be feature-complete with Preview 8." I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book.
 
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
-- November 10, 2020: Announcing .NET 5.0 (coming soon)
+- November 10, 2020: [Announcing .NET 5.0](https://devblogs.microsoft.com/dotnet/announcing-net-5-0/)
 - October 13, 2020: [Announcing .NET 5.0 RC 2](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-rc-2/)
 - September 14, 2020: [Announcing .NET 5.0 RC 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-rc-1/)
 - August 25, 2020: [Announcing .NET 5.0 Preview 8](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-8/)
@@ -18,7 +18,7 @@ Microsoft will release new previews of .NET 5.0 regularly until the final versio
 
 Preview 4 and later can use the C# 9.0 compiler but many new C# language features like those discussed in the following link are not yet supported: [Welcome to C# 9.0](https://devblogs.microsoft.com/dotnet/welcome-to-c-9-0/)
 
-To use the C# 9.0 compiler, add an element to set language version to preview in your project file:
+To use the C# 9.0 compiler with pre-final release .NET 5 SDK, add an element to set language version to preview in your project file:
 ```
 <LangVersion>preview</LangVersion>
 ```
@@ -52,10 +52,10 @@ For the `Instrumenting` project, the additional referenced NuGet packages should
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
@@ -70,7 +70,7 @@ For the `CalculatorLibUnitTests` project, the additional referenced NuGet packag
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0-preview-*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
     <PackageReference Include="coverlet.collector" Version="1.3.0" />
@@ -94,8 +94,8 @@ For the `WorkingWithEFCore` project, the additional referenced NuGet packages sh
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
@@ -111,7 +111,7 @@ For the `LinqWithEFCore` and `Exercise02` projects, the additional referenced Nu
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
@@ -127,7 +127,7 @@ For the `NorthwindContextLib` project, the referenced NuGet package for SQLite s
 
   <ItemGroup>
     <ProjectReference Include="..\NorthwindEntitiesLib\NorthwindEntitiesLib.csproj" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
@@ -147,11 +147,11 @@ For the `NorthwindMvc` project, the referenced NuGet packages should use the pre
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0" />
     
     <!-- added in Chapter 18 to call a web service -->
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
@@ -178,8 +178,8 @@ For the `NorthwindCms` project, the referenced NuGet packages should use the lat
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
-    <PackageReference Include="Piranha" Version="8.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0" />
+    <PackageReference Include="Piranha" Version="8.4.2" />
     <PackageReference Include="Piranha.AspNetCore" Version="8.4.1" />
     <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="8.4.0" />
     <PackageReference Include="Piranha.AttributeBuilder" Version="8.4.0" />
@@ -209,9 +209,9 @@ For the `NorthwindService` project, the referenced NuGet packages should use the
   <ItemGroup>
     <ProjectReference Include="..\NorthwindContextLib\NorthwindContextLib.csproj" />
 
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" 
-                      Version="5.0.0-rc.*" />
+                      Version="5.0.0" />
   </ItemGroup>
 
 </Project>
@@ -226,8 +226,8 @@ For the `NorthwindML` project, the referenced NuGet packages should use the late
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0-rc.*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0" />
     <PackageReference Include="Microsoft.ML" Version="1.5.2" />
     <PackageReference Include="Microsoft.ML.Recommender" Version="0.17.2" />
   </ItemGroup>

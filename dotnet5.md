@@ -1,9 +1,10 @@
 # Fourth Edition's support for .NET 5.0
 Microsoft originally hoped that .NET 5.0 would unify all .NET platforms including mobile development using Xamarin but that plan is delayed; "we expect these features to be available in preview by November 2020, but the unification will be truly completed with .NET 6, our Long-Term Support (LTS) release. Our vision hasn’t changed, but our timeline has."
 
-Microsoft will release new previews of .NET 5.0 regularly until the final version in November 2020. They say, "We expect that the release will be feature-complete with Preview 8." I plan to keep this page updated with any necessary changes to support the code examples in the fourth edition of my book.
+Microsoft released previews of .NET 5.0 regularly until the final version on 10 November 2020.
 
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)
+- [Breaking changes for migration from version 3.1 to 5.0](https://docs.microsoft.com/en-us/dotnet/core/compatibility/3.1-5.0)
 - November 10, 2020: [Announcing .NET 5.0](https://devblogs.microsoft.com/dotnet/announcing-net-5-0/)
 - October 13, 2020: [Announcing .NET 5.0 RC 2](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-rc-2/)
 - September 14, 2020: [Announcing .NET 5.0 RC 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-rc-1/)
@@ -15,13 +16,6 @@ Microsoft will release new previews of .NET 5.0 regularly until the final versio
 - April 23, 2020: [Announcing .NET 5 Preview 3](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-3/)
 - April 2, 2020: [Announcing .NET 5 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-2/)
 - March 16, 2020: [Announcing .NET 5 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/)
-
-Preview 4 and later can use the C# 9.0 compiler but many new C# language features like those discussed in the following link are not yet supported: [Welcome to C# 9.0](https://devblogs.microsoft.com/dotnet/welcome-to-c-9-0/)
-
-To use the C# 9.0 compiler with pre-final release .NET 5 SDK, add an element to set language version to preview in your project file:
-```
-<LangVersion>preview</LangVersion>
-```
 ## Chapters 1 to 19
 After [downloading](https://dotnet.microsoft.com/download/dotnet-core/5.0) and installing .NET 5.0 SDK, follow the step-by-step instructions in the book and they should work as expected since the project file will automatically reference .NET 5.0 as the target framework. 
 
@@ -37,12 +31,10 @@ To this:
 ```
 Previews 1 to 2 used `netcoreapp5.0` as the target framework name. This changed to `net5.0` in Preview 3 and later as described in detail at the following link: https://github.com/dotnet/designs/blob/master/accepted/2020/net5/net5.md
 
-For projects that reference additional NuGet packages, use the latest NuGet package version (including preview versions), as shown in the rest of this page, instead of the version given in the book.
-
-If I have not updated this page immediately after a new preview is released then you can search for the correct NuGet package version numbers yourself at the following link: https://www.nuget.org
+For projects that reference additional NuGet packages, use the latest NuGet package version, as shown in the rest of this page, instead of the version given in the book. You can search for the correct NuGet package version numbers yourself at the following link: https://www.nuget.org
 
 ## Chapter 4 - Writing, Debugging, and Testing Functions
-For the `Instrumenting` project, the additional referenced NuGet packages should use the latest preview versions, as shown in the following markup: 
+For the `Instrumenting` project, the additional referenced NuGet packages should use the .NET 5.0 versions, as shown in the following markup: 
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -84,7 +76,7 @@ For the `CalculatorLibUnitTests` project, the additional referenced NuGet packag
 </Project>
 ```
 ## Chapter 11 - Working with Databases Using Entity Framework Core
-For the `WorkingWithEFCore` project, the additional referenced NuGet packages should use the preview versions, as shown in the following markup:
+For the `WorkingWithEFCore` project, the additional referenced NuGet packages should use the .NET 5.0 versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -101,7 +93,7 @@ For the `WorkingWithEFCore` project, the additional referenced NuGet packages sh
 </Project>
 ```
 ## Chapter 12 - Querying and Manipulating Data Using LINQ
-For the `LinqWithEFCore` and `Exercise02` projects, the additional referenced NuGet packages should use the preview version, as shown in the following markup:
+For the `LinqWithEFCore` and `Exercise02` projects, the additional referenced NuGet package should use the .NET 5.0 version, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -117,7 +109,7 @@ For the `LinqWithEFCore` and `Exercise02` projects, the additional referenced Nu
 </Project>
 ```
 ## Chapter 14 - Practical Applications of C# and .NET
-For the `NorthwindContextLib` project, the referenced NuGet package for SQLite should use the preview version, as shown in the following markup:
+For the `NorthwindContextLib` project, the referenced NuGet package for SQLite should use the .NET 5.0 version, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -133,7 +125,7 @@ For the `NorthwindContextLib` project, the referenced NuGet package for SQLite s
 </Project>
 ```
 ## Chapter 16 - Building Websites Using the Model-View-Controller Pattern
-For the `NorthwindMvc` project, the referenced NuGet packages should use the preview versions, as shown in the following markup:
+For the `NorthwindMvc` project, the referenced NuGet packages should use the .NET 5.0 versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -166,7 +158,7 @@ For the `NorthwindMvc` project, the referenced NuGet packages should use the pre
 ## Chapter 17 - Building Websites Using a Content Management System
 Also read [Upgrading to Piranha CMS 8.1 or later](piranha-cms.md)
 
-For the `NorthwindCms` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
+For the `NorthwindCms` project, the referenced NuGet packages should use the latest versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
@@ -198,7 +190,7 @@ For the `NorthwindCms` project, the referenced NuGet packages should use the lat
 </Project>
 ```
 ## Chapter 18 - Building and Consuming Web Services
-For the `NorthwindService` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
+For the `NorthwindService` project, the referenced NuGet packages should use the latest versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -217,7 +209,7 @@ For the `NorthwindService` project, the referenced NuGet packages should use the
 </Project>
 ```
 ## Chapter 19 - Building Intelligent Apps Using Machine Learning
-For the `NorthwindML` project, the referenced NuGet packages should use the latest or preview versions, as shown in the following markup:
+For the `NorthwindML` project, the referenced NuGet packages should use the latest versions, as shown in the following markup:
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
 

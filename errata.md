@@ -118,6 +118,9 @@ switch (s)
 
 WriteLine(message);
 ```
+## Page 113 - Writing a function that returns a value
+The `switch case` value of `ME` is commented as Maryland. `ME` is the abbreviation for Maine.
+
 ## Page 114 - Writing a function that returns a value
 In Step 2, the code block calls a method named `RunSalesTax`. The method name should be `RunCalculateTax`:
 ```

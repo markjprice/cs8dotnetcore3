@@ -4,6 +4,52 @@ If you find any mistakes in the fourth edition, C# 8.0 and .NET Core 3.0, then p
 In the table row for Xamarin, the description should be "Mobile _and desktop_ apps only."
 ## Page 30 - Discovering your C# compiler versions
 In Step 5, the command `csc -langversion:?` works on macOS but on Windows it returns the error `The name "csc" is not recognized as the name of a command, function, script file, or executable program. Check the spelling of the name, as well as the presence and correctness of the path.` To fix this issue, use the following link: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/command-line-building-with-csc-exe
+
+## Page 49 - Storing dynamic types
+
+In the code example, I show assigning a `string` value to a dynamically-typed variable, as shown in the following code:
+```
+// storing a string in a dynamic object
+dynamic anotherName = "Ahmed";
+
+// this compiles but would throw an exception at run-time
+// if you later store a data type that does not have a 
+// property named Length
+int length = anotherName.Length;
+```
+
+The above example code does not throw an exception because at the time we get the `Length` property, the value stored in `anotherName` is a `string` which does have a `Length` property.
+
+The example would have been clearer if I had shown some examples of assigning values with other data types that do and do not have a `Length` property, as shown in the following code:
+
+```
+// storing a string in a dynamic object
+// string has a Length property
+dynamic anotherName = "Ahmed";
+
+// int does not have a Length property
+anotherName = 12;
+
+// an array of any type has a Length property
+// anotherName = new[] { 3, 5, 7 };
+
+// this compiles but would throw an exception at run-time
+// if you had stored a value with a data type that does not 
+// have a property named Length
+int length = anotherName.Length;
+```
+
+The above example code does throw an exception because at the time we get the `Length` property, the value stored in `anotherName` is an `int` which does not have a `Length` property, as shown in the following output:
+
+```
+Unhandled exception. Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'int' does not contain a definition for 'Length'
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at Variables.Program.Main(String[] args) in /Users/markjprice/Code/Chapter02/Variables/Program.cs:line 34
+```
+
+If you uncomment the statement that assigns an array of `int` values, then the code works without throwing an exception because all arrays have a `Length` property.
+
 ## Page 58 - Exploring console applications further
 The command line example of passing arguments used `-name`, as shown in the following command:
 ```

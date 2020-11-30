@@ -63,7 +63,7 @@ namespace WritingFunctions
           rate = 0.0M; break;
         case "ND": // North Dakota
         case "WI": // Wisconsin
-        case "ME": // Maryland
+        case "ME": // Maine
         case "VA": // Virginia
           rate = 0.05M;
           break;

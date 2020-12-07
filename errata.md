@@ -5,6 +5,14 @@ In the table row for Xamarin, the description should be "Mobile _and desktop_ ap
 ## Page 30 - Discovering your C# compiler versions
 In Step 5, the command `csc -langversion:?` works on macOS but on Windows it returns the error `The name "csc" is not recognized as the name of a command, function, script file, or executable program. Check the spelling of the name, as well as the presence and correctness of the path.` To fix this issue, use the following link: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/command-line-building-with-csc-exe
 
+## Page 47 - Comparing double and decimal types
+
+In the book, I say that the `double` type has some special static members, including one named `Infinity`. This is wrong. There are two members named `PositiveInfinity` and `NegativeInfinity`.
+
+## Page 47 - Using Visual Studio Code workspaces
+
+The book says, "Visual Studio has a feature called workspaces that enables this." It should have said, "Visual Studio **Code** has a feature called workspaces that enables this."
+
 ## Page 49 - Storing dynamic types
 
 In the code example, I show assigning a `string` value to a dynamically-typed variable, as shown in the following code:

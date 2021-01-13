@@ -3,7 +3,9 @@ If you find any mistakes in the fourth edition, C# 8.0 and .NET Core 3.0, then p
 ## Page 14 - Comparing .NET technologies
 In the table row for Xamarin, the description should be "Mobile _and desktop_ apps only."
 ## Page 30 - Discovering your C# compiler versions
-In Step 5, the command `csc -langversion:?` works on macOS but on Windows it returns the error `The name "csc" is not recognized as the name of a command, function, script file, or executable program. Check the spelling of the name, as well as the presence and correctness of the path.` To fix this issue, use the following link: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/command-line-building-with-csc-exe
+In steps 5 and 6, I show the C# compiler (csc) command listing the supported language versions on macOS. I regret including steps 5 and 6 because they cause some readers problems without adding any real value because the csc command is never used again. In the next edition I will remove steps 5 and 6. I recommend that readers skip over steps 5 and 6.
+
+In Step 5, the command `csc -langversion:?` shoyld work on macOS but on Windows it returns the error `The name "csc" is not recognized as the name of a command, function, script file, or executable program. Check the spelling of the name, as well as the presence and correctness of the path.` To fix this issue, use the following link: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/command-line-building-with-csc-exe
 
 ## Page 47 - Comparing double and decimal types
 

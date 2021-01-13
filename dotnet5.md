@@ -1,6 +1,4 @@
 # Fourth Edition's support for .NET 5.0
-Microsoft originally hoped that .NET 5.0 would unify all .NET platforms including mobile development using Xamarin but that plan is delayed; "we expect these features to be available in preview by November 2020, but the unification will be truly completed with .NET 6, our Long-Term Support (LTS) release. Our vision hasn’t changed, but our timeline has."
-
 Microsoft released previews of .NET 5.0 regularly until the final version on 10 November 2020.
 
 - [Download .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0)

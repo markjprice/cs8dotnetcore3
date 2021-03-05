@@ -208,6 +208,11 @@ To:
 ```
 Assembly assembly = Assembly.GetEntryAssembly();
 ```
+
+## Page 309 - Compressing streams
+
+In Step 2, I say, `GZipSteam`. It should say, `GZipStream`.
+
 ## Pages 338 to 340 - Encrypting symmetrically with AES
 
 The code uses 2000 iterations for PBKDF2 and I said this is "double the recommended salt size and iteration count". I first wrote that code and statement in the fall of 2015 for the first edition and I have neglected to keep it updated. More than five years later, 2000 is not enough! 

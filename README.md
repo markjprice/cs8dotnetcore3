@@ -2,12 +2,6 @@
 ## C# 8.0 and .NET Core 3.0 - Modern Cross-Platform Development, Fourth Edition
 All of the code examples are 100% compatible with either .NET Core 3.0 or .NET Core 3.1.
 
-## I'm listening to my readers - please complete this survey
-
-If you have come to this GitHub repository then you're probably either a reader of the fourth edition of my book, or you're a potential reader of this and future editions. I would like to hear your opinion about what topics and tools I should cover in the sixth edition. Please tell me what you want by completing the survey at the following link: 
-
-https://www.surveymonkey.co.uk/r/6GQWPX9
-
 # Important
 - [Errata](errata.md)
 - [December 2019 update for .NET Core 3.1](december-2019-update.md)

@@ -2,7 +2,7 @@
 
 ## C# 8.0 and .NET Core 3.0 - Modern Cross-Platform Development, Fourth Edition
 
-> .NET Core 3.1 reaches end-of-life on December 3, 2022. I recommend upgrading to [.NET 6](https://github.com/markjprice/cs10dotnet6/blob/main/README.md) or [.NET 7](https://github.com/markjprice/cs11dotnet7/blob/main/README.md).
+> .NET Core 3.1 reaches end-of-life on [December 3, 2022](https://dotnet.microsoft.com/en-us/download/dotnet). I recommend upgrading to [.NET 6](https://github.com/markjprice/cs10dotnet6/blob/main/README.md) or [.NET 7](https://github.com/markjprice/cs11dotnet7/blob/main/README.md).
 
 All of the code examples are 100% compatible with either .NET Core 3.0 or .NET Core 3.1.
 
